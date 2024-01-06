@@ -10,8 +10,4 @@ class CompetitionAdmin(admin.ModelAdmin):
 admin.site.register(Room)
 admin.site.register(Topic)
 admin.site.register(Message)
-admin.site.register(Competition, CompetitionAdmin)
 admin.site.register(User, UserAdmin)
-admin.site.register(CompetitionTag)
-admin.site.register(Activity)
-admin.site.register(ActivityTag)

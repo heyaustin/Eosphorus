@@ -91,90 +91,6 @@ class Topic(models.Model):
         return f"{self.name}"
 
 
-class CompetitionTag(models.Model):
-    tag_name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f"{self.tag_name}"
-
-
-class OurTag(models.Model):
-    tag_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=400)
-
-    ord = models.IntegerField(null=True)
-
-    def __str__(self):
-        return f"{self.tag_name}"
-
-
-class Competition(models.Model):
-    name = models.TextField()
-    url = models.URLField(null=True)
-    cover_img_url = models.URLField(null=True)
-    start_time = models.DateTimeField(null=True)
-    end_time = models.DateTimeField(null=True)
-    guide_line_html = models.TextField(null=True)
-    organizer_title = models.TextField(null=True)
-    page_views = models.IntegerField(null=True)
-    contact_email = models.EmailField(null=True)
-    contact_name = models.TextField(null=True)
-    contact_phone = models.TextField(null=True)
-    tags = models.ManyToManyField(
-        CompetitionTag, blank=True
-    )
-    limit_highschool = models.BooleanField(null=True)
-    limit_none = models.BooleanField(null=True)
-    limit_other = models.BooleanField(null=True)
-
-    # 推薦演算法相關
-    our_tags = models.ManyToManyField(
-        OurTag, blank=True
-    )
-
-    def __str__(self):
-        return "competition"
-
-
-class ActivityTag(models.Model):
-    tag_name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f"{self.tag_name}"
-
-
-class Activity(models.Model):
-    name = models.TextField()
-    eventIdNumber = models.TextField(null=True) # 活動ID
-    start_time = models.DateTimeField(null=True)
-    end_time = models.DateTimeField(null=True)
-    eventPlaceType = models.TextField(null=True) # 線上or線下
-    location = models.TextField(null=True) # 活動所在縣市
-    likeCount = models.IntegerField(null=True)
-    page_views = models.IntegerField(null=True)
-    isAD = models.BooleanField(null=True)
-    cover_img_url = models.URLField(null=True)
-    url = models.URLField(null=True) # accupass活動頁面連結
-    tags = models.ManyToManyField(
-        ActivityTag, blank=True
-    )
-    guide_line_html = models.TextField(null=True) # 詳細活動內容，會混入HTML標籤
-    summary = models.TextField(null=True) # 活動簡介
-    precise_location = models.TextField(null=True) # 精確地址(例如: "台北市中山區長安東路一段27號2樓")
-    longitude_and_latitude = models.TextField(null=True) # 活動地點經緯度(格式: "經度 緯度")
-    add_to_calendar = models.URLField(null=True) # 加入行事曆的網址
-    agency_title = models.TextField(null=True) # 活動主辦方
-
-
-    # 推薦演算法相關
-    our_tags = models.ManyToManyField(
-        OurTag, blank=True
-    )
-
-    def __str__(self):
-        return "activity"
-
-
 class User(AbstractBaseUser, PermissionsMixin):
     bio = models.TextField(null=True, blank=True)
     nickname = models.CharField(max_length=20, null=True)
@@ -187,29 +103,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
 
     objects = CustomUserManager()
-
-    top3 = models.ManyToManyField(
-        OurTag, blank=True, related_name="top3"
-    )
-    love_comp = models.ManyToManyField(
-        Competition, blank=True, related_name="love_comp"
-    )
-    nope_comp = models.ManyToManyField(
-        Competition, blank=True, related_name="nope_comp"
-    )
-    love_activity = models.ManyToManyField(
-        Activity, blank=True, related_name="love_activity"
-    )
-    nope_activity = models.ManyToManyField(
-        Activity, blank=True, related_name="nope_activity"
-    )
-    persona = models.ImageField(upload_to="persona",
-                                height_field=None,
-                                width_field=None,
-                                max_length=100,
-                                default="loading.gif",
-                                storage=OverwriteStorage())
-    artifacts = models.TextField(null=True, blank=True)
 
     # 採取 email 作為用戶身分驗證方式
     USERNAME_FIELD = "email"

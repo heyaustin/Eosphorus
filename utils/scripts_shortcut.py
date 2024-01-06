@@ -21,13 +21,7 @@ def load_fixtures_script(device: str):
         
     fixtures_root = "./base/fixtures/"
     fixtures_dict = {
-        "activities_tags": fixtures_root+"activities_tags_fixture.json",
-        "activities": fixtures_root+"activities_fixture.json",
-        
-        "competition_tags": fixtures_root+"competition_tags_fixture.json",
-        "competitions": fixtures_root+"competitions_fixture.json",
-        
-        "ourtag": fixtures_root+"ourtag_fixture.json",
+        # "activities": fixtures_root+"activities_fixture.json",
     }
     for script_name, fixture_path in fixtures_dict.items():
         print(f"正在將{script_name}加載進資料庫...")

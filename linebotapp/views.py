@@ -40,7 +40,7 @@ def handle_text_message(event):
     user_id = event.source.user_id
     user_message = event.message.text
 
-    if user_message == "我愛三星":
+    if user_message == "我愛ATCC":
         template_data_path = make_user_fav_actvities_json(user_id)
         print(f"{template_data_path=}")
         template_data = load_template_from_json(template_data_path)

@@ -3,9 +3,12 @@
 {% block content %}
 
 {% if page == "login" %}
-
 {% load socialaccount %}
+
 <div class="div_container d-flex justify-content-center">
+{% if request.user.is_authenticated %}
+<a class="btn btn-primary" href="{% url 'logout_user' %}" role="button">登出</a>
+{% else %}
     <form class="login_form mt-3" method="POST", action="">
       {% csrf_token %}
       {% if messages %}
@@ -37,6 +40,7 @@
       <p>沒有帳號?</p>
       <a class="btn btn-primary" href="{% url 'register_page' %}">註冊</a>
     </form>
+{% endif %}
 </div>
 
 {% else %}
