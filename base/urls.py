@@ -13,7 +13,6 @@ urlpatterns = [
     # 個人檔案系統 Persona
     path("profile/<str:pk>/", views.profile, name="profile"),
     path("edit_profile/<str:pk>/", views.edit_profile, name="edit_profile"),
-    path("embvec/<str:isourtag>/<str:pk>/", views.embvec, name="embvec"),
     path("delete_data/<str:pk>/", views.delete_data, name="delete_data"),
     path("persona/", views.persona),
     path("save_persona/", views.save_persona),

@@ -16,21 +16,7 @@ pip install -r requirements.txt
 python3 manage.py makemigrations
 python3 manage.py migrate
 
-#########
-python3 ./base/fixtures/competitions_fixture_generator.py
-python3 ./base/fixtures/activities_fixture_generator.py
-
-python3 ./base/ml/run_label_ourtag.py
-python3 ./base/ml/run_label_comp.py
-python3 ./base/ml/run_label_activities.py
-
-#########
-python3 manage.py loaddata ./base/fixtures/competition_tags_fixture.json
-python3 manage.py loaddata ./base/fixtures/competitions_fixture.json
-python3 manage.py loaddata ./base/fixtures/ourtag_fixture.json
-
-python3 manage.py loaddata ./base/fixtures/activities_tags_fixture.json
-python3 manage.py loaddata ./base/fixtures/activities_fixture.json
-#########
 
 python manage.py collectstatic --no-input
+
+# python manage.py runserver 0.0.0.0:80 --insecure

@@ -101,8 +101,6 @@ class CompetitionTag(models.Model):
 class OurTag(models.Model):
     tag_name = models.CharField(max_length=50)
     description = models.CharField(max_length=400)
-    emb = models.TextField(null=True)
-    emb_org = models.TextField(null=True)
 
     ord = models.IntegerField(null=True)
 
@@ -133,7 +131,6 @@ class Competition(models.Model):
     our_tags = models.ManyToManyField(
         OurTag, blank=True
     )
-    emb = models.CharField(max_length=800, null=True)
 
     def __str__(self):
         return "competition"
@@ -173,7 +170,6 @@ class Activity(models.Model):
     our_tags = models.ManyToManyField(
         OurTag, blank=True
     )
-    emb = models.TextField(null=True)
 
     def __str__(self):
         return "activity"

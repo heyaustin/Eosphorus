@@ -433,19 +433,9 @@ def about_page(request):
     return render(request, "base/about.html")
 
 
-def embvec(request, pk, isourtag):
-    if isourtag == 'comp':
-        obj = Competition.objects.get(id=pk)
-    elif isourtag == 'ourtag':
-        obj = OurTag.objects.get(id=pk)
-
-    return JsonResponse({"emb": obj.emb, "pk": str(pk), "isourtag": isourtag})
-
-
 def home_page(request):
-    context = rand_context()
-    context["search_setting"] = "find_activity"
-    return render(request, "base/home_page.html", context)
+    return redirect("login_page")
+    # return render(request, "base/home_page.html", context)
 
 
 def home_update(request):
