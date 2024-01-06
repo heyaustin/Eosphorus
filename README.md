@@ -58,7 +58,7 @@ http://localhost:8000/
   - admin.py - 控制後台監測設定
   - urls.py - 決定url與對應的 view function
   - views.py - 網頁核心邏輯實現
-- sightpath - 後端設定
+- eosphorus - 後端設定
 - templat - 供base中template覆寫的網頁模板
 - static - 靜態資源放置處
 ...

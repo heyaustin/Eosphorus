@@ -85,7 +85,7 @@ def make_user_fav_actvities_json(user_id):
     batch_id = 1
     for activity in like_activities:
         if batch_id <= max_columns:
-            backup_url = "https://sightpath.tw/static/images/mascot.png"
+            backup_url = "https://eosphorus.tw/static/images/mascot.png"
             # if len(activity.cover_img_url) < 60:
             #     img_url = activity.cover_img_url 
             # else:
