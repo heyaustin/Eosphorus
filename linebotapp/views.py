@@ -46,7 +46,7 @@ def handle_text_message(event):
         template_data = load_template_from_json(template_data_path)
 
         template_message = TemplateSendMessage(
-            alt_text='SightPath推薦最適合你的活動',
+            alt_text='Eosphorus推薦最適合你的活動',
             template=template_data
         )
         
@@ -85,7 +85,7 @@ def make_user_fav_actvities_json(user_id):
     batch_id = 1
     for activity in like_activities:
         if batch_id <= max_columns:
-            backup_url = "https://eosphorus.tw/static/images/mascot.png"
+            backup_url = "https://eosphor.us/static/images/mascot.png"
             # if len(activity.cover_img_url) < 60:
             #     img_url = activity.cover_img_url 
             # else:

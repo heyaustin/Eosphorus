@@ -52,19 +52,19 @@ if 'loaddata' in sys.argv:
 
 
 if "DEV" not in os.environ:
-    ALLOWED_HOSTS = ["eosphorus.tw", "127.0.0.1", "192.168.43.190", "192.168.22.181", "192.168.22.180"]
-    CSRF_TRUSTED_ORIGINS = ['https://eosphorus.tw', 'http://eosphorus.tw']
+    ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1"]
+    CSRF_TRUSTED_ORIGINS = ['https://eosphor.us', 'http://eosphor.us']
 else:
     LOCAL_TEST_HOST = ["192.168.205.242", "192.168.22.180", "192.168.31.21", "172.20.10.4"]
     if "TEST_NGROK_URL" in os.environ:
         TEST_NGROK_URL = os.getenv("TEST_NGROK_URL")
         TEST_NGROK_HOST = TEST_NGROK_URL[TEST_NGROK_URL.index("//")+2:]
         
-        ALLOWED_HOSTS = ["eosphorus.tw", "127.0.0.1", "localhost", TEST_NGROK_HOST] + LOCAL_TEST_HOST
-        CSRF_TRUSTED_ORIGINS = [TEST_NGROK_URL,'https://eosphorus.tw', 'http://eosphorus.tw']
+        ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1", "localhost", TEST_NGROK_HOST] + LOCAL_TEST_HOST
+        CSRF_TRUSTED_ORIGINS = [TEST_NGROK_URL,'https://eosphor.us', 'http://eosphor.us']
     else:
-        ALLOWED_HOSTS = ["eosphorus.tw", "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
-        CSRF_TRUSTED_ORIGINS = ['https://eosphorus.tw', 'http://eosphorus.tw']
+        ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
+        CSRF_TRUSTED_ORIGINS = ['https://eosphor.us', 'http://eosphor.us']
         
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("line_token")
 LINE_CHANNEL_SECRET = os.getenv("line_secret")
