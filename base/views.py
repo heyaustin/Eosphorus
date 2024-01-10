@@ -97,7 +97,7 @@ def logout_user(request):
     logout(request)
 
     # TODO: 新增回到上一頁功能，而非主頁
-    return redirect("login_page")
+    return redirect("home_page")
 
 
 def profile(request, pk):
@@ -372,8 +372,8 @@ def about_page(request):
 
 
 def home_page(request):
-    return redirect("login_page")
-    # return render(request, "base/home_page.html", context)
+    # return redirect("login_page")
+    return render(request, "base/home_page.html")
 
 
 # 用戶偏好設定

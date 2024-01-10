@@ -1,0 +1,287 @@
+{% load static %}
+{% load socialaccount %}
+
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}">
+{% endblock extra_head %}
+
+<div id="root">
+    <section id="lCL40gBIWZnV2XaS">
+        <div id="GQ3Omwh2ugPzGeLv">
+            <div id="Kl93EMeMzIbCn0ni"> </div>
+            <div id="C47vAJrHbpyCnpXT">
+                <div id="givFK9oCrozh8yKi">
+                    <div id="pIBFqYTkbISnr2mo">
+                        <div id="ArrNPAyibfRsMkpJ">
+                            <div id="rWjx1ijspH9BINl7" class="scale_rotated_fill_v2" data-aspect-ratio="0.58517034"><img
+                                    src="{% static 'images/login/map_bg.png' %}"
+                                    sizes="(max-width: 375px) 58.51703407vw, (min-width: 375.05px) and (max-width: 480px) 58.51703407vw, (min-width: 480.05px) and (max-width: 768px) 58.51703407vw, (min-width: 768.05px) and (max-width: 1024px) 58.51703407vw, (min-width: 1024.05px) 58.51703407vw"
+                                    srcset="{% static 'images/login/map_bg.png' %} 410w, {% static 'images/login/map_bg.png' %} 922w"
+                                    alt="" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="JFXPCRKswhUmgAMr">
+            <div id="UsayTbTeR2PPMHHj">
+                <div id="CasAZ0Pn1GKP7672">
+                    <div id="FRDMgBfEabFpa8j0">
+                        <div id="mhlhphugwJZi0cUZ">
+                            <div id="IC0TC1UHsvuYJUkj">
+                                <div id="j3ZcqVjuXs7uKfZE">
+                                    <div id="w4IxIHpmvb5fHaxf">
+                                        <div id="Ma9yOGF8qfSXFvDh"><img src="{% static 'images/login/island.svg' %}"
+                                                alt="Flat Map Skills Island " /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="JMfHKofK1ppfpwzT">
+                        <div id="iaqPqJzffKM9Hogu">
+                            <div id="gKzF0uSYTy5gpAd8">
+                                <div id="nhdFhlJNRYGe4OJf">
+                                    <div id="BW7aKPGqTXTUFMvP">
+                                        <div id="Fi6iKhZSTt78ExGK">
+                                            <div id="wCA4fakD5ShOkknC"><img src="{% static 'images/login/border.svg' %}"
+                                                    alt="Rectangular Double-lined Frame" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="RF2JsJH7GzDO9ngh">
+                            <div id="UlXOeMtulLK1W2Ng">
+                                <div id="dgVtZaC6JAGVk7Vx">
+                                    <div id="ycCR2uiUwlsIIxKc"><img src="{% static 'images/login/title_bg.svg' %}"
+                                            alt="" /></div>
+                                </div>
+                            </div>
+                            <div id="skkZUKaselk6zJWN">
+                                <div id="bj1AoLxemat8OsH2">
+                                    <div id="ph2lGMKMWstMPQdJ">
+                                        <p id="wx56Y2QiY1yQC3Bo"><span id="c2YsmkcDMaaCrPnc">遠船</span></p>
+                                        <p id="iqCd2BYpUV9Tpuve"><span id="fIs91LvIs3WnewSv">夢想號</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="nPBX0DlCQbIPehj7">
+                        <div id="eQuTRtg2WwI9Dycs">
+                            <div id="jm0tnxYWO6y7Hjjf">
+                                <div id="QuDwBdAGmI5Nqd21">
+                                    <div id="G1MfSE8MYcv8m3uD">
+                                        <div id="TXImPskSMBhSoWea"><img src="{% static 'images/login/pointer.svg' %}"
+                                                alt="port icon" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% if request.user.is_authenticated %}
+            <a id="UkZK0y9rUt3X664T" href="{% url 'logout_user' %}">
+                {% include "base/login_btn.html" with text="登出" %}
+            </a>
+            {% else %}
+            <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
+                {% include "base/login_btn.html" with text="Line登入" %}
+            </a>
+            <a id="UkZK0y9rUt3X664T" href="{% url 'login_page' %}">
+                {% include "base/login_btn.html" with text="登入" %}
+            </a>
+            {% endif %}
+
+
+            <div id="ysjzeUyfaQn9oKjm">
+                <div id="rtjGsEShuN5tVuxP">
+                    <div id="pkQFB6cuNBUPUI08">
+                        <div id="ogKyGSc7iSem2QTV">
+                            <div id="pgv9BUsPox2n0StT">
+                                <div id="gkEW5J1yUxjC0CHr">
+                                    <div id="LuizRGsUz2FAVju8">
+                                        <div id="eRvQGh2amFQzxr6d"><img src="{% static 'images/login/island2.svg' %}"
+                                                alt="Flat Map Skills Island " /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="LHVjXRLDaF39LZ0j">
+                        <div id="zmlBzG5MAlvCU98o">
+                            <div id="JjqAsQpiRUJuNeNS">
+                                <div id="yYe4pN9uVcBS8qau">
+                                    <div id="wJ4HggUmq76b5jHf">
+                                        <div id="ZpEhCx7m6MR2LEH1"><img src="{% static 'images/login/gesture.svg' %}"
+                                                alt="Volunteer Care Line Icon. Hospice Service Sign." /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="jrmY0jzpu7s8gKrq">
+                <div id="YLjYEM2XkC8TcwdN">
+                    <div id="RtPRgGYJc4aJj0Jc">
+                        <div id="lUMKLx7mmUOAQEns">
+                            <div id="Hzccl1tkj8exSEzE">
+                                <div id="srwUtBkjIZRwbEgf"><img src="{% static 'images/login/curve.svg' %}"
+                                        alt="Dash broken line arrow doodle hand-drawn" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="SpCjDD909SU1uO6F">
+                <div id="bjyDQF7QXTLPzE4Z">
+                    <div id="aRc3JGvpzPkdKB6x">
+                        <div id="SW9wMgtRrSBrK2m8">
+                            <div id="B4rofQpI48gXVRX6">
+                                <div id="WWhg4l1fJqbQT1DI"><img src="{% static 'images/login/boat.svg' %}"
+                                        alt="Chinese Boat with Red Sails Icon Isolated" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="A1Y6FRG2oHBPxYxM">
+                <div id="pG6qvCezyoz9fUvR">
+                    <div id="Au4CdFhjqReV6ROe">
+                        <div id="BhFeYaGPjipPVLSj">
+                            <div id="BXTY3HgIEV5oy98n">
+                                <div id="dnw9fi0DKZD9D6Up"><img src="{% static 'images/login/curve.svg' %}"
+                                        alt="Dash broken line arrow doodle hand-drawn" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="oAW9EVdNBAcUS1xB">
+                <div id="tjS8nkoexYTR4dRU">
+                    <div id="mWZSjEVLY2lWC8RY">
+                        <div id="V3zXiULW72LZ4Hvf">
+                            <div id="ZmYWGYFJVskilUkp">
+                                <div id="mx5u15HvwKOA5qwZ">
+                                    <div id="OBFgkTMzJ4co7InH">
+                                        <div id="YWvlxgm2Q9Yxw5k7">
+                                            <div id="A4eEOO9ilXIaZJyd"><img
+                                                    src="{% static 'images/login/magnifier.svg' %}"
+                                                    alt="Magnifying Glass Icon" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="iYqTAPB42dL6ZPwp">
+                            <div id="znUpPMaubBQaGtxm">
+                                <div id="rlFLYkZPfIdi2eY2">
+
+                                    <svg id="daFvOmUUoTQyzPhg" viewBox="0 0 1080.0 1080.0">
+                                        <g id="pK1tStSyOS1Hpkqt">
+                                            <foreignObject id="FheXkjXuYBn6NUtP">
+                                                <div id="dlk2uOkDuFR2fbmS">
+                                                    <div id="Uq66dbMgCexvcADm">
+                                                        <img src="{% static 'images/login/demo_phone.png' %}"
+                                                            loading="lazy"
+                                                            sizes="(max-width: 375px) 17.01653712vw, (min-width: 375.05px) and (max-width: 480px) 17.01653712vw, (min-width: 480.05px) and (max-width: 768px) 17.01653712vw, (min-width: 768.05px) and (max-width: 1024px) 17.01653712vw, (min-width: 1024.05px) 17.01653712vw"></img>
+                                                    </div>
+                                                </div>
+                                            </foreignObject>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="x2QxrbezqJuWyReL">
+                <div id="JWY3LZYDDza1Vccp">
+                    <div id="dYPvonbGhk9Y7zL4">
+                        <div id="hhmzsA0OBBjVfaRG">
+                            <div id="okdkoJtB4XZSVXOW">
+                                <div id="x9BeXauC8xYvTnt7"><img src="{% static 'images/login/curve.svg' %}"
+                                        alt="Dash broken line arrow doodle hand-drawn" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dhjrUYNjpiZolM2s">
+                <div id="Jw9fauGZITo7JWrp">
+                    <div id="JghIhZihVGaC0XTK">
+                        <div id="rtsheB8kXAsuhVZx">
+                            <div id="r5Mwk6Kjhh1HOIkY">
+                                <div id="Dz91exIBSExa5Co6">
+                                    <div id="ElqJr4wFqmCMUboB">
+                                        <div id="jb8Sc1KhJSCkybgI"><img src="{% static 'images/login/island3.svg' %}"
+                                                alt="Flat Map Skills Island " /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="RfqPjSM2Lw115p4U">
+                        <div id="cOFEJG8P2J5bqh5r">
+                            <div id="ZpYlYfBodvWARE5q">
+                                <div id="myosGZiultEL7sfc">
+                                    <div id="lFJjMNjrfHTo1VMU">
+                                        <div id="xHe8HmZjmnEDgDEK"><img src="{% static 'images/login/flag.svg' %}"
+                                                alt="Deadline, finish, flag, stop point icon" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="NjJ8MR7DnPxljEIA">
+                <div id="bIjhk05JwITUeXgK">
+                    <div id="D67XfYA4yeEaMagW">
+                        <div id="YnXPr79m6gbqvlNp">
+                            <div id="KK2sm6Rc0H7AFgdc">
+                                <div id="oZD87ggkmP3wdfN1"><img src="{% static 'images/login/curve.svg' %}"
+                                        alt="Dash broken line arrow doodle hand-drawn" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="q3pQA1sn4PlWPBF8">
+                <div id="Y4oNSBeeU91n1D5E">
+                    <div id="iRa64bwNqVg1Bzo2">
+                        <div id="NsyMQj53v4IbopTt">
+                            <div id="NFMWO2fN9UUgGpjN">
+                                <div id="sVwjiyLQ3tGX5aA0">
+                                    <div id="kIURLRsQJ1fq0gOr">
+                                        <div id="XbYkVlAvnT4S9jYY"><img src="{% static 'images/login/island4.svg' %}"
+                                                alt="Flat Map Skills Island " /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="wdxLIpnQaDdw0wJD">
+                        <div id="ZpBSyN5MrEpIGbUT">
+                            <div id="YDUP6SbsMZqLkZ2P">
+                                <div id="E8laITpmXfawSECC">
+                                    <div id="IPHFgwgcPAeGRNpp">
+                                        <div id="GS7CWudJG9S4NyvH"><img src="{% static 'images/login/tree.svg' %}"
+                                                alt="Forest Icon" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

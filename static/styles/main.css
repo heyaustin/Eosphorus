@@ -97,6 +97,14 @@ img {
     padding-right: 10px;
 }
 
+.game_container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
 .home_container {
     top: 60px;
     left: 0;
