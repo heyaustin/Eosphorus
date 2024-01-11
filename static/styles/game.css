@@ -158,9 +158,11 @@ img {
     grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content)
 }
 
-#nPBX0DlCQbIPehj7 {
+#pointer {
+    z-index: 29;
     grid-area: 5/4/6/6;
-    position: relative
+    position: relative;
+    transform: translate(-75%, 0);
 }
 
 #CasAZ0Pn1GKP7672 {
@@ -514,10 +516,6 @@ img {
 #c2YsmkcDMaaCrPnc,
 #fIs91LvIs3WnewSv {
     color: #664500
-}
-
-#nPBX0DlCQbIPehj7 {
-    z-index: 29
 }
 
 #eQuTRtg2WwI9Dycs {
