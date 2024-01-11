@@ -63,7 +63,7 @@ else:
         ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1", "localhost", TEST_NGROK_HOST] + LOCAL_TEST_HOST
         CSRF_TRUSTED_ORIGINS = [TEST_NGROK_URL,'https://eosphor.us', 'http://eosphor.us']
     else:
-        ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
+        ALLOWED_HOSTS = ["192.168.22.180", "eosphor.us", "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
         CSRF_TRUSTED_ORIGINS = ['https://eosphor.us', 'http://eosphor.us']
         
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("line_token")
