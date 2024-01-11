@@ -425,7 +425,8 @@ def line_login_settings(request):
         'statusMessage': '向著星辰與大海🐳', 
         'pictureUrl': 'https://profile.line-scdn.net/0hRmvVVACYDUJbLxi11OVzPSt_Dih4XlRQIk5Adj54AXpiSE5EdUgSJDp7AydjTR8dfh5BdmomVHZXPHokRXnxdlwfUHNnHkMXdU5FoA'}
         '''
-        return redirect("home_page", pk=user.id)
+        return redirect("home_page")
+        # return redirect("profile", pk=user.id)
     except Exception as e:
         print(e)
         return HttpResponse("你不是使用line登入")
