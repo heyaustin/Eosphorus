@@ -49,9 +49,7 @@ http://localhost:8000/
 
 - base - 主要網頁開發
   - api - api相關設定(目前網站暫時不支持RESTFUL)
-  - fixtures - 爬蟲資料蒐集
   - migrations - 資料庫更新
-  - ml - 推薦演算法
   - template - 覆寫主要模板的前端小組件
   - models.py - 資料庫設定
   - forms.py - 覆寫django預設的表單格式
@@ -59,7 +57,7 @@ http://localhost:8000/
   - urls.py - 決定url與對應的 view function
   - views.py - 網頁核心邏輯實現
 - eosphorus - 後端設定
-- templat - 供base中template覆寫的網頁模板
+- template - 供base中template覆寫的網頁模板
 - static - 靜態資源放置處
 ...
 

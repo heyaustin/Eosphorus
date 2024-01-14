@@ -1,6 +1,10 @@
 {% extends "main.html" %}
 {% load static %}
 
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}">
+{% endblock extra_head %}
+
 {% block content %}
 <!-- {% if request.user.is_authenticated %}
 <p>hello {{request.user}}~</p>
