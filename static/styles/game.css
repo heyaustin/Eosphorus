@@ -341,7 +341,8 @@ img {
 
 #lCL40gBIWZnV2XaS {
     /* height: 100dvh; */
-    min-height: calc(100 * var(--1vh, 1vh));
+    /* min-height: calc(100 * var(--1vh, 1vh)); */
+    min-height: 100dvh;
     position: relative;
     overflow: hidden;
     display: grid;
