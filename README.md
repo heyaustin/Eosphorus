@@ -19,8 +19,20 @@ pip install -r requirements.txt
 
 ### 環境變數設定
 
-建立 `.env` 檔案並加入下列變數
+執行下列python程式碼並記錄 `secret_key`
+```python
+from django.core.management.utils import get_random_secret_key
+secret_key = get_random_secret_key()
+print(secret_key)
+```
+
+建立 `.env` 檔案並加入下列變數，其中 `Django_SECRET_KEY` 為剛生成之 `secret_key`
 ```bash
+superuser_key='mypassword'
+Django_SECRET_KEY=secret_key
+
+secret=""
+client_id=""
 line_token=""
 line_secret=""
 DEV=""
