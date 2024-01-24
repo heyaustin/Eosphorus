@@ -1,7 +1,6 @@
 Eosphorus
 ATCC, Far EasTone
 
-
 ## 開發
 python 版本建議為：`3.9`
 
@@ -82,3 +81,8 @@ http://localhost:8000/
 - Bootstrap v5.1.3
 - python-dotenv v0.21.0
 ...
+
+## 貢獻者
+- Austin
+- 家宏
+- Favicon: <a href="https://www.freepik.com/icon/travel_12694655#fromView=search&term=ship+red&track=ais&page=1&position=14&uuid=4d41b385-dc47-4310-b764-6c0996561c9b">Icon by Ylivdesign</a>
