@@ -26,8 +26,10 @@
                             <div id="IC0TC1UHsvuYJUkj">
                                 <div id="j3ZcqVjuXs7uKfZE">
                                     <div id="w4IxIHpmvb5fHaxf">
-                                        <div id="Ma9yOGF8qfSXFvDh"><img src="{% static 'images/login/island.svg' %}"
-                                                alt="Flat Map Skills Island " /></div>
+                                        <div id="Ma9yOGF8qfSXFvDh">
+                                            <img src="{% static 'images/login/island.svg' %}"
+                                                alt="Flat Map Skills Island " />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +41,10 @@
                                 <div id="nhdFhlJNRYGe4OJf">
                                     <div id="BW7aKPGqTXTUFMvP">
                                         <div id="Fi6iKhZSTt78ExGK">
-                                            <div id="wCA4fakD5ShOkknC"><img src="{% static 'images/login/border.svg' %}"
-                                                    alt="Rectangular Double-lined Frame" /></div>
+                                            <div id="wCA4fakD5ShOkknC">
+                                                <img src="{% static 'images/login/border.svg' %}"
+                                                    alt="Rectangular Double-lined Frame" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -80,19 +84,22 @@
 
 
             {% if request.user.is_authenticated %}
-            <a id="UkZK0y9rUt3X664T" href="{% url 'logout_user' %}">
+            <a id="FRwYPMPiLw6wgTen" href="{% url 'logout_user' %}">
                 {% include "base/login_btn.html" with text="登出" %}
             </a>
             {% else %}
-            {% comment %} <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
+            <button id="FRwYPMPiLw6wgTen" onclick="pop_login()">
+                {% include "base/login_btn.html" with text="登入" %}
+            </button>
+
+            {% comment %}
+            <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
                 {% include "base/login_btn.html" with text="Line登入" %}
             </a>
             <a id="UkZK0y9rUt3X664T" href="{% url 'login_page' %}">
                 {% include "base/login_btn.html" with text="登入" %}
-            </a> {% endcomment %}
-            <a id="FRwYPMPiLw6wgTen" href="#">
-                {% include "base/login_btn.html" with text="登入" %}
             </a>
+            {% endcomment %}
             {% endif %}
 
 

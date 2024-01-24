@@ -5,7 +5,7 @@ urlpatterns = [
     # 帳號登入系統
     path('accounts/', include('allauth.urls')),
     path("login/", views.login_page, name="login_page"),
-    path("regitster/", views.register_page, name="register_page"),
+    path("register/", views.register_page, name="register_page"),
     path("logout/", views.logout_user, name="logout_user"),
     path("line_login_settings/", views.line_login_settings, name="line_login_settings"),
     

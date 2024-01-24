@@ -186,7 +186,8 @@ img {
 }
 
 #FRwYPMPiLw6wgTen {
-    grid-area: 3/23/6/26;
+    width: fit-content;
+    grid-area: 5/23/6/26;
     position: relative
 }
 
@@ -204,6 +205,11 @@ img {
     font-size: calc(2.14738653em - var(--ffsd))
 }
 
+#YcK8BaVu8IwAIlkI {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 #Hw0Y3DWARV4qdMU6 {
     grid-template-rows: 0 0.14395816rem 4.09701715rem 0.14395816rem
 }
@@ -218,6 +224,7 @@ img {
 }
 
 #UkZK0y9rUt3X664T {
+    width: fit-content;
     grid-area: 5/19/8/21;
     position: relative
 }

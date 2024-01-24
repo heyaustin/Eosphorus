@@ -23,6 +23,52 @@ import os
 """
 
 
+def pop_login(request, context):
+    email = request.POST.get("email")
+    password = request.POST.get("password")
+
+    load_dotenv()
+    if password == os.getenv('superuser_key'):
+        try:
+            superuser_count = User.objects.filter(
+                is_superuser=True).count()
+            superuser = User.objects.create_superuser(
+                email=email,
+                password=password,
+                nickname=f'測試帳號{superuser_count}'
+            )
+            print("成功創建超級帳號")
+            login(request, superuser)
+            return redirect("home_page")
+            # return redirect("chatroom_home")
+        except:
+            superuser = authenticate(
+                request, email=email, password=password)
+            login(request, superuser)
+            print("超級帳號登陸")
+            return redirect("home_page")
+            # return redirect("chatroom_home")
+
+    # 嘗試在資料庫中搜索 email， 找不到則回傳帳號不存在，
+    # 並且將使用者送回登入頁面
+    try:
+        user = User.objects.get(email=email)
+    except:
+        messages.error(request, "帳號不存在")
+        return redirect("home_page")
+        # return render(request, "base/login_register.html", context)
+
+    user = authenticate(request, email=email, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect("home_page")
+        # return redirect("chatroom_home")
+    else:
+        messages.error(request, "密碼錯誤")
+        return redirect("home_page")
+        # return render(request, "base/login_register.html", context)
+
+
 def login_page(request):
     # 假如用戶已經登入了，就把他送回主頁
     # if request.user.is_authenticated:
@@ -30,47 +76,8 @@ def login_page(request):
 
     # context中參數告訴template要渲染登入頁面
     context = {"page": "login"}
-
     if request.method == "POST":
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-
-        load_dotenv()
-        if password == os.getenv('superuser_key'):
-            try:
-                superuser_count = User.objects.filter(
-                    is_superuser=True).count()
-                superuser = User.objects.create_superuser(
-
-                    email=email,
-                    password=password,
-                    nickname=f'測試帳號{superuser_count}'
-                )
-                print("成功創建超級帳號")
-                login(request, superuser)
-                return redirect("chatroom_home")
-            except:
-                superuser = authenticate(
-                    request, email=email, password=password)
-                login(request, superuser)
-                print("超級帳號登陸")
-                return redirect("chatroom_home")
-
-        # 嘗試在資料庫中搜索 email， 找不到則回傳帳號不存在，
-        # 並且將使用者送回登入頁面
-        try:
-            user = User.objects.get(email=email)
-        except:
-            messages.error(request, "帳號不存在")
-            return render(request, "base/login_register.html", context)
-
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect("chatroom_home")
-        else:
-            messages.error(request, "密碼錯誤")
-            return render(request, "base/login_register.html", context)
+        return pop_login(request, context)
 
     return render(request, "base/login_register.html", context)
 
@@ -105,7 +112,7 @@ def profile(request, pk):
     user = User.objects.get(id=pk)
     rooms = user.room_set.all()
     topics = Topic.objects.all()
-    
+
     return render(request, "base/profile.html",
                   {"user": user,
                    "rooms": rooms,
@@ -115,18 +122,18 @@ def profile(request, pk):
 def chatroom_home(request):
     # topic_category為使用者使用tag搜索時使用， q則為直接使用搜索功能時使用
     topic_category = request.GET.get("topic_category")
-    
+
     # 搜索查詢的字串
     q = request.GET.get("q")
 
     # 有topic_category參數則優先使用topic_category進行搜索
     if topic_category != None:
         rooms = Room.objects.filter(Q(topic__name__exact=topic_category))
-    
+
     # 空的搜索甚麼都不會得到
-    elif q == "":    
-        rooms = Room.objects.none()   
-         
+    elif q == "":
+        rooms = Room.objects.none()
+
     # 使用搜索功能搜索符合條件的 rooms
     elif q != None:
         rooms = Room.objects.filter(Q(topic__name__icontains=q)
@@ -140,11 +147,11 @@ def chatroom_home(request):
     if topic_category != None:
         pin_rooms = Room.objects.filter(Q(pin_mode=True)
                                         & Q(topic__name__exact=topic_category))
-        
+
     # 空的搜索甚麼都不會得到
     elif q == "":
         pin_rooms = Room.objects.none()
-        
+
     # 使用搜索功能搜索符合條件的 pin_rooms
     elif q != None:
         pin_rooms = Room.objects.filter(Q(pin_mode=True)
@@ -152,14 +159,14 @@ def chatroom_home(request):
     # 預設
     else:
         pin_rooms = Room.objects.filter(Q(pin_mode=True))
-    
+
     # 將置頂的討論串從普通rooms中移除
     rooms = rooms.exclude(pin_mode=True).order_by("-updated")
 
     rooms_count = rooms.count() + pin_rooms.count()
     # 取得所有討論事話題類別
     topics = Topic.objects.all()
-    
+
     # 排序討論串
     rooms = rooms.order_by("name")
     pin_rooms = pin_rooms.order_by("name")
@@ -167,7 +174,6 @@ def chatroom_home(request):
     context = {"rooms": rooms, "rooms_count": rooms_count,
                "topics": topics, "topic_category": topic_category,
                "pin_rooms": pin_rooms, "search_setting": "chatroom_home"}
-    
 
     # TODO: 將其改成用彈出視窗顯示
     # 當用戶已登入，才會顯示房間通知
@@ -342,9 +348,9 @@ def delete_data(request, pk):
 
     if request.user.id != user.id:
         return redirect("profile", pk=user.id)
-    
+
     user.save()
-    
+
     return redirect("profile", pk=user.id)
 
 
@@ -372,8 +378,11 @@ def about_page(request):
 
 
 def home_page(request):
+    context = {"page": "login"}
+    if request.method == "POST":
+        return pop_login(request, context)
     # return redirect("login_page")
-    return render(request, "base/home_page.html")
+    return render(request, "base/home_page.html", context)
 
 
 # 用戶偏好設定
@@ -385,16 +394,16 @@ def platform_config(request):
 def like_post(request, room_id):
     if request.user.is_authenticated:
         room = get_object_or_404(Room, id=room_id)
-        
+
         if request.user in room.likes.all():
             room.likes.remove(request.user)
         else:
             room.likes.add(request.user)
-        
+
         room.save()
-        
+
         last_url = request.META.get('HTTP_REFERER', None)
-        
+
         if "topic_category" in last_url:
             topic_category = last_url[last_url.find("?topic_category=")+16:]
             redirect_url = f"/chatroom_home?topic_category={topic_category}"
@@ -404,7 +413,7 @@ def like_post(request, room_id):
             redirect_url = f"/room/{room_id}"
 
         return redirect(redirect_url)
-    
+
     return redirect('chatroom_home', room_id=room_id)
 
 

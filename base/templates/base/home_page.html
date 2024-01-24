@@ -17,94 +17,34 @@
 {% endblock content %}
 
 
-
 {% block extraScript %}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/00e5774e18.js" crossorigin="anonymous"></script>
-<script>
 
-    function loginButtonClick(){
+<script>
+    function pop_login() {
         Swal.fire({
-            title: '帳號登錄',
+            title: "帳號登入",
             icon: "info",
-            html: `
-                <div>
-                    <input type="text" id="login" class="swal2-input" placeholder="帳號">
-                    <input type="password" id="password" class="swal2-input" placeholder="密碼">
-                </div>
-                <div>
-                    <button class="swal2-confirm swal2-styled" onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> 登錄</button>
-                    <button class="swal2-confirm swal2-styled" onclick="register()"><i class="fa-solid fa-registered"></i> 註冊</button>
-                    <button class="swal2-confirm swal2-styled" onclick="forgotPassword()"><i class="fa fa-lock"></i> 忘記密碼</button>
-                </div>
-                <div>
-                    <button class="swal2-confirm swal2-styled" onclick="loginWithGoogle()"><i class="fa-brands fa-google"></i> Google登錄</button>
-                    <button class="swal2-confirm swal2-styled" onclick="loginWithLine()"><i class="fa-brands fa-line"></i> Line登錄</button>
-                </div>
-            `,
+            html: `{% include "base/pop_login.html" %}`,
             showConfirmButton: false,
             focusConfirm: false,
-            preConfirm: () => {
-                const login = Swal.getPopup().querySelector('#login').value
-                const password = Swal.getPopup().querySelector('#password').value
-                if (!login || !password) {
-                    Swal.showValidationMessage(`請輸入帳號和密碼`)
-                }
-                return { login: login, password: password }
-            }
+            preConfirm: () => { }
         });
-        
-        function login() {
-            const login = Swal.getPopup().querySelector('#login').value
-            const password = Swal.getPopup().querySelector('#password').value
-            // 登錄邏輯
-        }
-        
-        function register() {
-            Swal.fire({
-                title: '帳號登錄',
-                icon: "info",
-                html: `
-                    <div>
-                        <input type="text" id="login" class="swal2-input" placeholder="使用者暱稱">
-
-                        <input type="password" id="password" class="swal2-input" placeholder="密碼">
-                    </div>
-                    <div>
-                        <button class="swal2-confirm swal2-styled" onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> 登錄</button>
-                        <button class="swal2-confirm swal2-styled" onclick="register()"><i class="fa-solid fa-registered"></i> 註冊</button>
-                        <button class="swal2-confirm swal2-styled" onclick="forgotPassword()"><i class="fa fa-lock"></i> 忘記密碼</button>
-                    </div>
-                    <div>
-                        <button class="swal2-confirm swal2-styled" onclick="loginWithGoogle()"><i class="fa-brands fa-google"></i> Google登錄</button>
-                        <button class="swal2-confirm swal2-styled" onclick="loginWithLine()"><i class="fa-brands fa-line"></i> Line登錄</button>
-                    </div>
-                `,
-                showConfirmButton: false,
-                focusConfirm: false,
-                preConfirm: () => {
-                    const login = Swal.getPopup().querySelector('#login').value
-                    const password = Swal.getPopup().querySelector('#password').value
-                    if (!login || !password) {
-                        Swal.showValidationMessage(`請輸入帳號和密碼`)
-                    }
-                    return { login: login, password: password }
-                }
-            });
-        }
-        
-        function forgotPassword() {
-            // 忘記密碼邏輯
-        }
-        
-        function loginWithGoogle() {
-            // Facebook登錄邏輯
-        }
-        
-        function loginWithLine() {
-            // Line登錄邏輯
-        }
-    }        
-    document.getElementById('FRwYPMPiLw6wgTen').onclick = loginButtonClick;
+    }
 </script>
+
+{% if messages %}
+<script>
+    Swal.fire({
+        title: "注意",
+        icon: "info",
+        html: `{% include "base/messages.html" %}`,
+        showConfirmButton: false,
+        focusConfirm: false,
+        preConfirm: () => { }
+    });
+</script>
+{% endif %}
+
 {% endblock extraScript %}
