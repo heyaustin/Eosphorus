@@ -84,10 +84,13 @@
                 {% include "base/login_btn.html" with text="登出" %}
             </a>
             {% else %}
-            <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
+            {% comment %} <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
                 {% include "base/login_btn.html" with text="Line登入" %}
             </a>
             <a id="UkZK0y9rUt3X664T" href="{% url 'login_page' %}">
+                {% include "base/login_btn.html" with text="登入" %}
+            </a> {% endcomment %}
+            <a id="FRwYPMPiLw6wgTen" href="#">
                 {% include "base/login_btn.html" with text="登入" %}
             </a>
             {% endif %}
