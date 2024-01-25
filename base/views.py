@@ -39,14 +39,14 @@ def pop_login_suc(request):
             )
             print("成功創建超級帳號")
             login(request, superuser)
-            return True #success
+            return True  # success
             # return redirect("chatroom_home")
         except:
             superuser = authenticate(
                 request, email=email, password=password)
             login(request, superuser)
             print("超級帳號登陸")
-            return True #success
+            return True  # success
             # return redirect("chatroom_home")
 
     # 嘗試在資料庫中搜索 email， 找不到則回傳帳號不存在，
@@ -55,17 +55,17 @@ def pop_login_suc(request):
         user = User.objects.get(email=email)
     except:
         messages.error(request, "帳號不存在")
-        return False #error
+        return False  # error
         # return render(request, "base/login_register.html", context)
 
     user = authenticate(request, email=email, password=password)
     if user is not None:
         login(request, user)
-        return True #success
+        return True  # success
         # return redirect("chatroom_home")
     else:
         messages.error(request, "密碼錯誤")
-        return False #error
+        return False  # error
         # return render(request, "base/login_register.html", context)
 
 
@@ -75,7 +75,10 @@ def login_page(request):
     #     return redirect("chatroom_home")
 
     # context中參數告訴template要渲染登入頁面
-    context = {"page": "login"}
+    context = {
+        "page": "login",
+        "div_container": "div_container"
+    }
     if request.method == "POST":
         if pop_login_suc(request):
             return redirect("home_page")
