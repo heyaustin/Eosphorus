@@ -1,4 +1,4 @@
-{% if page == "login" %}
+{% if page == "login" or page == "home" %}
 {% load socialaccount %}
 
 <div class="div_container d-flex justify-content-center">
@@ -9,11 +9,11 @@
     <form class="login_form mt-3" method="POST" action="">
         {% csrf_token %}
 
-        {% comment %}
+        {% if page == "login" %}
         {% if messages %}
         {% include "base/messages.html" %}
         {% endif %}
-        {% endcomment %}
+        {% endif %}
 
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">

@@ -23,7 +23,7 @@ import os
 """
 
 
-def pop_login(request, context):
+def pop_login_suc(request):
     email = request.POST.get("email")
     password = request.POST.get("password")
 
@@ -39,14 +39,14 @@ def pop_login(request, context):
             )
             print("成功創建超級帳號")
             login(request, superuser)
-            return redirect("home_page")
+            return True #success
             # return redirect("chatroom_home")
         except:
             superuser = authenticate(
                 request, email=email, password=password)
             login(request, superuser)
             print("超級帳號登陸")
-            return redirect("home_page")
+            return True #success
             # return redirect("chatroom_home")
 
     # 嘗試在資料庫中搜索 email， 找不到則回傳帳號不存在，
@@ -55,17 +55,17 @@ def pop_login(request, context):
         user = User.objects.get(email=email)
     except:
         messages.error(request, "帳號不存在")
-        return redirect("home_page")
+        return False #error
         # return render(request, "base/login_register.html", context)
 
     user = authenticate(request, email=email, password=password)
     if user is not None:
         login(request, user)
-        return redirect("home_page")
+        return True #success
         # return redirect("chatroom_home")
     else:
         messages.error(request, "密碼錯誤")
-        return redirect("home_page")
+        return False #error
         # return render(request, "base/login_register.html", context)
 
 
@@ -77,7 +77,10 @@ def login_page(request):
     # context中參數告訴template要渲染登入頁面
     context = {"page": "login"}
     if request.method == "POST":
-        return pop_login(request, context)
+        if pop_login_suc(request):
+            return redirect("home_page")
+        else:
+            return redirect("login_page")
 
     return render(request, "base/login_register.html", context)
 
@@ -378,9 +381,10 @@ def about_page(request):
 
 
 def home_page(request):
-    context = {"page": "login"}
+    context = {"page": "home"}
     if request.method == "POST":
-        return pop_login(request, context)
+        pop_login_suc(request)
+        return redirect("home_page")
     # return redirect("login_page")
     return render(request, "base/home_page.html", context)
 
