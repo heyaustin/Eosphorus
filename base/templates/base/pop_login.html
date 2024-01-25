@@ -1,7 +1,7 @@
 {% if page == "login" or page == "home" %}
 {% load socialaccount %}
 
-<div class="div_container d-flex justify-content-center">
+<div class="d-flex justify-content-center">
     {% if request.user.is_authenticated %}
     <a class="btn btn-primary" href="{% url 'logout_user' %}" role="button">登出</a>
     {% else %}
