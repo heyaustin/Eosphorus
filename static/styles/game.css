@@ -186,7 +186,7 @@ img {
 }
 
 #FRwYPMPiLw6wgTen {
-    width: fit-content;
+    width: max-content;
     grid-area: 5/23/6/26;
     position: relative
 }
@@ -224,7 +224,7 @@ img {
 }
 
 #UkZK0y9rUt3X664T {
-    width: fit-content;
+    width: max-content;
     grid-area: 5/19/8/21;
     position: relative
 }
