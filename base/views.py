@@ -13,6 +13,11 @@ from .forms import RoomForm, UserForm, CustomUserCreationForm
 from dotenv import load_dotenv
 import os
 
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+import json
+from django.http import JsonResponse
+
 """
 目標
 1. 競賽資料爬蟲資料處理 ok
@@ -458,3 +463,84 @@ def line_login_settings(request):
     except Exception as e:
         print(e)
         return HttpResponse("你不是使用line登入")
+
+
+questionNumber = 10
+
+
+def videoqa(request):
+    if 'currentQuestionNumber' not in request.session:
+        request.session['currentQuestionNumber'] = 0
+    if 'choose' not in request.session:
+        chooseNumber = [-1 for i in range(questionNumber)]
+        chooseData = json.dumps(chooseNumber)
+        request.session['choose'] = chooseData
+    if 'temp' not in request.session:
+        request.session['temp'] = -1
+    currentIndex = request.session['currentQuestionNumber']
+    context = {}
+    correctAnswer = {}
+
+    question = video_qa.objects.get(id=currentIndex+1)
+    question.options = json.loads(question.options.replace("'", '"'))
+
+    for i in range(questionNumber):
+        correctAnswer[i] = video_qa.objects.get(id=i+1).correctAnswer
+    correctAnswerJson = json.dumps(correctAnswer)
+    request.session['correctAnswer'] = correctAnswerJson
+
+    context = {
+        'question': question,
+        'index': currentIndex,
+        'totalQuestions': len(video_qa.objects.all())
+    }
+    context["choose"] = json.loads(request.session['choose'])[currentIndex]
+    context["allChoose"] = json.loads(request.session['choose'])
+    context["temp"] = request.session["temp"]
+    return render(request, "base/video_qa.html", context)
+
+
+def next_question(request):
+    request.session['currentQuestionNumber'] = min(
+        questionNumber-1, request.session['currentQuestionNumber'] + 1)
+    return redirect('video_qa')
+
+
+def previous_question(request):
+    request.session['currentQuestionNumber'] = max(
+        0, request.session['currentQuestionNumber'] - 1)
+    return redirect('video_qa')
+
+
+def score(request):
+    score = 0
+    context = {}
+    chooseData = json.loads(request.session.get('choose', '[]'))
+    correctAnswer = json.loads(request.session.get('correctAnswer', '[]'))
+    for i, user_answer in enumerate(chooseData):
+        if user_answer == correctAnswer[str(i)]:
+            score += 10
+    context["score"] = score
+
+    return render(request, "base/score.html", context)
+
+
+@csrf_exempt
+@require_POST
+def save_selection(request):
+    data = json.loads(request.body)
+    selected_option = data.get('selectedOption')
+
+    # 從 session 獲取目前所有選項的列表，更新當前問題的選項
+    choose = json.loads(request.session.get('choose', '[]'))
+    current_question_number = request.session.get('currentQuestionNumber', 0)
+
+    # 更新當前問題的選項
+    if 0 <= current_question_number < len(choose):
+        choose[current_question_number] = selected_option
+
+    # 保存更新後的選擇回 session
+    request.session['choose'] = json.dumps(choose)
+
+    response = JsonResponse({'status': 'success'})
+    return response

@@ -1,8 +1,14 @@
 {% extends "main.html" %}
+{% load static %}
 
 {% block content %}
-
-<div class="div_container">
-    <h1>團隊介紹</h1>
-</div>
+    <div class="div_container">
+        <h3>
+            <a href="https://www.instagram.com/atcc_eosphorus/"
+               target="_blank"
+               rel="noopener noreferrer">InstaGram</a>
+        </h3>
+        <img class="ig_qrcode" src="{% static 'images/ig_qrcode.jpg' %}"
+             alt="Rectangular Double-lined Frame" />
+    </div>
 {% endblock content %}

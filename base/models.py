@@ -96,8 +96,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     nickname = models.CharField(max_length=20, null=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(null=True, default="avatar.png")
-    line_user_id = models.CharField(max_length=80, null=True, default='', blank=True)
-    
+    line_user_id = models.CharField(
+        max_length=80, null=True, default='', blank=True)
+
     is_staff = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -151,8 +152,8 @@ class Room(models.Model):
     )
     # 置頂貼文
     pin_mode = models.BooleanField(default=False)
-    
-    #按讚數
+
+    # 按讚數
     likes = models.ManyToManyField(
         User, related_name="likes", default=0
     )
@@ -172,3 +173,14 @@ class Message(models.Model):
 
     def __str__(self):
         return f"{self.body[0:20]}"
+
+
+class video_qa(models.Model):
+    description = models.TextField()
+    options = models.TextField()
+    correctAnswer = models.IntegerField()
+    explanation = models.TextField()
+    videoLink = models.TextField()
+
+    def __str__(self):
+        return f"{self.description}"

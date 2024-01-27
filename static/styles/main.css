@@ -100,6 +100,11 @@ button.navbar-toggler {
     gap: 20px;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .div_container {
     margin: 0;
     width: 100%;
@@ -108,6 +113,10 @@ button.navbar-toggler {
     padding-top: 60px;
     padding-left: 15px;
     padding-right: 10px;
+}
+
+.mwmax {
+    min-width: max-content;
 }
 
 .game_container {
@@ -297,4 +306,12 @@ ul {
 .text-end {
     margin-left: auto;
     min-width: 200px;
+}
+
+.cw {
+    color: white;
+}
+
+.ig_qrcode {
+    max-width: 400px;
 }

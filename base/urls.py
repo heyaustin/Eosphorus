@@ -2,6 +2,14 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    # games
+    path("video_qa/", views.videoqa, name="video_qa"),
+    path('next/', views.next_question, name='next_question'),
+    path('previous/', views.previous_question, name='previous_question'),
+    path('score/', views.score, name="score"),
+    path('save_selection/', views.save_selection, name="save_selection"),
+
+
     # 帳號登入系統
     path('accounts/', include('allauth.urls')),
     path("login/", views.login_page, name="login_page"),

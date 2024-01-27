@@ -1,30 +1,25 @@
 {% extends "main.html" %}
 {% load static %}
-
 {% block extra_head %}
-<link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'styles/game.css' %}">
 {% endblock extra_head %}
 
 {% block content %}
-
-{% comment %}
+    {% comment %}
 {% if request.user.is_authenticated %}
 <p>hello {{request.user}}~</p>
 {% endif %}
-{% endcomment %}
-
-<div class="game_container">
-    {% include "base/home_game.html" %}
-</div>
-
+    {% endcomment %}
+    <div class="game_container">{% include "base/home_game.html" %}</div>
 {% endblock content %}
 
-
 {% block extraScript %}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://kit.fontawesome.com/00e5774e18.js" crossorigin="anonymous"></script>
-
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/00e5774e18.js"
+            crossorigin="anonymous"></script>
+    <script>
     function pop_login() {
         Swal.fire({
             title: "帳號登入",
@@ -35,10 +30,9 @@
             preConfirm: () => { }
         });
     }
-</script>
-
-{% if messages %}
-<script>
+    </script>
+    {% if messages %}
+        <script>
     Swal.fire({
         title: "注意",
         icon: "info",
@@ -47,7 +41,6 @@
         focusConfirm: false,
         preConfirm: () => { }
     });
-</script>
-{% endif %}
-
+        </script>
+    {% endif %}
 {% endblock extraScript %}

@@ -1,3 +1,13 @@
+
+#FRDMgBfEabFpa8j0:hover,
+#pkQFB6cuNBUPUI08:hover,
+#JghIhZihVGaC0XTK:hover,
+#iRa64bwNqVg1Bzo2:hover,
+#SpCjDD909SU1uO6F:hover {
+    transform: scale(1.1);
+}
+
+
 #Au4CdFhjqReV6ROe,
 #D67XfYA4yeEaMagW,
 #IC0TC1UHsvuYJUkj,
@@ -56,7 +66,7 @@
     --1vh: var(--inner1Vh, 1vh)
 }
 
-html {   
+html {
     zoom: var(--rzf, 1);
     font-size: max(calc(min(var(--1vw, 1vw), 13.66px) * var(--rfso, 1)), var(--minfs, 0px));
     -webkit-text-size-adjust: 100%;
