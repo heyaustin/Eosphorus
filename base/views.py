@@ -494,7 +494,7 @@ def videoqa(request):
         'index': currentIndex,
         'totalQuestions': len(video_qa.objects.all())
     }
-    context["choose"] = json.loads(request.session['choose'])[currentIndex]
+    context["choose"] = int(json.loads(request.session['choose'])[currentIndex])
     context["allChoose"] = json.loads(request.session['choose'])
     context["temp"] = request.session["temp"]
     return render(request, "base/video_qa.html", context)
@@ -537,7 +537,7 @@ def save_selection(request):
 
     # 更新當前問題的選項
     if 0 <= current_question_number < len(choose):
-        choose[current_question_number] = selected_option
+        choose[current_question_number] = int(selected_option)
 
     # 保存更新後的選擇回 session
     request.session['choose'] = json.dumps(choose)
