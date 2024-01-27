@@ -379,8 +379,20 @@ def edit_profile(request, pk):
     return render(request, "base/edit_profile.html", context)
 
 
-def about_page(request):
-    return render(request, "base/about.html")
+def about_us(request):
+    return render(request, "base/about_us.html")
+
+
+def about_game(request):
+    return render(request, "base/about_game.html")
+
+
+def highlights(request):
+    return render(request, "base/highlights.html")
+
+
+def contact_us(request):
+    return render(request, "base/contact_us.html")
 
 
 def home_page(request):

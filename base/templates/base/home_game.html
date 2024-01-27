@@ -81,7 +81,9 @@
                     </div>
                 </div>
             </div>
+            
 
+            {% include "navbar.html" %}
 
             {% if request.user.is_authenticated %}
             <a id="FRwYPMPiLw6wgTen" href="{% url 'logout_user' %}">
