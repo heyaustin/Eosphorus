@@ -19,11 +19,13 @@ function sendSelection() {
 }
 
 function checkAnswers() {
-    let allAnswered = true; console.log(choose)
-    choose = JSON.parse(choose)
+    let allAnswered = true;
+    if (typeof choose === 'string' || choose instanceof String) {
+        choose = JSON.parse(choose)
+    }
 
     for (let i = 0; i < choose.length; i++) {
-        if (choose[i] == -1)  {
+        if (choose[i] == -1) {
             allAnswered = false;
             Swal.fire({
                 title: "第" + String(i + 1) + "題未作答",
