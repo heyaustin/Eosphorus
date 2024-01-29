@@ -184,3 +184,11 @@ class video_qa(models.Model):
 
     def __str__(self):
         return f"{self.description}"
+
+
+class mbti_qa(models.Model):
+    description = models.TextField()
+    options = models.TextField()
+
+    def __str__(self):
+        return f"{self.description}"

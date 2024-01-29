@@ -17,6 +17,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 import json
 from django.http import JsonResponse
+from django.db.models import F
 
 """
 目標
@@ -465,14 +466,13 @@ def line_login_settings(request):
         return HttpResponse("你不是使用line登入")
 
 
-questionNumber = 10
-
-
 def videoqa(request):
+    video_qa_len = len(video_qa.objects.all())
+
     if 'currentQuestionNumber' not in request.session:
         request.session['currentQuestionNumber'] = 0
     if 'choose' not in request.session:
-        chooseNumber = [-1 for i in range(questionNumber)]
+        chooseNumber = [-1 for i in range(video_qa_len)]
         chooseData = json.dumps(chooseNumber)
         request.session['choose'] = chooseData
     if 'temp' not in request.session:
@@ -483,8 +483,9 @@ def videoqa(request):
 
     question = video_qa.objects.get(id=currentIndex+1)
     question.options = json.loads(question.options.replace("'", '"'))
+    # print(question)
 
-    for i in range(questionNumber):
+    for i in range(video_qa_len):
         correctAnswer[i] = video_qa.objects.get(id=i+1).correctAnswer
     correctAnswerJson = json.dumps(correctAnswer)
     request.session['correctAnswer'] = correctAnswerJson
@@ -492,17 +493,20 @@ def videoqa(request):
     context = {
         'question': question,
         'index': currentIndex,
-        'totalQuestions': len(video_qa.objects.all())
+        'totalQuestions': video_qa_len
     }
-    context["choose"] = int(json.loads(request.session['choose'])[currentIndex])
+    context["choose"] = int(json.loads(
+        request.session['choose'])[currentIndex])
     context["allChoose"] = json.loads(request.session['choose'])
     context["temp"] = request.session["temp"]
     return render(request, "base/video_qa.html", context)
 
 
 def next_question(request):
+    video_qa_len = len(video_qa.objects.all())
+
     request.session['currentQuestionNumber'] = min(
-        questionNumber-1, request.session['currentQuestionNumber'] + 1)
+        video_qa_len-1, request.session['currentQuestionNumber'] + 1)
     return redirect('video_qa')
 
 
@@ -512,7 +516,7 @@ def previous_question(request):
     return redirect('video_qa')
 
 
-def score(request):
+def video_result(request):
     score = 0
     context = {}
     chooseData = json.loads(request.session.get('choose', '[]'))
@@ -520,9 +524,13 @@ def score(request):
     for i, user_answer in enumerate(chooseData):
         if user_answer == correctAnswer[str(i)]:
             score += 10
-    context["score"] = score
 
-    return render(request, "base/score.html", context)
+    context = {
+        'title': '分數',
+        'text': '您的分數為'+str(score)
+    }
+
+    return render(request, "base/result.html", context)
 
 
 @csrf_exempt
@@ -544,3 +552,46 @@ def save_selection(request):
 
     response = JsonResponse({'status': 'success'})
     return response
+
+
+def mbtiqa(request):
+    mbti_qa_len = len(mbti_qa.objects.all())
+    context = {}
+    questions = mbti_qa.objects.all()
+    for item in questions:
+        item.options = json.loads(item.options.replace("'", '"'))
+
+    context = {
+        'questions': questions,
+        'totalQuestions': mbti_qa_len
+    }
+    return render(request, "base/mbti_qa.html", context)
+
+
+def mbti_result(request):
+    careerTypes = {}
+    context = {}
+    careerTypes = ['創新型或領導型職業', '分析型或專業型職業', '支持型或行政型職業', '互動型或團隊型職業']
+    if request.method == 'POST':
+        option_counts = [0 for i in range(4)]
+
+        # 遍歷提交的數據並計算選項選中次數
+        for key, value in request.POST.items():
+            if key.startswith('option'):
+                option_counts[int(value)] += 1
+
+        max = 0
+        for i in range(4):
+            if option_counts[max] < option_counts[i]:
+                max = i
+
+        # 傳遞結果到模板
+        context = {
+            'title': '最適合的工作類型',
+            'text': str(careerTypes[max]),
+            # 其他需要的數據
+        }
+        return render(request, "base/result.html", context)
+    else:
+        # 如果不是 POST 請求，重定向回 index.html
+        return redirect('home_page')

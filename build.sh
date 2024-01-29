@@ -13,10 +13,11 @@ set -o errexit
 
 
 pip install -r requirements.txt
-python3 manage.py makemigrations
-python3 manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 
-python3 manage.py loaddata ./base/fixtures/video_qa.json
+python manage.py loaddata ./base/fixtures/video_qa.json
+python manage.py loaddata ./base/fixtures/mbti_qa.json
 
 # python manage.py collectstatic --no-input
 

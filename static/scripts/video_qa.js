@@ -36,6 +36,6 @@ function checkAnswers() {
     }
 
     if (allAnswered) {
-        window.location.href = '/score/';
+        window.location.href = '/video_result/';
     }
 }
