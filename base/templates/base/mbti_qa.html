@@ -1,45 +1,48 @@
-{% extends 'main.html' %} {% load static %} {% block extra_head %}
-<link rel="stylesheet" href="{% static 'styles/mbti_qa.css' %}" />
-{% endblock extra_head %} {% block content %}
-<div class="container mt-5 mb-5">
-  <form action="/mbti_result/" method="post" name="textForm">
-    {% csrf_token %}
-    <div class="row justify-content-center align-items-center">
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'styles/mbti_qa.css' %}" />
+{% endblock %}
+
+{% block content %}
+<form class="container mt-4 mb-5" action="/mbti_result/" method="post"name="textForm">
+  {% csrf_token %}
+  <div class="row justify-content-center align-items-center">
       <div class="col-md-12">
-        <a class="btn col-md-1" href="{% url 'home_page' %}">
-          <span>回到主選單</span>
-        </a>
+          <button class="btn col-md-1 "onclick="ocation.href=`{% url 'home_page' %}`">
+            <span>回到主選單</span>
+          </button>
       </div>
-      {% for question in questions %}
+      {% for question in questions%}
       <div class="col-6 offset-3 mt-2 question" id="question{{ question.id }}">
-        {{question.id}}.{{ question.description }}
+          {{question.id}}.{{ question.description  }} 
       </div>
       {% for option in question.options %}
       <div class="form-check col-6 offset-3">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="option{{question.id}}"
-          id="option{{question.id}}-{{ forloop.counter }}"
-          value="{{ forloop.counter0 }}"
-        />
-        <label
-          class="form-check-label"
-          for="option{{question.id}}-{{ forloop.counter }}"
-        >
-          {{ option }}
-        </label>
+          <input class="form-check-input" type="radio" name="option{{question.id}}" id="option{{question.id}}-{{ forloop.counter }}" value="{{ forloop.counter0 }}" 
+          onclick="selectOption({{ question.id|add:-1 }}, {{ forloop.counter0 }});" 
+          {% if question.choose == forloop.counter0 %}checked{% endif %}>
+
+          <label class="form-check-label" for="option{{question.id}}-{{ forloop.counter }}">
+              {{ option }}
+          </label>
       </div>
-      {% endfor %} {% endfor %}
+      {% endfor %}
+      {% endfor %}
       <div class="col-md-9 col-sm-12 mt-2 text-center">
-        <button class="btn" onclick="return validateForm()">
-          <span>送出</span>
-        </button>
+          <button class="btn" onclick="return validateForm()">
+            <span>送出</span>
+          </button>
       </div>
-    </div>
-  </form>
-</div>
-{% endblock content %} {% block extraScript %}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{% static 'scripts/mbti_qa.js' %}"></script>
-{% endblock extraScript %}
+  </div>
+</form>
+{% endblock %}
+
+{% block extraScript %}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript">
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
+  <script src="{% static 'scripts/mbti_qa.js' %}"></script>
+{% endblock %}

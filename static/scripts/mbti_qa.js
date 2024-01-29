@@ -1,10 +1,26 @@
 
+function selectOption(questionId, optionIndex) {
+    fetch('/save_selection/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': CSRF_TOKEN,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            questionId: questionId,
+            selectedOption: optionIndex
+        })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+}
+
 function validateForm() {
     var questions = document.querySelectorAll('.question');
     var allQuestionsAnswered = true;
 
     for (const question of questions) {
-        // 取得目前問題下的四個選項
         var options = [];
         var currentElement = question.nextElementSibling;
         while (currentElement && options.length < 4) {
@@ -14,7 +30,6 @@ function validateForm() {
             currentElement = currentElement.nextElementSibling;
         }
 
-        // 檢查這四個選項中至少有一個是否被選中
         var optionsChecked = options.some(radio => radio.checked);
 
         if (!optionsChecked) {
@@ -23,9 +38,9 @@ function validateForm() {
                 icon: "error"
             });
             allQuestionsAnswered = false;
-            break; // 發現未回答的問題，跳出循環
+            break;
         }
     }
 
-    return allQuestionsAnswered; // 如果所有問題都回答了，允許表單提交
+    return allQuestionsAnswered;
 }

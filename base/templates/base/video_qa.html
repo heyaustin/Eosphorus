@@ -1,94 +1,142 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'styles/mbti_qa.css' %}" />
+{% endblock %}
+
+{% block content %}
+
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6" id="videoBox">
-      <iframe
-        width="100%"
-        height="315"
-        src="{{ question.videoLink }}"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      >
-      </iframe>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-12">
+      <a class="btn col-md-1" href="{% url 'home_page' %}"><span>回到主選單</span></a>
     </div>
-    <div class="col-3"></div>
+    <div class="col-md-6 mt-4">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0">
+        <iframe
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+          src="{{question.videoLink}}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="question" id="question">
+        {{index|add:"1"}}.{{ question.description }}
+      </div>
+
+      <div class="row">
+        <!-- 第一行選項 -->
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options"
+            id="option1" onclick="selectOption(0)" {% if choose == 0 %}checked{% endif %}>
+            <label class="form-check-label" for="option1">
+              {{ question.options.0 }}
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options"
+            id="option2" onclick="selectOption(1)"{% if choose == 1 %}checked{% endif %}>
+            <label class="form-check-label" for="option2">
+              {{question.options.1}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- 第二行選項 -->
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options"
+            id="option3" onclick="selectOption(2)"{% if choose == 2 %}checked{% endif %}>
+            <label class="form-check-label" for="option3">
+              {{question.options.2}}
+            </label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="options"
+            id="option4" onclick="selectOption(3)"{% if choose == 3 %}checked{% endif %}>
+            <label class="form-check-label" for="option4">
+              {{question.options.3}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-4">
+      <div class="flex">
+        {% if index == 0 %}
+        <a
+          class="col-4 mt-2 offset-8"
+          href="{% url 'next_question' %}"
+        >
+          <button class="btn text-md-right text-center" onclick="sendSelection()">
+            <span>下一題</span>
+          </button>
+        </a>
+        {% elif index < totalQuestions|add:"-1" %}
+        <a
+          class="col-4 mt-2"
+          href="{% url 'previous_question' %}"
+        >
+          <button class="btn text-md-left text-center" onclick="sendSelection()">
+            <span>上一題</span>
+          </button>
+        </a>
+        <div class="col-4 mt-2">
+          {% comment %} <button class="btn text-center" onclick="checkAnswers()">
+            <span>送出</span>
+          </button> {% endcomment %}
+        </div>
+        <a
+          class="col-4 mt-2"
+          href="{% url 'next_question' %}"
+        >
+          <button class="btn text-md-right text-center" onclick="sendSelection()">
+            <span>下一題</span>
+          </button>
+        </a>
+        {% elif index == totalQuestions|add:"-1" %}
+        <a
+          class="col-4 mt-2"
+          href="{% url 'previous_question' %}"
+        >
+          <button class="btn text-center" onclick="sendSelection()">
+            <span>上一題</span>
+          </button>
+        </a>
+        <div class="col-4 mt-2">
+          <button class="btn text-center" onclick="checkAnswers()">
+            <span>送出</span>
+          </button>
+        </div>
+        {% else %}
+        <button class="btn col-1 offset-3"><span>error</span></button>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </div>
-<br />
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-6 offset-3 question" id="question">
-      {{ index|add:"1" }}.{{ question.description }}
-    </div>
-    <div class="form-check col-6 offset-3">
-      <input class="form-check-input" type="radio" name="options" id="option1"
-      onclick="selectOption(0)" {% if choose == 0 %}checked{% endif %}>
-      <label class="form-check-label" for="option1"
-        >{{ question.options.0 }}</label
-      >
-    </div>
-    <div class="form-check col-6 offset-3">
-      <input class="form-check-input" type="radio" name="options" id="option2"
-      onclick="selectOption(1)" {% if choose == 1 %}checked{% endif %}>
-      <label class="form-check-label" for="option2"
-        >{{ question.options.1 }}</label
-      >
-    </div>
-    <div class="form-check col-6 offset-3">
-      <input class="form-check-input" type="radio" name="options" id="option3"
-      onclick="selectOption(2)" {% if choose == 2 %}checked{% endif %}>
-      <label class="form-check-label" for="option3"
-        >{{ question.options.2 }}</label
-      >
-    </div>
-    <div class="form-check col-6 offset-3 mb-3">
-      <input class="form-check-input" type="radio" name="options" id="option4"
-      onclick="selectOption(3)" {% if choose == 3 %}checked{% endif %}>
-      <label class="form-check-label" for="option4"
-        >{{ question.options.3 }}</label
-      >
-    </div>
-    {% if index == 0 %}
-    <a class="col-1 offset-7" href="{% url 'next_question' %}">
-      <button class="btn btn-primary mwmax" onclick="sendSelection()">
-        下一題
-      </button>
-    </a>
-    {% elif index < totalQuestions|add:"-1" %}
-    <a class="col-1 offset-3" href="{% url 'previous_question' %}">
-      <button class="btn btn-primary mwmax" onclick="sendSelection()">
-        上一題
-      </button>
-    </a>
-    <a class="col-1 offset-3" href="{% url 'next_question' %}">
-      <button class="btn btn-primary mwmax" onclick="sendSelection()">
-        下一題
-      </button>
-    </a>
-    {% elif index == totalQuestions|add:"-1" %}
-    <a class="col-1 offset-3" href="{% url 'previous_question' %}">
-      <button class="btn btn-primary mwmax" onclick="sendSelection()">
-        上一題
-      </button>
-    </a>
-    <button
-      class="btn btn-danger mwmax col-1 offset-3"
-      onclick="sendSelection();checkAnswers();"
-    >
-      送出
-    </button>
-    {% else %}
-    <button class="btn btn-primary mwmax col-1 offset-3">error</button>
-    {% endif %}
-  </div>
-</div>
-{% endblock content %} {% block extraScript %}
+{% endblock content %}
+
+{% block extraScript %}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
   window.CSRF_TOKEN = "{{ csrf_token }}";
+  let questionNumber = "{{ index }}";
   let selectedOption = "{{ choose }}";
   let choose = `{{ allChoose|safe }}`;
 </script>

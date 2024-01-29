@@ -189,6 +189,7 @@ class video_qa(models.Model):
 class mbti_qa(models.Model):
     description = models.TextField()
     options = models.TextField()
+    choose = models.IntegerField(default=-1)
 
     def __str__(self):
         return f"{self.description}"

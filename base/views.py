@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 # from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_protect
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -13,7 +14,6 @@ from .forms import RoomForm, UserForm, CustomUserCreationForm
 from dotenv import load_dotenv
 import os
 
-from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 import json
 from django.http import JsonResponse
@@ -499,6 +499,7 @@ def videoqa(request):
         request.session['choose'])[currentIndex])
     context["allChoose"] = json.loads(request.session['choose'])
     context["temp"] = request.session["temp"]
+
     return render(request, "base/video_qa.html", context)
 
 
@@ -533,15 +534,17 @@ def video_result(request):
     return render(request, "base/result.html", context)
 
 
-@csrf_exempt
 @require_POST
 def save_selection(request):
     data = json.loads(request.body)
     selected_option = data.get('selectedOption')
-
     # 從 session 獲取目前所有選項的列表，更新當前問題的選項
     choose = json.loads(request.session.get('choose', '[]'))
-    current_question_number = request.session.get('currentQuestionNumber', 0)
+
+    current_question_number = request.session.get(
+        'currentQuestionNumber', 0)  # video_qa
+    if current_question_number is None:
+        current_question_number = data.get('questionId')  # mbti_qa
 
     # 更新當前問題的選項
     if 0 <= current_question_number < len(choose):
@@ -556,15 +559,26 @@ def save_selection(request):
 
 def mbtiqa(request):
     mbti_qa_len = len(mbti_qa.objects.all())
+
+    if 'choose' not in request.session:
+        chooseNumber = [-1 for i in range(mbti_qa_len)]
+        chooseData = json.dumps(chooseNumber)
+        request.session['choose'] = chooseData
+
+    chooseNumber = json.loads(request.session.get('choose', '[]'))
     context = {}
+
     questions = mbti_qa.objects.all()
     for item in questions:
         item.options = json.loads(item.options.replace("'", '"'))
+        item.choose = chooseNumber[int(item.pk)-1]
 
     context = {
         'questions': questions,
-        'totalQuestions': mbti_qa_len
+        'totalQuestions': mbti_qa_len,
+        'choose': request.session['choose']
     }
+
     return render(request, "base/mbti_qa.html", context)
 
 

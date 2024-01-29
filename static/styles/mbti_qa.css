@@ -3,8 +3,9 @@ body {
 }
 
 .btn {
+    width: max-content;
     position: relative;
-    min-width: 200px;
+    /* min-width: 200px; */
     border: 3px solid #b61904;
     border-radius: 5px;
     background: #ffffff radial-gradient(circle, transparent 1%, #ff6b6b 1%) center/15000%;
@@ -14,12 +15,11 @@ body {
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    transition: border 0.5s ease-out;
-    transition-delay: 0.8s;
+    /* transition: border 0.5s ease-out;
+    transition-delay: 0.8s; */
     overflow: hidden;
-    transition: 0.5s;
+    /* transition: 0.5s; */
     padding: 10px 20px;
-
 }
 
 .btn:before,
