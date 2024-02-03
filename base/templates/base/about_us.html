@@ -2,12 +2,46 @@
 {% load static %}
 
 {% block content %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff0f5; /* 淡粉色背景 */
+      color: #333; /* 文字顏色 */
+    }
+    a {
+      color: #db7093; /* 粉紅色鏈接 */
+      text-decoration: none; /* 去掉下劃線 */
+    }
+    a:hover {
+      text-decoration: underline; /* 鼠標懸停時添加下劃線 */
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h3 {
+      color: #c71585; /* 深粉紅色 */
+      border-bottom: 2px solid #db7093; /* 粉紅色下邊框 */
+      padding-bottom: 10px;
+    }
+    h4,
+    h5 {
+      color: #d87093; /* 柔和粉紅色 */
+    }
+    p {
+      line-height: 1.6; /* 行間距 */
+    }
+  </style>
+
   <div class="div_container">
     很高興今天能跟各位分享我們參與ATCC的心得，我們是今年ATCC競賽第21屆遠傳組前三名的組別。
     <h4>(1)ATCC主辦方粉專</h4>
-    https://www.facebook.com/myatcc/?locale=zh_TW
+    <a href="https://www.facebook.com/myatcc/?locale=zh_TW" target="_blank" rel="noopener noreferrer">https://www.facebook.com/myatcc/?locale=zh_TW</a>
     <h4>(2)ATCC第21屆官網</h4>
-    https://atcc.co/
+    <a href="https://atcc.co/" target="_blank" rel="noopener noreferrer">https://atcc.co/</a>
 
     <h3 class="mt-5">一、團隊介紹</h3>
     <h4>(一)團隊名稱Eosphorus</h4>
@@ -54,9 +88,20 @@
     子賢學長現在已經在大公司上班，有許多商賽的經驗。我真的沒想到子賢學長在上班非常勞累的情況下，回到家裡還要顧小孩，晚上還願意撥出時間跟我們開會，且每一次都給了我們很明確的方向，給予我們莫大的幫助。
 
     <h3 class="mt-5">四、競賽收穫</h3>
-    我們從競賽中了解到如何團隊合作，從主題發想到真正寫出一個企劃書，並且實作的整個過程。並且在商賽進行中，我們也學習如何團隊溝通，以及盡可能尋求有用的資源。
+    參與ATCC競賽的過程中，我們經歷了從概念發想、團隊協作到實際執行的全過程，這對我們來說是一段寶貴的學習旅程。以下是我們從這次競賽中獲得的主要收穫：
+    <h4>(一)團隊協作與溝通的重要性：</h4>
+    我們學到了團隊成員間有效溝通的重要性。雖然起初由於背景差異和技術偏好的不同，我們在進度安排和溝通上遇到了一些挑戰，但透過持續的討論和互相學習，我們最終找到了彼此合作的最佳方式。
+    <h4>(二)資源整合與利用：</h4>
+    我們學會了如何尋求並利用外部資源，例如台大AI社的技術支持和歐趴糖的宣傳資源。這些資源的整合不僅幫助我們在技術上得到了大幅提升，也為我們的項目帶來了更廣泛的曝光。
+    <h4>(三)問題解決與創新思維：</h4>
+    在遇到各種技術難題和挑戰時，我們被迫思考創新的解決方案。從後端語言的學習到遊戲介面的設計，每一步都考驗著我們的問題解決能力和創新思維。
+    <h4>(四)商業實務的理解：</h4>
+    通過這次競賽，我們對於如何將技術應用於商業實務有了更深入的理解。從企劃書撰寫到產品開發，每一步都讓我們對商業運作有了更全面的認識。
+    <h4>(五)自我成長與信心建立：</h4>
+    最重要的是，這次競賽經歷讓我們在技術、溝通、團隊合作等多方面都有了顯著的成長，也為我們未來的學術和職業道路建立了信心。
 
     <h3 class="mt-5">五、未來期許</h3>
     目前我們是遠傳企業組前三名，希望在3月初的決賽我們能在遠傳企業中取得第一並代表原船企業跟其他企業參與比賽，成為第21屆ATCC的總冠軍。
+    <div class="mt-5"></div>
   </div>
 {% endblock %}
