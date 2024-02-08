@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% load myfilters  %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
+  <script src="https://kit.fontawesome.com/00e5774e18.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+  <div class="row justify-content-center align-items-center">
+    <h1 class="col-md-auto">測驗結果</h1>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-auto">
+      {% if percentage >= 60 %}
+      <h2 style="display: inline;" class="text-success">您的分數為{{score}}/{{total_score}} </h2>
+      <span class="percentage text-success">({{percentage}}%)</span>
+      <h2 class="text-success">恭喜你通過了考驗，歡迎加入遠船的行列</h2>
+      {% else %}
+      <h2 style="display: inline;" class="text-danger">您的分數為{{score}}/{{total_score}} </h2>
+      <span class="percentage text-danger">({{percentage}}%)</span>
+      <h2 class="text-danger">很遺憾您未通過測試，請再試一次</h2>
+      {% endif %}
+    </div>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="col-1">題號</th>
+          <th scope="col" class="col-1">您的選項</th>
+          <th scope="col" class="col-1">正確選項</th>
+          <th scope="col" class="col-9">詳解</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in video_qa_range %}
+        <tr
+        {% if isCorrect|get_item:forloop.counter0 == True %} class="table-success"
+        {% else %} class="table-danger"
+        {% endif %}
+        >
+          <th scope="row">{{i|add:"1"}}</th>
+          <td>
+            {% if isCorrect|get_item:forloop.counter0 == True %} <i class="fa-solid fa-square-check" style="color: #00ff00;"></i>
+            {% else %} <i class="fa-solid fa-square-xmark" style="color: #ff0000;"></i>
+            {% endif %}
+            {{ selectData|get_item:forloop.counter0|add:"1" }}</td>
+          <td>{{ correctAnswer|get_item:forloop.counter0|add:"1" }}</td>
+          <td>
+            {% if isCorrect|get_item:forloop.counter0 == True %} 回答正確
+            {% else %} {{explanation|get_item:forloop.counter0}}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="col-md-auto">
+      <a class="btn btn-primary" href="{% url 'home_page' %}"><span>回到主選單</span></a>
+    </div>
+  </div>
+</div>      
+
+{% endblock content %}
+
+{% block extraScript %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock extraScript %}
+
+
+

@@ -1,9 +1,26 @@
-
-function selectOption(optionIndex) {
-    selectedOption = optionIndex;
+function navigateTo(navQuestionNumber) {
+    if (navQuestionNumber) {
+        window.location.href = "../" + navQuestionNumber;
+    }
 }
 
-function sendSelection() {
+
+function sendSelection(optionIndex) {
+    choose[questionNumber] = optionIndex;
+    var questionDiv = document.getElementById('question' + (questionNumber + 1));
+    questionDiv.textContent = '第' + (questionNumber + 1) + '題： ' + (optionIndex + 1);
+    //計算是否是最後一個按鈕
+    if (!isAllSelect) {
+        isAllSelect = true;
+        for (var i = 0; i < totalQuestionNumber; i++) {
+            if (choose[i] == -1) {
+                isAllSelect = false;
+                break;
+            }
+        }
+        if (isAllSelect) document.getElementById("send").style.display = "block";
+    }
+
     fetch('/save_selection/', {
         method: 'POST',
         headers: {
@@ -13,7 +30,7 @@ function sendSelection() {
             // the HEADER key should be X-CSRFToken as for Django 2.1, links goes here https://docs.djangoproject.com/en/2.1/ref/csrf/
         },
         credentials: "same-origin",
-        body: JSON.stringify({ selectedOption: selectedOption })
+        body: JSON.stringify({ selectedOption: optionIndex })
     })
         .then(response => response.json())
         .then(data => console.log(data))
@@ -22,13 +39,11 @@ function sendSelection() {
 
 
 function checkAnswers() {
-    sendSelection();
     let allAnswered = true;
 
     if (typeof choose === 'string' || choose instanceof String) {
         choose = JSON.parse(choose)
     }
-    choose[questionNumber] = selectedOption;
 
     for (let i = 0; i < choose.length; i++) {
         if (choose[i] === -1) {

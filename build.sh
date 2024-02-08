@@ -22,3 +22,4 @@ python manage.py loaddata ./base/fixtures/mbti_qa.json
 # python manage.py collectstatic --no-input
 
 # python manage.py runserver 0.0.0.0:80 --insecure
+# sudo nohup python3 manage.py runserver 0.0.0.0:80 --insecure

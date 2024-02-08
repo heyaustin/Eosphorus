@@ -102,7 +102,7 @@ def register_page(request):
         if form.is_valid():
             user = form.save()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect("chatroom_home")
+            return redirect("home_page")
         # TODO: 補充註冊錯誤的原因提示
 
         else:
@@ -321,7 +321,7 @@ def pin_room(request, pk):
     room = Room.objects.get(id=pk)
     room.pin_mode = True
     room.save()
-    return redirect('chatroom_home')
+    return redirect("chatroom_home")
 
 
 @login_required(login_url="login_page")
@@ -334,7 +334,7 @@ def unpin_room(request, pk):
     room = Room.objects.get(id=pk)
     room.pin_mode = False
     room.save()
-    return redirect('chatroom_home')
+    return redirect("chatroom_home")
 
 
 @login_required(login_url="login_page")
@@ -400,15 +400,23 @@ def highlights(request):
 def contact_us(request):
     return render(request, "base/contact_us.html")
 
-
 def home_page(request):
-    context = {"page": "home"}
+    if request.user.is_authenticated:
+        try:
+            user_data = User.objects.get(id=request.user.id)
+            video_index = user_data.video_qa_index
+        except User.DoesNotExist:
+            # Handle the case where the user doesn't exist
+            video_index = 1
+    else:
+        video_index=1
+
+    context = {"page": "home","video_qa_index":str(video_index)}
     if request.method == "POST":
         pop_login_suc(request)
         return redirect("home_page")
     # return redirect("login_page")
     return render(request, "base/home_page.html", context)
-
 
 # 用戶偏好設定
 def platform_config(request):
@@ -439,122 +447,170 @@ def like_post(request, room_id):
 
         return redirect(redirect_url)
 
-    return redirect('chatroom_home', room_id=room_id)
+    return redirect("chatroom_home", room_id=room_id)
 
 
-def line_login_settings(request):
+def login_settings(request):
     user = request.user
     try:
         data = user.socialaccount_set.all()[0].extra_data
         print(data)
-        # 更改user的資料
-        user.line_user_id = data["userId"]
-        # user.bio = data["statusMessage"]
-        user.nickname = data["displayName"]
-        user.save()
-        '''
-        data範例
-        {'userId': 'hadifuhasdkfdasffaoifhaof12321', 
-        'displayName': '大帥哥', 
-        'statusMessage': '向著星辰與大海🐳', 
-        'pictureUrl': 'https://profile.line-scdn.net/0hRmvVVACYDUJbLxi11OVzPSt_Dih4XlRQIk5Adj54AXpiSE5EdUgSJDp7AydjTR8dfh5BdmomVHZXPHokRXnxdlwfUHNnHkMXdU5FoA'}
-        '''
-        return redirect("home_page")
-        # return redirect("profile", pk=user.id)
+
+        # 檢查是否為 Google 登入
+        if "iss" in data and data["iss"] == "https://accounts.google.com":
+            if User.objects.filter(email=data["email"]).exists():
+                return HttpResponse("你曾使用此email登錄，請勿重複創建")
+            user.email = data.get("email", "")
+            user.is_google_login = True
+            user.save()
+            return redirect("home_page")
+
+        # 檢查是否是 LINE 登入
+        if "userId" in data:
+            user.line_user_id = data.get("userId", "")
+            user.nickname = data.get("displayName", "")
+            user.bio = data.get("statusMessage", "")  # 使用 get 方法避免 KeyError
+            user.save()
+            '''
+            data範例
+            {'userId': 'hadifuhasdkfdasffaoifhaof12321', 
+            'displayName': '大帥哥', 
+            'statusMessage': '向著星辰與大海🐳', 
+            'pictureUrl': 'https://profile.line-scdn.net/0hRmvVVACYDUJbLxi11OVzPSt_Dih4XlRQIk5Adj54AXpiSE5EdUgSJDp7AydjTR8dfh5BdmomVHZXPHokRXnxdlwfUHNnHkMXdU5FoA'}
+            '''
+            return redirect("home_page")
+
+        # 如果既不是 Google 也不是 LINE 登入
+        return HttpResponse("你不是使用google或line登入")
+    
     except Exception as e:
         print(e)
-        return HttpResponse("你不是使用line登入")
+        return HttpResponse("登入過程中發生錯誤")
 
 
-def videoqa(request):
+@login_required(login_url="login_page")
+def videoqa(request,index):
     video_qa_len = len(video_qa.objects.all())
-
-    if 'currentQuestionNumber' not in request.session:
-        request.session['currentQuestionNumber'] = 0
-    if 'choose' not in request.session:
-        chooseNumber = [-1 for i in range(video_qa_len)]
-        chooseData = json.dumps(chooseNumber)
-        request.session['choose'] = chooseData
-    if 'temp' not in request.session:
-        request.session['temp'] = -1
-    currentIndex = request.session['currentQuestionNumber']
-    context = {}
-    correctAnswer = {}
-
-    question = video_qa.objects.get(id=currentIndex+1)
-    question.options = json.loads(question.options.replace("'", '"'))
-    # print(question)
-
+    user = get_object_or_404(User, id=request.user.id)
+    user.video_qa_index=int(index)
+    # 帳號的資料未寫入，初始化
+    if user.video_qa_selected==" ":
+        select=[-1 for i in range(video_qa_len)]
+        selected_data = json.dumps(select)
+        user.video_qa_selected=selected_data
+        user.save(update_fields=['video_qa_selected','video_qa_index'])
+    #資料曾寫入過
+    else:
+        selected_data=user.video_qa_selected
+        select=json.loads(selected_data)
+        selected_data= json.dumps(select)
+        user.save(update_fields=['video_qa_selected','video_qa_index'])
+    
+    allSelect=True
     for i in range(video_qa_len):
-        correctAnswer[i] = video_qa.objects.get(id=i+1).correctAnswer
-    correctAnswerJson = json.dumps(correctAnswer)
-    request.session['correctAnswer'] = correctAnswerJson
-
+        if select[i]==-1:
+            allSelect=False
+            break
+        
+    context = {}
+    
+    question_index=int(index)
+    question = video_qa.objects.get(id=question_index)
+    question.options = json.loads(question.options.replace("'", '"'))
+    
     context = {
         'question': question,
-        'index': currentIndex,
+        'index': index,
         'totalQuestions': video_qa_len
     }
-    context["choose"] = int(json.loads(
-        request.session['choose'])[currentIndex])
-    context["allChoose"] = json.loads(request.session['choose'])
-    context["temp"] = request.session["temp"]
-
+    context["select"] = int(json.loads(user.video_qa_selected)[question_index-1])
+    context["user_answer"] = json.loads(user.video_qa_selected)
+    context["is_all_selected"]=allSelect
+    context["all_select"]=select
+    context["total_question_number"]=video_qa_len
     return render(request, "base/video_qa.html", context)
 
 
-def next_question(request):
+@login_required(login_url="login_page")
+def next_question(request, index):
     video_qa_len = len(video_qa.objects.all())
 
-    request.session['currentQuestionNumber'] = min(
-        video_qa_len-1, request.session['currentQuestionNumber'] + 1)
-    return redirect('video_qa')
+    index = min( video_qa_len, int(index) + 1)
+    return redirect('video_qa', index)
 
 
-def previous_question(request):
-    request.session['currentQuestionNumber'] = max(
-        0, request.session['currentQuestionNumber'] - 1)
-    return redirect('video_qa')
+@login_required(login_url="login_page")
+def previous_question(request, index):
+    index = max(0, int(index) - 1)
+    return redirect('video_qa', index)
 
 
-def video_result(request):
-    score = 0
-    context = {}
-    chooseData = json.loads(request.session.get('choose', '[]'))
-    correctAnswer = json.loads(request.session.get('correctAnswer', '[]'))
-    for i, user_answer in enumerate(chooseData):
-        if user_answer == correctAnswer[str(i)]:
-            score += 10
-
-    context = {
-        'title': '分數',
-        'text': '您的分數為'+str(score)
-    }
-
-    return render(request, "base/result.html", context)
-
-
+@login_required(login_url="login_page")
 @require_POST
 def save_selection(request):
     data = json.loads(request.body)
     selected_option = data.get('selectedOption')
-    # 從 session 獲取目前所有選項的列表，更新當前問題的選項
-    choose = json.loads(request.session.get('choose', '[]'))
+    user = get_object_or_404(User, id=request.user.id)
+    
+    # 獲取目前所有選項的列表，更新當前問題的選項
+    select = json.loads(user.video_qa_selected)
 
-    current_question_number = request.session.get(
-        'currentQuestionNumber', 0)  # video_qa
-    if current_question_number is None:
-        current_question_number = data.get('questionId')  # mbti_qa
+    current_question_number = (user.video_qa_index)-1
+    # if current_question_number is None:
+    #     current_question_number = data.get('questionId')  # mbti_qa
 
     # 更新當前問題的選項
-    if 0 <= current_question_number < len(choose):
-        choose[current_question_number] = int(selected_option)
-
-    # 保存更新後的選擇回 session
-    request.session['choose'] = json.dumps(choose)
-
+    if 0 <= current_question_number < len(select):
+        select[current_question_number] = int(selected_option)
+        
+    # 保存更新到資料庫
+    user.video_qa_selected=json.dumps(select)
+    
+    
+    #資料庫的保存
+    user.save(update_fields=['video_qa_selected'])
+    
+    # 保存到
     response = JsonResponse({'status': 'success'})
     return response
+
+
+@login_required(login_url="login_page")
+def video_result(request):
+    user = get_object_or_404(User, id=request.user.id)
+    video_qa_len = len(video_qa.objects.all())
+    correctAnswer = {}
+    explanation= {}
+    isCorrect= {}
+    selections= {}
+    for i in range(video_qa_len):
+        correctAnswer[i] = video_qa.objects.get(id=i+1).correctAnswer
+        explanation[i]=video_qa.objects.get(id=i+1).explanation
+        
+    selectData = json.loads(user.video_qa_selected)
+    
+    score = 0
+    for i, user_answer in enumerate(selectData):
+        selections[i]=user_answer
+        if user_answer == correctAnswer[i]:
+            score += 10
+            isCorrect[i]=True
+        else:
+            isCorrect[i]=False
+    percentage=round(score/(10*video_qa_len)*100,2)
+    context = {
+        'title': '分數',
+        'score': score,
+        'correctAnswer':correctAnswer,
+        'video_qa_range':range(video_qa_len),
+        'isCorrect':isCorrect,
+        'selectData':selections,
+        'explanation':explanation,
+        'total_score': 10*video_qa_len,
+        'percentage':percentage
+    }
+
+    return render(request, "base/video_result.html", context)
 
 
 def mbtiqa(request):

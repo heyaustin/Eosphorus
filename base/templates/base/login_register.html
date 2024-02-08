@@ -8,10 +8,8 @@
 {% include "base/pop_login.html" %}
 
 {% else %}
-<div class="d-flex justify-content-center mt-5">
-  <form class="login_form mt-3" method="POST" , action="">
-    {% csrf_token %}
-    {% if messages %}
+<div class="register_wrap d-flex justify-content-center mt-5">
+  {% if messages %}
     <ul class="messages">
       {% for message in messages %}
       <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
@@ -19,7 +17,10 @@
         </li>
         {% endfor %}
     </ul>
-    {% endif %}
+  {% endif %}
+  
+  <form class="login_form mt-3" method="POST" action="">
+    {% csrf_token %}
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="floatingInput" name="nickname">
       <label for="floatingInput">使用者暱稱</label>

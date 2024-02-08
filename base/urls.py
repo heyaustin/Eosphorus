@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns = [
     # video_qa
-    path("video_qa/", views.videoqa, name="video_qa"),
-    path('next/', views.next_question, name='next_question'),
-    path('previous/', views.previous_question, name='previous_question'),
+    path("video_qa/<str:index>/", views.videoqa, name="video_qa"),
+    path('next/<str:index>', views.next_question, name='next_question'),
+    path('previous/<str:index>', views.previous_question, name='previous_question'),
     path('video_result/', views.video_result, name="video_result"),
     path('save_selection/', views.save_selection, name="save_selection"),
 
@@ -19,8 +19,8 @@ urlpatterns = [
     path("login/", views.login_page, name="login_page"),
     path("register/", views.register_page, name="register_page"),
     path("logout/", views.logout_user, name="logout_user"),
-    path("line_login_settings/", views.line_login_settings,
-         name="line_login_settings"),
+    path("login_settings/", views.login_settings,
+         name="login_settings"),
 
 
     # 個人檔案系統 Persona

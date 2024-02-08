@@ -3,160 +3,208 @@
     "model": "base.video_qa",
     "pk": 1,
     "fields": {
-      "description": "婦女再就業計畫的本計畫提供了許多獎勵，請問以下何者在內？",
+      "description": "遠傳的辦公環境特色包括哪些設施？",
       "options": [
-        "自主訓練獎勵",
-        "再就業獎勵",
-        "雇主工時調整獎勵",
-        "以上皆是"
+        "咖啡廳和獨立空間",
+        "人體工學椅和按摩椅",
+        "彈性上下班時段",
+        "所有上述選項"
       ],
       "correctAnswer": 3,
-      "explanation": "(D) 婦女再就業計畫的本計畫提供了許多獎勵，其中包含自主訓練獎勵、再就業獎勵與雇主工時調整獎勵。",
-      "videoLink": "https://www.youtube.com/embed/_u-AWnH_tmw?si=qo6BY9nE336_08l?rel=1"
+      "explanation": "遠傳的辦公環境包括敏捷辦公室、咖啡廳、獨立空間、人體工學椅和按摩椅。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 2,
     "fields": {
-      "description": "婦女再就業計畫的自主訓練獎勵中，適用對象為退出勞動市場__日以上之婦女。",
+      "description": "遠傳在哪一年獲得世界第一的5G網路榮譽？",
       "options": [
-        "30",
-        "60",
-        "90",
-        "180"
+        "2019年",
+        "2020年",
+        "2021年",
+        "2022年"
       ],
-      "correctAnswer": 3,
-      "explanation": "(D) 婦女再就業計畫的自主訓練獎勵中，適用對象為退出勞動市場180日以上之婦女",
-      "videoLink": "https://www.youtube.com/embed/_u-AWnH_tmw?si=qo6BY9nE336_08l"
+      "correctAnswer": 2,
+      "explanation": "遠傳在2021年9月應用AI技術優化5G網路，獲得世界第一的榮譽。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 3,
     "fields": {
-      "description": "婦女再就業計畫的自主訓練獎勵中，何者描述為非？",
+      "description": "遠傳如何提高員工的工作效率？",
       "options": [
-        "第一次獎勵2萬元整",
-        "第二次獎勵1萬元整",
-        "課程範圍包含勞動署所有的課程",
-        "課程範圍主要面向能夠精進及更新婦女原有技能，並以就業導向之課程為主。"
+        "提供按摩椅",
+        "提供彈性上下班時段和在家工作選項",
+        "提供免費午餐",
+        "組織團隊建設活動"
       ],
-      "correctAnswer": 2,
-      "explanation": "(C) 婦女再就業計畫的自主訓練獎勵中，不包含勞動署所屬各分署自、委辦獲補助辦理失業者職業訓練之相關課程、大專院校之學成、學分或學位之課程",
-      "videoLink": "https://www.youtube.com/embed/_u-AWnH_tmw?si=qo6BY9nE336_08l"
+      "correctAnswer": 1,
+      "explanation": "遠傳提供彈性上下班時段和在家工作的選項，以減少通勤時間，提高工作效率。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 4,
     "fields": {
-      "description": "婦女再就業計畫的再就業獎勵中，於就業期滿次日90日內提出申請，全職工作一次性發給__元。",
+      "description": "遠傳專注於哪些領域的發展？",
       "options": [
-        "10,000",
-        "20,000",
-        "30,000",
-        "40,000"
+        "雲端科技",
+        "數位應用",
+        "智慧轉型商機",
+        "所有上述"
       ],
-      "correctAnswer": 2,
-      "explanation": "(C) 婦女再就業計畫的再就業獎勵中，於就業期滿次日90日內提出申請，全職工作一次性發給30,000元。",
-      "videoLink": "https://www.youtube.com/embed/_u-AWnH_tmw?si=qo6BY9nE336_08l"
+      "correctAnswer": 3,
+      "explanation": "遠傳聚焦於雲端科技、數位應用，全力開創智慧轉型商機。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 5,
     "fields": {
-      "description": "婦女再就業計畫的雇主工時調節獎勵中，何者為非？",
+      "description": "遠傳提供的數位服務包括哪些？",
       "options": [
-        "每一職缺每月核發2,000元，最長6個月",
-        "適用對象為民營事業單位、團體或私立學校",
-        "申請單位為公立就業福利機構或台灣就業通網站專區",
-        "每一雇主申請獎勵缺數以第一次申請員工數總額的30%為上限"
+        "Friday影音",
+        "Friday購物",
+        "遠傳心生活",
+        "所有上述"
       ],
-      "correctAnswer": 0,
-      "explanation": "(A) 婦女再就業計畫的雇主工時調節獎勵中，每一職缺每月核發3,000元，最長12個月",
-      "videoLink": "https://www.youtube.com/embed/_u-AWnH_tmw?si=qo6BY9nE336_08l"
+      "correctAnswer": 3,
+      "explanation": "遠傳發展的數位服務包括Friday影音、Friday購物和遠傳心生活。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 6,
     "fields": {
-      "description": "2023年底截止，全台灣共有5個青年職涯發展中心，請問何者描述為非？",
+      "description": "遠傳員工的工作安排不包括哪些選項？",
       "options": [
-        "北分署YS，位於新北市",
-        "桃分署YS，位於桃園市",
-        "南分署YS，位於台南市",
-        "高分署YS，位於高雄市"
+        "彈性上下班",
+        "在家上班",
+        "固定工時",
+        "以上皆非"
       ],
-      "correctAnswer": 1,
-      "explanation": "(B) 桃分署YS，位於新竹市",
-      "videoLink": "https://www.youtube.com/embed/qlM_pmKtTSg?si=xGMV6H4H1uX8nli8"
+      "correctAnswer": 2,
+      "explanation": "遠傳提供彈性上下班時段和在家上班選項。",
+      "videoLink": "https://www.youtube.com/embed/A7I5aPqVf0E?si=0yCHNs0p4z4lu4KW"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 7,
     "fields": {
-      "description": "青年職涯發展中心不提供何種服務？",
+      "description": "遠傳新成立的敏捷辦公室的主要目的是什麼？",
       "options": [
-        "提供投資建議",
-        "提供職業適性測驗",
-        "提供免費專人職涯諮詢",
-        "提供履歷健檢與模擬面試"
+        "提供個人儲物櫃",
+        "促進與客戶的接近和思考的擴展",
+        "賺取龐大的利潤",
+        "節能省碳"
       ],
-      "correctAnswer": 0,
-      "explanation": "(A) 青年職涯發展中心提供許多服務，其中包含職業適性測驗、職業參訪體驗、職涯諮詢、職涯講座、團體課程、履歷健檢、模擬面試與許多就業服務資源。",
-      "videoLink": "https://www.youtube.com/embed/qlM_pmKtTSg?si=xGMV6H4H1uX8nli8"
+      "correctAnswer": 1,
+      "explanation": "敏捷辦公室的設立是為了創造一個新的工作環境，目的在於促進員工與客戶的接近和擴展思考。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 8,
     "fields": {
-      "description": "與青年職涯發展有關的產業新尖兵計畫中，第一次參加的申請人中誰符合參訓標準？",
+      "description": "在遠傳的敏捷辦公室中，員工如何選擇工作位置？",
       "options": [
-        "20歲的本國籍的待業青年小明",
-        "20歲的英國青年小王",
-        "25歲的正在上班的小美",
-        "70歲的正在公園散步的爺爺"
+        "只能在指定座位工作",
+        "使用綠色屏風隔開的區域",
+        "只能在公共空間工作",
+        "不能自由選擇工作位置"
       ],
-      "correctAnswer": 0,
-      "explanation": "(A) 產業新尖兵計畫中參訓標準為：年滿15歲至29歲本國籍失業或待業青年。",
-      "videoLink": "https://www.youtube.com/embed/qicDbFWrPdM?si=x225ffBKVhA827t1"
+      "correctAnswer": 1,
+      "explanation": "辦公室設有綠色屏風(We的辦公傢具)，員工可以選擇在這些區域工作，提供了靈活性和個人空間。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 9,
     "fields": {
-      "description": "與青年職涯發展有關的產業新尖兵計畫中，補助青年訓練費用最高可達__萬元。",
+      "description": "遠傳的敏捷辦公室如何支持不同工作需求？",
       "options": [
-        "6",
-        "8",
-        "10",
-        "12"
+        "提供無線投影和Phone Booth",
+        "僅提供固定座位",
+        "不允許使用手機",
+        "沒有提供休息區"
       ],
-      "correctAnswer": 2,
-      "explanation": "(C) 產業新尖兵計畫中，補助青年訓練費用最高可達10萬元",
-      "videoLink": "https://www.youtube.com/embed/qicDbFWrPdM?si=x225ffBKVhA827t1"
+      "correctAnswer": 0,
+      "explanation": "遠傳辦公室內設有會議室無線投影、Phone Booth等設施，以支持不同的工作需求，如私密通話和會議。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
     }
   },
   {
     "model": "base.video_qa",
     "pk": 10,
     "fields": {
-      "description": "與青年職涯發展有關的產業新尖兵計畫中，以下何者描述不正確？",
+      "description": "在遠傳的敏捷辦公室中，員工下班後需要做什麼？",
       "options": [
-        "參加產業新尖兵計畫課程學員，學習獎勵金最長可以領取16個月",
-        "參加產業新尖兵計畫課程學員，每個月可領取8,000員學習獎勵金",
-        "參加產業新尖兵計畫課程學員，需先繳交給1萬元自付額給訓練單位",
-        "青年於結訓後90日內，受僱並投保就業保險，則可申請1萬元自負額補助"
+        "直接離開辦公室",
+        "打卡下班並整理工作區",
+        "關閉所有電腦",
+        "預約第二天的座位"
       ],
-      "correctAnswer": 0,
-      "explanation": "(A) 參加產業新尖兵計畫課程學員，學習獎勵金最長可以領取12個月",
-      "videoLink": "https://www.youtube.com/embed/qicDbFWrPdM?si=x225ffBKVhA827t1"
+      "correctAnswer": 1,
+      "explanation": "員工需要在下班時打卡並整理他們的工作區，以維持辦公環境的整潔和秩序。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 11,
+    "fields": {
+      "description": "遠傳的福利包括下列何者？",
+      "options": [
+        "Friday Video即時影音",
+        "十塊錢的便宜咖啡",
+        "紓壓樂活區",
+        "以上皆是"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳有Friday影音空間、便宜的咖啡，以及包括高爾夫、飛輪、沙發的舒壓樂活區。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 12,
+    "fields": {
+      "description": "遠傳的員工管理政策不包括下列何者？",
+      "options": [
+        "講電話須要到Phone Booth裡講",
+        "筆電要放回櫃子裡",
+        "投十塊錢可以購買咖啡",
+        "妥善放置物品"
+      ],
+      "correctAnswer": 2,
+      "explanation": "遠傳的咖啡機只能行動支付，不能投錢",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 13,
+    "fields": {
+      "description": "遠傳的員工在ESG方面做了哪些努力？",
+      "options": [
+        "雙面列印來愛護地球",
+        "隨手關閉電源",
+        "愛惜使用各個電器",
+        "以上皆是"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳的員工有做雙面列印、隨手關閉電源，並愛惜使用各個電器",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
     }
   }
 ]

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_head %}
-  <link rel="stylesheet" href="{% static 'styles/mbti_qa.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -10,16 +10,16 @@
   {% csrf_token %}
   <div class="row justify-content-center align-items-center">
       <div class="col-md-12">
-          <button class="btn col-md-1 "onclick="ocation.href=`{% url 'home_page' %}`">
-            <span>回到主選單</span>
-          </button>
+          <a class="btn btn-info col-md-1" href="{% url 'home_page' %}">
+            <span>回首頁</span>
+          </a>
       </div>
       {% for question in questions%}
-      <div class="col-6 offset-3 mt-2 question" id="question{{ question.id }}">
+      <div class="mt-2 question" id="question{{ question.id }}">
           {{question.id}}.{{ question.description  }} 
       </div>
       {% for option in question.options %}
-      <div class="form-check col-6 offset-3">
+      <div class="form-check question">
           <input class="form-check-input" type="radio" name="option{{question.id}}" id="option{{question.id}}-{{ forloop.counter }}" value="{{ forloop.counter0 }}" 
           onclick="selectOption({{ question.id|add:-1 }}, {{ forloop.counter0 }});" 
           {% if question.choose == forloop.counter0 %}checked{% endif %}>

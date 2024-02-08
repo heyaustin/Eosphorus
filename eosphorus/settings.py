@@ -69,6 +69,8 @@ else:
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("line_token")
 LINE_CHANNEL_SECRET = os.getenv("line_secret")
 
+SITE_ID = 2 #google login
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -83,12 +85,15 @@ INSTALLED_APPS = [
     # line bot
     "linebotapp.apps.LinebotappConfig",
     
-    # line login設定
+    # line login
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.line",
-    
+
+    # google login
+    "allauth.socialaccount.providers.google",
+
     # api 設定(暫時用不到)
     "rest_framework",
     "corsheaders",
@@ -114,6 +119,14 @@ SOCIALACCOUNT_PROVIDERS = {
             "profile",
             "openid",
         ],
+    },
+    
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {'access_type': 'online'}
     }
 }
 
@@ -125,7 +138,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # 使用者使用 line login完成後進行個人資料設置
-LOGIN_REDIRECT_URL = "/line_login_settings/"
+LOGIN_REDIRECT_URL = "/login_settings/"
 
 # TODO
 MIDDLEWARE = [

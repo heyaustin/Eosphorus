@@ -37,11 +37,31 @@ img {
     border: 0;
 }
 
+.register_wrap {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.loginbtn_wrap {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+}
+
+.form-floating {
+    width: 100%;
+}
+
 .login_form {
     z-index: 1;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 70%;
     max-width: 350px;
-    height: auto;
 }
 
 .navbar-toggler {
@@ -117,6 +137,18 @@ button.navbar-toggler {
 
 .mwmax {
     min-width: max-content;
+}
+
+.wmax {
+    width: max-content;
+}
+
+.pl-60 {
+    padding-left: 60px;
+}
+
+.question {
+    padding-left: calc(10% + 50px);
 }
 
 .game_container {
