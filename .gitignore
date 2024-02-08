@@ -89,6 +89,7 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
+base/migrations/*
 
 #persona
 static/images/user_profile_img/persona

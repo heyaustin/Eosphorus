@@ -79,16 +79,19 @@
         </div>
       </form>
       <div class="col-md-12 mt-4">
-        <select class="form-select" onchange="navigateTo(this.value)" aria-label="Multiple select example" multiple>
+        <ul class="scroll_list">
           {% for answer in user_answer%}
-          <option value="{{ forloop.counter }}" id="question{{forloop.counter}}">
+          <li id="question{{forloop.counter}}">
+            <a href="{% url 'video_qa' forloop.counter %}"
+            {% if forloop.counter == index|add:"0" %}style="color:blue"{% endif %}>
               第{{ forloop.counter }}題： 
-              {%if answer != -1%} {{ answer|add:"1" }}
+              {% if answer != -1%} {{ answer|add:"1" }}
               {% else %} 尚未選擇
               {% endif %}
-          </option>
+            </a>
+          </li>
           {% endfor%}
-        </select>
+        </ul>
       </div>
       <div class="col-md-12 mt-4">
         <div class="flex">

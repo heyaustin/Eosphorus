@@ -1,9 +1,5 @@
-function navigateTo(navQuestionNumber) {
-    if (navQuestionNumber) {
-        window.location.href = "../" + navQuestionNumber;
-    }
-}
 
+document.getElementById("question"+(questionNumber+1).toString()).scrollIntoView();
 
 function sendSelection(optionIndex) {
     choose[questionNumber] = optionIndex;
