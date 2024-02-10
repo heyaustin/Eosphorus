@@ -120,6 +120,11 @@ button.navbar-toggler {
     gap: 20px;
 }
 
+input[type=checkbox] {
+    width: 1em;
+    height: 1em;
+}
+
 .flex {
     display: flex;
     flex-wrap: wrap;

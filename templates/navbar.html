@@ -3,12 +3,13 @@
     {% comment %}
     <a class="navbar-brand" href="/">Eosphorus</a>
     {% endcomment %}
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="dot"></span>
-    </button>
+    </button> {% endcomment %}
 
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <div class="expand navbar-expand" id="navbarSupportedContent">
+      {% comment %} class="collapse navbar-collapse" {% endcomment %}
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'about_us' %}">

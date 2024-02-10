@@ -1,4 +1,3 @@
-
 #FRDMgBfEabFpa8j0:hover,
 #pkQFB6cuNBUPUI08:hover,
 #JghIhZihVGaC0XTK:hover,
@@ -130,6 +129,7 @@ img {
 }
 
 #FRDMgBfEabFpa8j0 {
+    z-index: 2;
     grid-area: 3/3/7/7;
     position: relative;
     clip-path: polygon(calc(0% + -11.39597049%) calc((0 * 25.34993028rem) + -7.04133096%), calc(100% - (0% + -15.74285965%)) calc((0 * 25.34993028rem) + -7.04133096%), calc(100% - (0% + -15.74285965%)) calc(100% - ((0 * 25.34993028rem) + -15.31287798%)), calc(0% + -11.39597049%) calc(100% - ((0 * 25.34993028rem) + -15.31287798%)))
@@ -167,21 +167,11 @@ img {
     grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content)
 }
 
-#JMfHKofK1ppfpwzT {
-    grid-template-columns: 0 0 23.36187983rem 0;
-    grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content)
-}
-
 #pointer {
     z-index: 29;
     grid-area: 5/4/6/6;
     position: relative;
     /* transform: translate(-75%, 0); */
-}
-
-#CasAZ0Pn1GKP7672 {
-    grid-template-columns: 0 2.88887057rem 19.82573901rem 0.64727025rem 4.67305768rem 0.20386334rem;
-    grid-template-rows: 0 minmax(1.8047855rem, max-content) minmax(10.16817791rem, max-content) minmax(1.77278854rem, max-content) minmax(7.18963233rem, max-content) minmax(6.50071316rem, max-content)
 }
 
 #UsayTbTeR2PPMHHj {
@@ -449,11 +439,9 @@ img {
 #CasAZ0Pn1GKP7672 {
     display: grid;
     position: relative;
-    grid-area: 2/2/17/7
-}
-
-#FRDMgBfEabFpa8j0 {
-    z-index: 2
+    grid-area: 2/2/17/7;
+    grid-template-columns: 0 2.88887057rem 19.82573901rem 0.64727025rem 4.67305768rem 0.20386334rem;
+    grid-template-rows: 0 minmax(1.8047855rem, max-content) minmax(10.16817791rem, max-content) minmax(1.77278854rem, max-content) minmax(7.18963233rem, max-content) minmax(6.50071316rem, max-content)
 }
 
 #mhlhphugwJZi0cUZ,
@@ -487,7 +475,9 @@ img {
 #JMfHKofK1ppfpwzT {
     display: grid;
     position: relative;
-    grid-area: 2/2/4/5
+    grid-area: 2/2/4/5;
+    grid-template-columns: 0 0 23.36187983rem 0;
+    grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content)
 }
 
 #iaqPqJzffKM9Hogu {
@@ -587,7 +577,9 @@ img {
 
 #bjyDQF7QXTLPzE4Z {
     padding-top: 73.75%;
-    transform: rotate(0)
+    transform: rotate(0);
+    grid-area: 2 / 2 / 6 / 3;
+    position: relative;
 }
 
 #A1Y6FRG2oHBPxYxM {
@@ -1025,4 +1017,137 @@ img {
     src: url(../fonts/font4.woff2);
     font-style: italic;
     font-weight: 900
+}
+
+
+
+@media (max-width:641px) {
+    .swal2-container {
+        transform: scale(2);
+    }
+
+    .navbar {
+        grid-area: 5/12/8/22;
+    }
+
+    #UsayTbTeR2PPMHHj {
+        grid-area: 5 / 5 / 9 / 13;
+        position: relative
+    }
+
+    #rWjx1ijspH9BINl7 {
+        width: auto;
+        position: static;
+    }
+
+    #rWjx1ijspH9BINl7>img {
+        transform: translate(0) rotate(0)
+    }
+
+    #JFXPCRKswhUmgAMr {
+        display: grid;
+        position: relative;
+        /* grid-template-columns: 0 0.12775955rem 4.16636298rem 0.5315048rem 4.86424988rem 1.26585347rem 0.94461203rem 2.65240936rem 0.02974498rem 0 1.58428541rem 0.15234398rem 1.28711094rem 6.97898981rem 0.39113638rem 1.59082296rem 0.23812047rem 0.45800486rem 0.07168029rem 2.24027891rem 0.43776513rem 0.73507171rem 0.31574077rem 1.28138644rem 1.517285rem 0.82710252rem 1.92262181rem 3.09785457rem; */
+        /* grid-template-rows: 0 0 minmax(1.92415512rem, max-content) minmax(2.32053121rem, max-content) minmax(0.00225088rem, max-content) minmax(3.16111575rem, max-content) minmax(7.65977495rem, max-content) minmax(0.7979342rem, max-content) minmax(0.97479797rem, max-content) minmax(0.88195858rem, max-content) minmax(0.54588927rem, max-content) minmax(3.71739168rem, max-content) minmax(1.58428541rem, max-content) minmax(0.63105512rem, max-content) minmax(3.5806877rem, max-content) 0 minmax(2.02844376rem, max-content) minmax(3.46916417rem, max-content) minmax(0.90719536rem, max-content) minmax(4.14480778rem, max-content) minmax(5.21312384rem, max-content) minmax(1.44262876rem, max-content) minmax(1.04630094rem, max-content) minmax(0.95314855rem, max-content) minmax(0.84368776rem, max-content) minmax(3.22984021rem, max-content) minmax(2.31008791rem, max-content) minmax(2.8522907rem, max-content); */
+
+        /* multiply grid-template-columns by a constant to let the sum be 100 */
+        /* multiply grid-template-rows by the same constant */
+        grid-template-columns: 0 0.321731rem 10.491948rem 1.338463rem 12.249403rem 3.187737rem 2.378770rem 6.679433rem 0.074905rem 0 3.989628rem 0.383640rem 3.241269rem 17.574849rem 0.984980rem 4.006092rem 0.599647rem 1.153371rem 0.180509rem 5.641585rem 1.102403rem 1.851095rem 0.795115rem 3.226853rem 3.820905rem 2.082852rem 4.841644rem 7.801176rem;
+        grid-template-rows: 0 0 minmax(4.845506rem, max-content) minmax(5.843680rem, max-content) minmax(0.005668rem, max-content) minmax(7.960483rem, max-content) minmax(19.289237rem, max-content) minmax(2.009399rem, max-content) minmax(2.454786rem, max-content) minmax(2.220993rem, max-content) minmax(1.374686rem, max-content) minmax(9.361326rem, max-content) minmax(3.989628rem, max-content) minmax(1.589155rem, max-content) minmax(9.017071rem, max-content) 0 minmax(5.108131rem, max-content) minmax(8.736226rem, max-content) minmax(2.284546rem, max-content) minmax(10.437667rem, max-content) minmax(13.127955rem, max-content) minmax(3.632901rem, max-content) minmax(2.634848rem, max-content) minmax(2.400267rem, max-content) minmax(2.124618rem, max-content) minmax(8.133549rem, max-content) minmax(5.817381rem, max-content) minmax(7.182784rem, max-content);
+    }
+
+    #YLjYEM2XkC8TcwdN {
+        padding-top: 16.125%;
+        transform: rotate(29.76103215deg);
+    }
+
+    #jrmY0jzpu7s8gKrq {
+        z-index: 23;
+        grid-area: 8 / 9 / 10 / 16;
+        position: relative;
+        margin-left: -2.73454347%;
+        margin-right: -2.73454347%;
+        margin-bottom: 0%;
+        margin-top: 0%;
+    }
+
+    #ysjzeUyfaQn9oKjm {
+        grid-area: 11 / 15 / 15 / 24;
+        position: relative;
+    }
+
+
+    #dhjrUYNjpiZolM2s {
+        grid-area: 26 / 18 / 28 / 25;
+        position: relative;
+    }
+
+    #q3pQA1sn4PlWPBF8 {
+        display: grid;
+        position: relative;
+        grid-area: 21 / 4 / 23 / 7;
+    }
+
+    #LHVjXRLDaF39LZ0j {
+        display: none;
+    }
+
+    #demo_magnifier {
+        z-index: 23;
+        width: 12vw;
+        display: grid;
+        position: relative;
+        grid-area: 12 / 19 / 16 / 28;
+    }
+
+    #SpCjDD909SU1uO6F {
+        display: grid;
+        position: relative;
+        grid-area: 17 / 14 / 20 / 21;
+        /* multiply grid-template-* by the same constant */
+        /* grid-template-rows: 0 minmax(0.18761949rem, max-content) minmax(2.41182572rem, max-content) minmax(1.39353235rem, max-content) minmax(1.20591286rem, max-content) minmax(1.20591286rem, max-content); */
+        /* grid-template-columns: 0 7.04934295rem 0.28156434rem 0 4.63812638rem 0; */
+        grid-template-rows: 0 minmax(0.472473rem, max-content) minmax(6.073583rem, max-content) minmax(3.509264rem, max-content) minmax(3.509264rem, max-content) minmax(3.036791rem, max-content);
+        grid-template-columns: 0 17.752016rem 17.752016rem 0 11.679967rem 0;
+    }
+
+    #A1Y6FRG2oHBPxYxM {
+        grid-area: 18 / 6 / 19 / 17;
+        position: relative;
+        margin-left: -13.73704477%;
+        margin-right: -13.73704477%;
+        margin-bottom: 0%;
+        margin-top: 0%;
+        z-index: 25
+    }
+
+    #pG6qvCezyoz9fUvR {
+        padding-top: 16.125%;
+        transform: rotate(131.59682483deg);
+    }
+
+    #NjJ8MR7DnPxljEIA {
+        display: none;
+    }
+
+    #x2QxrbezqJuWyReL {
+        grid-area: 22 / 8 / 24 / 20;
+        position: relative;
+        margin-left: -0.00185784%;
+        margin-right: -0.00185784%;
+        margin-bottom: 0%;
+        margin-top: 0%;
+    }
+
+    #JWY3LZYDDza1Vccp {
+        padding-top: 16.125%;
+        transform: rotate(18.33338333deg);
+    }
+
+    #FRwYPMPiLw6wgTen {
+        width: max-content;
+        /* grid-area: 4 / 23 / 6 / 27; */
+        grid-area: 5 / 23 / 7 / 27;
+        position: relative
+    }
 }
