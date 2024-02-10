@@ -45,7 +45,7 @@ img {
 
 .loginbtn_wrap {
     display: flex;
-    gap: 15px;
+    gap: 1em;
     width: max-content;
 }
 
