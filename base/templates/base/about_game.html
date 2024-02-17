@@ -1,8 +1,83 @@
-{% extends "main.html" %}
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}" />
+{% endblock %}
 
 {% block content %}
+  <div class="container mb-5 mt-5">
+    <div style="max-width: 600px">
+      <div style="position: relative; padding-bottom: 56.25%;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%" src="{% static 'videos/intro.mp4' %}" title="intro" allowfullscreen></iframe>
+      </div>
+    </div>
 
-<div class="div_container">
-    <h1>遊戲介紹</h1>
-</div>
-{% endblock content %}
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>網站主頁</h3>
+        </div>
+      </div>
+
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">主頁有4個島嶼及正中央的一艘帆船，都分別連結到不同的遊戲。島嶼從左到右，上到下，分別是「職涯安全須知-觀看影片」、「ESG島嶼探索-超級打怪」、「預約遠傳主管聊天」、「mbti心理測驗」。帆船則連接到辦公室角色扮演rpg遊戲，是本企畫的核心，完成後才可獲得下一關預約主管聊天的鑰匙。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>打開他的工作間 - 辦公室RPG</h3>
+        </div>
+      </div>
+
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">這是一個介面用phaser.js開發的2D角色扮演遊戲，以遠傳敏捷開放式辦公室為背景設計。實作階段會先設計成單人遊戲，玩家可與預設好回應內容的遠傳虛擬主管互動對話，接近時會跳出對話框。未來可增加多人模式，讓玩家扮演的角色可彼此互動。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              <img class="demo_map mb-3" src="{% static 'images/demo_map.png' %}" />
+              如圖，辦公室左下角是工程師辦公區，還有咖啡及遊戲區。右下角是討論區及總經理辦公室。右上角則是按摩區、紓壓樂活區（有室內高爾夫）、電話室。為了推廣遠傳的員工福利，我們會真實還原辦公室的擺設。例如讓玩家在遊戲室與ps4進行有限互動，操縱角色至按摩室體驗或透過對話操作咖啡機並在沙發上享受。另外還會在總經理辦公室設置公告欄，宣傳遠傳政策並實時更新遊戲狀態。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">若時間允許，我們會設計載入畫面、選單列、音效來讓遊戲更精緻。可在游標懸浮或按下按鈕時加上「哧哧」或「喀嚓」的低沉點擊聲，循環撥放海鷗和海浪的聲音當主頁背景音樂。玩家進入辦公室後海浪聲音會變得更低沉小聲，同時混合撥放輕快適合上班聽的音樂。也可能實作窗戶外的海浪景色，讓角色接近窗戶時可點擊按鈕欣賞，使遊戲更顯逼真。我們使用音樂時也會注意版權問題，主要在pixabay上找無版權的音檔。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>期望目標</h3>
+        </div>
+      </div>
+
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">本遊戲應可幫助玩家了解電信業不同部門員工的日常工作內容，以及遠傳的價值觀、工作文化、業務策略。透過完成日常工作任務、處理辦公室內的挑戰（如有效溝通、時間管理等）來模擬實際的職場樣態。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,12 +1,38 @@
+@import url('./chatroomhome.css');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     /* background-color: #fff0f5; */
     /* 淡粉色背景 */
-    background-color: #ffeeee;
-    color: #333;
+    background-color: #F6E5DE !important;
+    /* color: #333; */
     /* 文字顏色 */
+}
+
+.demo_map{
+    max-width: 300px;
+}
+
+.home-left {
+    padding: 2em;
+}
+
+.group {
+    margin-bottom: 0;
+}
+
+.btn-left {
+    flex: 1;
+    min-width: 300px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
 .about_container {
@@ -23,7 +49,7 @@ body {
 }
 
 a {
-    color: #db7093;
+    color: revert;
     /* 粉紅色鏈接 */
     text-decoration: none;
     /* 去掉下劃線 */
@@ -34,23 +60,17 @@ a:hover {
     /* 鼠標懸停時添加下劃線 */
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-
 h3 {
-    color: #c71585;
+    color: #664500;
     /* 深粉紅色 */
-    border-bottom: 2px solid #db7093;
+    /* border-bottom: 2px solid #db7093; */
     /* 粉紅色下邊框 */
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 h4,
 h5 {
-    color: #d87093;
+    color: #664500;
     /* 柔和粉紅色 */
 }
 

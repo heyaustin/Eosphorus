@@ -1,3 +1,21 @@
+@font-face {
+    font-family: Cubic;
+    src: url(../fonts/Cubic_11_1.010_R.woff2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+div {
+    font-family: Cubic !important
+}
+
 a {
     text-decoration: none;
     word-break: break-all;
@@ -85,7 +103,7 @@ img {
 }
 
 .nav-link {
-    color: white !important;
+    color: black !important;
     font-family: YAEihaFxr4g-0;
     font-size: 1.8em;
 }
@@ -103,7 +121,8 @@ button.navbar-toggler {
 }
 
 .navbar>.container-fluid {
-    background: #b61904;
+    background: #edcc9a;
+    /* #664500 */
     z-index: 100;
     /* padding-bottom: 7px;
     padding-top: 7px; */
@@ -362,8 +381,4 @@ ul {
 
 .cw {
     color: white;
-}
-
-.ig_qrcode {
-    max-width: 400px;
 }
