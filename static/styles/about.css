@@ -11,6 +11,14 @@ body {
     /* 文字顏色 */
 }
 
+.vid-center {
+    padding: 15px;
+    margin-bottom: 40px;
+
+    min-width: 350px;
+    flex: 3;
+}
+
 .demo_map{
     max-width: 300px;
 }
