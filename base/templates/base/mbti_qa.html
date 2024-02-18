@@ -3,11 +3,6 @@
 
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
-  <style>
-    body{
-      background-color: #F6E5DE;
-    }
-  </style>
 {% endblock %}
 
 {% block content %}
@@ -15,7 +10,7 @@
   {% csrf_token %}
   <div class="row justify-content-center align-items-center">
       <div class="col-md-12">
-          <a class="btn btn-info col-md-1" href="{% url 'home_page' %}">
+          <a class="btn button btn-info col-md-1" href="{% url 'home_page' %}">
             <span>回首頁</span>
           </a>
       </div>
@@ -36,7 +31,7 @@
       {% endfor %}
       {% endfor %}
       <div class="col-md-9 col-sm-12 mt-2 text-center">
-          <button class="btn" onclick="return validateForm()">
+          <button class="btn button" onclick="return validateForm()">
             <span>送出</span>
           </button>
       </div>

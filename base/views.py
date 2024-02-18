@@ -28,7 +28,6 @@ from django.db.models import F
 5. class based views
 """
 
-
 def pop_login_suc(request):
     email = request.POST.get("email")
     password = request.POST.get("password")
@@ -87,6 +86,9 @@ def login_page(request):
     }
     if request.method == "POST":
         if pop_login_suc(request):
+            next_url = request.GET.get('next')
+            if next_url is not None:
+                return redirect(next_url)
             return redirect("home_page")
         else:
             return redirect("login_page")
@@ -612,7 +614,10 @@ def video_result(request):
 
     return render(request, "base/video_result.html", context)
 
+def rpg(request):
+    return render(request, "base/rpg.html")
 
+@login_required(login_url="login_page")
 def mbtiqa(request):
     mbti_qa_len = len(mbti_qa.objects.all())
 

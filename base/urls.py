@@ -13,6 +13,9 @@ urlpatterns = [
     path('mbti_qa/', views.mbtiqa, name="mbti_qa"),
     path('mbti_result/', views.mbti_result, name="mbti_result"),
 
+    # rpg
+    path('rpg/', views.rpg, name="rpg"),
+
 
     # 帳號登入系統
     path('accounts/', include('allauth.urls')),

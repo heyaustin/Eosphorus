@@ -3,6 +3,10 @@
     src: url(../fonts/Cubic_11_1.010_R.woff2);
 }
 
+body {
+    background-color: #F6E5DE;
+}
+
 h1,
 h2,
 h3,
@@ -82,14 +86,6 @@ img {
     max-width: 350px;
 }
 
-.navbar-toggler {
-    border: 0;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
 .dot {
     border: 2px solid white;
     border-radius: 50%;
@@ -100,36 +96,6 @@ img {
     display: inline-flex;
     justify-content: center;
     align-items: center
-}
-
-.nav-link {
-    color: black !important;
-    font-family: YAEihaFxr4g-0;
-    font-size: 1.8em;
-}
-
-.navbar {
-    grid-area: 5/11/7/20;
-    /* position: absolute; */
-    padding: 0;
-    /* background: #F8F8F8; */
-}
-
-button.navbar-toggler {
-    margin-bottom: 4px;
-    margin-top: 4px;
-}
-
-.navbar>.container-fluid {
-    background: #edcc9a;
-    /* #664500 */
-    z-index: 100;
-    /* padding-bottom: 7px;
-    padding-top: 7px; */
-
-    border-radius: 1em;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
 }
 
 .create_threads {

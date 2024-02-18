@@ -3,6 +3,9 @@ button {
     background-color: transparent;
 }
 
+.login_btn{
+    max-height: 11em;
+}
 #qhpiQ8N7AfN6Ytzn {
     display: grid;
     position: relative;

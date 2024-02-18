@@ -1,0 +1,32 @@
+body {
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: YAEihaFxr4g-0;
+}
+
+a>img {
+    max-width: 8em;
+}
+
+.send_image img {
+    height: 100%;
+    /* 圖片會占滿整個容器的高度 */
+    width: 90%;
+    /* 保持圖片比例 */
+}
+
+.swal2-confirm {
+    width: 40%;
+    /* 設置按鈕寬度 */
+    height: 90%;
+    /* 設置按鈕高度 */
+    font-size: 20px;
+    /* 可選，調整字體大小 */
+}
+
+body {
+    padding-top: 2%;
+    /* 調整這個值以適應您的導航列高度 */
+}

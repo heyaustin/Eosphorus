@@ -1,7 +1,13 @@
 
-document.getElementById("question"+(questionNumber+1).toString()).scrollIntoView();
+function sendSelection(optionIndex, button) {
 
-function sendSelection(optionIndex) {
+    var buttons = document.querySelectorAll('button');
+    buttons.forEach(function (button) {
+        button.disabled = false;
+    });
+
+    button.disabled = true;
+
     choose[questionNumber] = optionIndex;
     var questionDiv = document.getElementById('question' + (questionNumber + 1));
     questionDiv.textContent = '第' + (questionNumber + 1) + '題： ' + (optionIndex + 1);
@@ -14,7 +20,7 @@ function sendSelection(optionIndex) {
                 break;
             }
         }
-        if (isAllSelect) document.getElementById("send").style.display = "block";
+        if (isAllSelect) document.getElementById("send").hidden = false;
     }
 
     fetch('/save_selection/', {
@@ -55,7 +61,15 @@ function checkAnswers() {
     if (allAnswered) {
         Swal.fire({
             title: "送出成功",
-            icon: "success"
+            imageUrl: "/static/images/check.png",
+            imageHeight: 156,
+            imageWidth: 173,
+            imageAlt: "A tall image",
+            confirmButtonText: '<img src="/static/images/send_success.png" alt="Confirm">',
+            confirmButtonColor: 'transparent',
+            customClass: {
+                confirmButton: 'confirm_button'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = '/video_result';

@@ -196,7 +196,12 @@ img {
     z-index: 30;
     width: max-content;
     grid-area: 5/23/6/26;
-    position: relative
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    padding-block: 1px;
+    padding-inline: 6px;
 }
 
 #GF2S2vu21pPwkKhQ {
@@ -283,11 +288,6 @@ img {
     grid-area: 21/4/25/10;
     position: relative;
     margin: 0 -5.19482354%
-}
-
-#Y4oNSBeeU91n1D5E {
-    grid-template-columns: 0 3.29173552rem 4.92375301rem 3.44748491rem;
-    grid-template-rows: 0 minmax(3.36961022rem, max-content) minmax(4.92375301rem, max-content) minmax(3.36961022rem, max-content)
 }
 
 #q3pQA1sn4PlWPBF8 {
@@ -634,7 +634,9 @@ body {
 #Y4oNSBeeU91n1D5E {
     display: grid;
     position: relative;
-    grid-area: 24/3/26/5
+    grid-area: 24/3/26/5;
+    grid-template-columns: 0 3.29173552rem 4.92375301rem 3.44748491rem;
+    grid-template-rows: 0 minmax(3.36961022rem, max-content) minmax(4.92375301rem, max-content) minmax(3.36961022rem, max-content)
 }
 
 #iRa64bwNqVg1Bzo2 {
@@ -647,8 +649,25 @@ body {
 
 
 @media (max-width:641px) {
-    .swal2-container {
-        transform: scale(2);
+    #rtjGsEShuN5tVuxP {
+        grid-template-columns: 0 6.87405801rem 5.31498622rem 5.19113495rem;
+    }
+
+    #Y4oNSBeeU91n1D5E {
+        grid-template-columns: 0 8.29173552rem 4.92375301rem 3.44748491rem;
+    }
+
+    .swal2-popup {
+        font-size: 2em;
+    }
+
+    .form-control {
+        min-height: 40px;
+    }
+
+    .form-control,
+    .loginbtn_wrap * {
+        font-size: unset;
     }
 
     .nav-link,
@@ -720,8 +739,14 @@ body {
         grid-area: 21 / 4 / 23 / 7;
     }
 
-    #LHVjXRLDaF39LZ0j {
-        display: none;
+    #LHVjXRLDaF39LZ0j,
+    #wdxLIpnQaDdw0wJD {
+        grid-area: 3/3/4/5;
+    }
+
+    #demo_magnifier>img {
+        width: 12vw;
+        margin-left: 100%;
     }
 
     #demo_magnifier {
@@ -729,7 +754,7 @@ body {
         width: 12vw;
         display: grid;
         position: relative;
-        grid-area: 12 / 19 / 16 / 28;
+        grid-area: 18 / 14 / 20 / 21;
     }
 
     #SpCjDD909SU1uO6F {

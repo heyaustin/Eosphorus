@@ -17,6 +17,7 @@
 }
 
 .profile_right {
+    min-height: 100px;
     min-width: 300px;
     max-width: 600px;
     flex: 3;
@@ -28,7 +29,7 @@
 
     /* height: 100%; */
     position: relative;
-    background: #447D7A
+    background: #edcc9a;
 }
 
 .profile_post {

@@ -3,165 +3,137 @@
 {% load static %}
 
 {% block extra_head %}
-  <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'styles/video_qa.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
 {% endblock %}
 
 {% block content %}
 
-<div class="container mt-4 mb-5">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-md-12">
-      <a class="btn btn-info col-md-1" href="{% url 'home_page' %}">
-        <span>回首頁</span>
-      </a>
-    </div>
-
-    <div class="col-md-6 mt-4">
-      <div style="position: relative; padding-bottom: 56.25%">
-        <iframe
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
-        src="{{question.videoLink}}"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-        </iframe>
+<div class="main-content mb-5" >
+  <div class="container-fluid">
+    <div class="row d-flex button_group3 ms-md-5">
+      <div class="col-3 col-md-2 m-1">
+          <a href="{% url 'home_page' %}">
+            <img src="{% static 'images/back.png' %}" alt="圖片不存在">
+          </a>
       </div>
-    </div>
-    <div class="col-md-6">
-      <form method="post" class="container">
-      {% csrf_token %}
-        <div class="row">
-          <div id="question">
-            {{index}}.{{ question.description }}
-          </div>
-        <!-- 第一行選項 -->
-          <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="options" onclick="sendSelection(0)"
-              id="option1" {% if select == 0 %}checked{% endif %}>
-              <label class="form-check-label" for="option1">
-                {{ question.options.0 }}
-              </label>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="options" onclick="sendSelection(1)"
-              id="option2" {% if select == 1 %}checked{% endif %}>
-              <label class="form-check-label" for="option2">
-                {{question.options.1}}
-              </label>
-            </div>
-          </div>
-        </div>
+      
+      <div class="col-5 col-md-6"></div>
 
-        <div class="row">
-          <!-- 第二行選項 -->
-          <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="options" onclick="sendSelection(2)"
-              id="option3" {% if select == 2 %}checked{% endif %}>
-              <label class="form-check-label" for="option3">
-                {{question.options.2}}
-              </label>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="options" onclick="sendSelection(3)"
-              id="option4" {% if select == 3 %}checked{% endif %}>
-              <label class="form-check-label" for="option4">
-                {{question.options.3}}
-              </label>
-            </div>
-          </div>
-        </div>
-      </form>
-      <div class="col-md-12 mt-4">
-        <ul class="scroll_list">
-          {% for answer in user_answer%}
-          <li id="question{{forloop.counter}}">
-            <a href="{% url 'video_qa' forloop.counter %}"
-            {% if forloop.counter == index|add:"0" %}style="color:blue"{% endif %}>
-              第{{ forloop.counter }}題： 
-              {% if answer != -1%} {{ answer|add:"1" }}
-              {% else %} 尚未選擇
-              {% endif %}
-            </a>
-          </li>
-          {% endfor%}
-        </ul>
-      </div>
-      <div class="col-md-12 mt-4">
-        <div class="flex">
-          {% if index|add:"0" == 1 %}
-          <div class="col-8 mt-2">
-          </div>
-
-          <div class="col-4 mt-2">
-            <div>
-              <a class="btn btn-primary" href="{% url 'next_question' index  %}">
-                <span>下一題</span>
-              </a>
-            </div>
-            
-            <div class="mt-2"
-            {% if is_all_selected != True %}style="display:none"{% endif %}>
-              <button id="send" class="btn btn-success" onclick="checkAnswers()">
-                <span>送出</span>
-              </button>
-            </div>
-          </div>
-
-          {% elif index|add:"0" < totalQuestions %}
-          <div class="col-8 mt-2">
-            <a class="btn btn-primary" href="{% url 'previous_question' index %}">
-              <span>上一題</span>
-            </a>
-          </div>
-
-          <div class="col-4 mt-2">
-            <div>
-              <a class="btn btn-primary" href="{% url 'next_question' index %}">
-                <span>下一題</span>
-              </a>
-            </div>
-
-            <div class="mt-2"
-            {% if is_all_selected != True %}style="display:none"{% endif %}>
-              <button id="send" class="btn btn-success" onclick="checkAnswers()">
-                <span>送出</span>
-              </button>
-            </div>
-          </div>
-
-          {% elif index|add:"0" == totalQuestions %}
-          <div class="col-8 mt-2">
-            <a class="btn btn-primary" href="{% url 'previous_question' index %}">
-              <span>上一題</span>
-            </a>
-          </div>
-          
-          <div class="col-4 mt-2"
-          {% if is_all_selected != True %}style="display:none"{% endif %}>
-            <button id="send" class="btn btn-success" onclick="checkAnswers()">
-              <span>送出</span>
+      <div class="col-3 col-md-2 m-1">
+        <nav class="navbar">
+          <div class="container-fluid bg-transparent">
+            <button class="navbar-toggler text-dark bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="offcanvas offcanvas-end text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-dark" id="offcanvasNavbarLabel">導覽列</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  {% for answer in user_answer %}
+                  <li class="nav-item">
+                    <a class="nav-link{% if forloop.counter == index|add:'0' %} fw-bold {% endif %} text-dark" href="../{{forloop.counter}}" id="question{{forloop.counter}}" >
+                      第{{ forloop.counter }}題： {%if answer != -1 %} {{ answer|add:"1" }}
+                      {% else %} 尚未選擇
+                      {% endif %}
+                    </a>
+                  </li>
+                  {% endfor%}
+                </ul>
+              </div>
+            </div>
           </div>
-
-          {% else %}
-          <button class="btn col-1 offset-3"><span>error</span></button>
-          {% endif %}
+        </nav>
+      </div>
+    </div>
+    <div class="row ms-md-5 mt-5 align-content-center row2">
+      <div class="col-md-5">
+        <div style="position: relative; padding-bottom: 58%; height: 0">
+          <iframe
+            style="position: absolute; top: 0; left: 0%; width: 90%; height: 90%"
+            src="{{question.videoLink}}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          >
+          </iframe>
         </div>
       </div>
+      <div class="col-md-5 mt-1">
+        <div class="fs-3" id="question">
+          {{index}}.{{ question.description }}
+        </div>
+        <form method="post" class="container fs-3">
+          {% csrf_token %}
+          <!-- 第一行選項 -->
+          <div class="row button_group mt-2 mt-sm-5">
+            <div class="col mt-2 ">
+              <button type="button" class="button" onclick="sendSelection(0, this)"
+              id="option1" {% if select == 0 %}disabled{% endif %}>
+                {{ question.options.0 }}
+              </button>
+            </div>
+            <div class="col mt-2">
+              <button type="button" class="button" onclick="sendSelection(1, this)"
+              id="option2" {% if select == 1 %}disabled{% endif %}>
+                {{ question.options.1 }}
+              </button>
+            </div>
+          </div>
+        
+          <!-- 第二行選項 -->
+          <div class="row button_group2">
+            <div class="col mt-2">
+              <button type="button" class="button" onclick="sendSelection(2, this)"
+              id="option3" {% if select == 2 %}disabled{% endif %}>
+                {{ question.options.2 }}
+              </button>
+            </div>
+            <div class="col mt-2">
+              <button type="button" class="button" onclick="sendSelection(3, this)"
+              id="option4" {% if select == 3 %}disabled{% endif %}>
+                {{ question.options.3 }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row d-flex button_group3 ms-md-5 mt-4" >
+      <div class="col-3 col-md-2 m-1" >
+        <a href="{% url 'previous_question' index %}" {% if index|add:"0" == 1 %}hidden {% endif %}>
+          <img src="{% static 'images/last.png' %}" alt="上一頁">
+        </a>
+      </div>
+
+      <div class="col-3 col-md-6"></div>
+     
+      <div class="col-3 col-md-2 m-1">
+        <a href="{% url 'next_question' index %}" {% if index|add:"0" == totalQuestions %}hidden {% endif %}>
+          <img src="{% static 'images/next.png' %}" alt="下一頁">
+        </a>
+
+        <a href="#" onclick="checkAnswers()" id="send" {% if is_all_selected == False %} hidden {% endif %} >
+          <img src="{% static 'images/send.png' %}" alt="送出">
+        </a>
+      </div>
+
     </div>
   </div>
 </div>
+
 {% endblock content %}
 
 {% block extraScript %}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script type="text/javascript">
   window.CSRF_TOKEN = "{{ csrf_token }}";
   let questionNumber = {{ index|add:'-1' }};
@@ -172,3 +144,11 @@
 </script>
 <script src="/static/scripts/video_qa.js"></script>
 {% endblock extraScript %}
+{% comment %} {% for answer in user_answer%}
+        <option value="{{ forloop.counter }}" id="question{{forloop.counter}}">
+            第{{ forloop.counter }}題： 
+            {%if answer != -1%} {{ answer|add:"1" }}
+            {% else %} 尚未選擇
+            {% endif %}
+        </option>
+        {% endfor%} {% endcomment %}
