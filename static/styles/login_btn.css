@@ -13,6 +13,10 @@ button {
     display: grid;
     position: relative;
     grid-area: 2 / 2 / 3 / 3;
+
+    /* grid-template-columns: 0 0 auto; */
+    grid-template-columns: 0 0 minmax(8rem, max-content); 
+    grid-template-rows: 0 0 minmax(0.14395816rem, max-content) minmax(4.24097531rem, max-content) minmax(0.14457968rem, max-content) minmax(0.14395816rem, max-content)
 }
 
 #iwVh9YKw4tLvAAJe {
@@ -75,6 +79,10 @@ button {
 }
 
 #E8MjioGfW0Kbw3FR {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: absolute;
     top: 0px;
     left: 0px;
@@ -140,5 +148,5 @@ button {
 
 #r3kWDB6Dx1sUK3WL {
     text-decoration-line: none;
-    color: #000000;
+    color: white;
 }

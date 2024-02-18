@@ -1,8 +1,19 @@
-
 {% extends 'main.html' %}
 {% load static %}
 {% block extra_head %}
   <link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}" />
+  <style type="text/css">
+    #FRDMgBfEabFpa8j0,
+    #pkQFB6cuNBUPUI08,
+    #JghIhZihVGaC0XTK,
+    #iRa64bwNqVg1Bzo2,
+    #SpCjDD909SU1uO6F,
+    #RfqPjSM2Lw115p4U {
+      filter: url(#pixelate);
+      transform: scale(1) translate(0, 0);
+      /* need transform to avoid disappearing on safari */
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
