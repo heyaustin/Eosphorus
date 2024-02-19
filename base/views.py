@@ -76,8 +76,8 @@ def pop_login_suc(request):
 
 def login_page(request):
     # 假如用戶已經登入了，就把他送回主頁
-    # if request.user.is_authenticated:
-    #     return redirect("chatroom_home")
+    if request.user.is_authenticated:
+        return redirect("home_page")
 
     # context中參數告訴template要渲染登入頁面
     context = {
