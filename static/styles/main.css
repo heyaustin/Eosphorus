@@ -38,6 +38,11 @@ img {
     width: 100%;
 }
 
+.developing {
+    z-index: 2;
+    max-width: 500px;
+}
+
 .form-inline {
     appearance: none;
     -webkit-appearance: none;

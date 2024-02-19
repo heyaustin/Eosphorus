@@ -91,6 +91,8 @@ INSTALLED_APPS = [
 
     "base.apps.BaseConfig",
 
+    "revproxy",
+    
     # line bot
     "linebotapp.apps.LinebotappConfig",
 

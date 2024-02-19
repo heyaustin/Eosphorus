@@ -395,8 +395,8 @@ def about_game(request):
     return render(request, "base/about_game.html")
 
 
-def highlights(request):
-    return render(request, "base/highlights.html")
+def form(request):
+    return render(request, "base/form.html")
 
 
 def contact_us(request):
@@ -616,6 +616,9 @@ def video_result(request):
 
 def rpg(request):
     return render(request, "base/rpg.html")
+
+def developing(request):
+    return render(request, "base/developing.html")
 
 @login_required(login_url="login_page")
 def mbtiqa(request):

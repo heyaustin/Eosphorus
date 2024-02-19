@@ -1,5 +1,7 @@
 from django.urls import path, include
 from . import views
+from revproxy.views import ProxyView
+from django.urls import re_path
 
 urlpatterns = [
     # video_qa
@@ -15,6 +17,9 @@ urlpatterns = [
 
     # rpg
     path('rpg/', views.rpg, name="rpg"),
+
+    # developing
+    path('developing/', views.developing, name="developing"),
 
 
     # 帳號登入系統
@@ -52,6 +57,6 @@ urlpatterns = [
     # navbar
     path("about_us/", views.about_us, name="about_us"),
     path("about_game/", views.about_game, name="about_game"),
-    path("highlights/", views.highlights, name="highlights"),
+    re_path("form/(?P<path>.*)$", ProxyView.as_view(upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
     path("contact_us/", views.contact_us, name="contact_us"),
 ]
