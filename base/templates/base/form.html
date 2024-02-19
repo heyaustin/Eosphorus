@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container mb-5 mt-5">
+    <div class="home-wrapper">
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <p>
+              👾 線下活動：遠船夢想號 x 台大AI社入社介紹活動 <br />
+              我們將抽出✨ #千元大獎 + 直接 #入社打八折 ✨的活動~ <br />
+              📅 時間：2月26日晚上 19:00~21:00 <br />
+              💻 地點：國立台灣大學學新館 Space M教室 (當天也會同步進行直播活動) <br />
+              🔗 <a href="/ntuai_gform">點我立即報名</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extraScript %}
+
+{% endblock %}

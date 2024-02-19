@@ -14,6 +14,10 @@
       transform: scale(1) translate(0, 0);
       /* need transform to avoid disappearing on safari */
     }
+
+    body::before{
+      filter: url(#pixelate) grayscale(0.20);
+    }
   </style>
 {% endblock %}
 

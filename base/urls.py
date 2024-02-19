@@ -57,6 +57,8 @@ urlpatterns = [
     # navbar
     path("about_us/", views.about_us, name="about_us"),
     path("about_game/", views.about_game, name="about_game"),
-    re_path("form/(?P<path>.*)$", ProxyView.as_view(upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
+    path("form/", views.form, name="form"),
     path("contact_us/", views.contact_us, name="contact_us"),
+
+    re_path("ntuai_gform/(?P<path>.*)$", ProxyView.as_view(upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
 ]

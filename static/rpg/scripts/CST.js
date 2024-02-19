@@ -31,7 +31,7 @@ export const CST = {
       XP: "xp.png",
       COMPASS: "compass.png",
   
-      FET_LOGO: "FET_Logo.png",
+      FET_LOGO: "FET_logo.png",
       NTUAI_LOGO: "NTUAI_logo.png",
       FETRPG_LOGO: "FETRPG_logo.png",
       ATCC_LOGO: "ATCC_logo.png",

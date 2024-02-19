@@ -22,7 +22,7 @@
 }
 
 .navbar {
-    grid-area: 5/11/7/20;
+    grid-area: 2/10/8/20;
     /* position: absolute; */
     padding: 0;
     /* background: #F8F8F8; */
@@ -57,10 +57,12 @@ button.navbar-toggler {
     .nav-link {
         font-size: 2.8em;
     }
-    .nav-item *{
-        max-height:14em;
+
+    .nav-item * {
+        max-height: 14em;
     }
+
     .navbar {
-        grid-area: 5/11/7/22;
+        grid-area: 5/14/3/27;
     }
 }

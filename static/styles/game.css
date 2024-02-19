@@ -32,6 +32,10 @@
     left: 0
 }
 
+#ycCR2uiUwlsIIxKc>img {
+    height: 100%;
+}
+
 #LHVjXRLDaF39LZ0j,
 #RfqPjSM2Lw115p4U,
 #Tdf8V98CCohMCq3Y,
@@ -174,8 +178,9 @@ img {
     display: grid;
     position: relative;
     grid-area: 3/3/4/5;
-    grid-template-columns: 0 0.52272642rem 22.83915341rem 0;
-    grid-template-rows: 0 minmax(3.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content)
+    grid-template-columns: 0 0.52272642rem 35rem 0;
+    /* grid-template-columns: 0 0.52272642rem 22.83915341rem 0; */
+    grid-template-rows: 0 minmax(3.38840709rem, max-content) minmax(7.05372087rem, max-content) minmax(0.42475949rem, max-content)
         /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
 }
 
@@ -199,8 +204,9 @@ img {
 
 #FRwYPMPiLw6wgTen {
     z-index: 30;
+    margin-left: 4em;
     width: max-content;
-    grid-area: 5/23/6/26;
+    grid-area: 5/28/6/24;
     position: relative;
 
     display: flex;
@@ -305,6 +311,7 @@ img {
     /* position: relative; */
     grid-area: 1/2/2/3;
 
+    /* grid-template-rows: 5fr 1.91832207fr 0 0.15857611fr 4.38493347fr 0.28853784fr 0 2.66154884fr 5.11279234fr 2.81585744fr 0.20089897fr 3.86497263fr 2.1574029fr 0.22825489fr 0.64054474fr 3.0034552fr 1.96193182fr 1.95034208fr 0.30106862fr 2.0005846fr 0.44503465fr 1.6773008fr 0.65226016fr 0.2421608fr 11.42081263fr 5.54100695fr 2.59394702fr; */
     grid-template-rows: 0 minmax(1.91832207rem, max-content) 0 minmax(0.15857611rem, max-content) minmax(4.38493347rem, max-content) minmax(0.28853784rem, max-content) 0 minmax(2.66154884rem, max-content) minmax(5.11279234rem, max-content) minmax(2.81585744rem, max-content) minmax(0.20089897rem, max-content) minmax(3.86497263rem, max-content) minmax(2.1574029rem, max-content) minmax(0.22825489rem, max-content) minmax(0.64054474rem, max-content) minmax(3.0034552rem, max-content) minmax(1.96193182rem, max-content) minmax(1.95034208rem, max-content) minmax(0.30106862rem, max-content) minmax(2.0005846rem, max-content) minmax(0.44503465rem, max-content) minmax(1.6773008rem, max-content) minmax(0.65226016rem, max-content) minmax(0.2421608rem, max-content) minmax(11.42081263rem, max-content) minmax(5.54100695rem, max-content) minmax(2.59394702rem, max-content);
     grid-template-columns: 3fr 12.27210019fr 11.08977964fr 0.5731938fr 0.68425059fr 3.61947663fr 9.06598713fr 0.70812574fr 2.29672107fr 6.63776315fr 5.74941609fr 1.66519956fr 1.94647891fr 0.05418819fr 14.03933826fr 0.77139368fr 3.32191225fr 0.76640215fr 5.34359874fr 2.816296fr 1.36057636fr 0.04566706fr 0.28186784fr 11.42122773fr 0.33685831fr 0.28186784fr 4.85031308fr;
     /* grid-template-columns: 0 10.27210019rem 9.08977964rem 0.5731938rem 0.68425059rem 3.61947663rem 9.06598713rem 0.70812574rem 2.29672107rem 6.63776315rem 5.74941609rem 1.66519956rem 1.94647891rem 0.05418819rem 14.03933826rem 0.77139368rem 3.32191225rem 0.76640215rem 5.34359874rem 2.816296rem 1.36057636rem 0.04566706rem 0.28186784rem 11.42122773rem 0.33685831rem 0.28186784rem 2.85031308rem; */
@@ -447,7 +454,7 @@ body {
     display: grid;
     /* position: relative; */
     /* grid-area: 2/2/4/5; */
-    grid-template-columns: 0 0 23.36187983rem 0;
+    /* grid-template-columns: 0 0 23.36187983rem 0; */
     grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content)
 }
 
@@ -465,7 +472,8 @@ body {
 }
 
 #dgVtZaC6JAGVk7Vx {
-    padding-top: 50.79594427%;
+    /* padding-top: 50.79594427%; */
+    height: 100%;
     transform: rotate(0)
 }
 
@@ -608,6 +616,10 @@ body {
 
 
 @media (max-width:641px) {
+    #JMfHKofK1ppfpwzT {
+        margin-top: unset;
+    }
+
     #rtjGsEShuN5tVuxP {
         grid-template-columns: 0 6.87405801rem 5.31498622rem 5.19113495rem;
     }
@@ -646,6 +658,7 @@ body {
     #JFXPCRKswhUmgAMr {
         margin-left: 2em;
         margin-right: 2em;
+        height: unset;
 
         display: grid;
         /* position: relative; */
@@ -653,7 +666,7 @@ body {
         /* grid-template-rows: 0 0 minmax(1.92415512rem, max-content) minmax(2.32053121rem, max-content) minmax(0.00225088rem, max-content) minmax(3.16111575rem, max-content) minmax(7.65977495rem, max-content) minmax(0.7979342rem, max-content) minmax(0.97479797rem, max-content) minmax(0.88195858rem, max-content) minmax(0.54588927rem, max-content) minmax(3.71739168rem, max-content) minmax(1.58428541rem, max-content) minmax(0.63105512rem, max-content) minmax(3.5806877rem, max-content) 0 minmax(2.02844376rem, max-content) minmax(3.46916417rem, max-content) minmax(0.90719536rem, max-content) minmax(4.14480778rem, max-content) minmax(5.21312384rem, max-content) minmax(1.44262876rem, max-content) minmax(1.04630094rem, max-content) minmax(0.95314855rem, max-content) minmax(0.84368776rem, max-content) minmax(3.22984021rem, max-content) minmax(2.31008791rem, max-content) minmax(2.8522907rem, max-content); */
         max-height: max(140rem, 100dvh);
         grid-template-columns: 0 0 0 0.5315048fr 4.86424988fr 1.26585347fr 0.94461203fr 2.65240936fr 0.02974498fr 0 1.58428541fr 0.15234398fr 1.28711094fr 6.97898981fr 0.39113638fr 1.59082296fr 0.23812047fr 0.45800486fr 0.07168029fr 2.24027891fr 0.43776513fr 0.73507171fr 0.31574077fr 1.28138644fr 1.517285fr 0.82710252fr 1.92262181fr 0;
-        grid-template-rows: 0 0 0 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 4.8522907fr;
+        grid-template-rows: 0 0 2fr 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 4.8522907fr;
     }
 
     #YLjYEM2XkC8TcwdN {
@@ -751,8 +764,7 @@ body {
 
     #FRwYPMPiLw6wgTen {
         width: max-content;
-        /* grid-area: 4 / 23 / 6 / 27; */
-        grid-area: 5 / 23 / 7 / 27;
+        grid-area: 5 / 20 / 7 / 27;
         position: relative
     }
 }
