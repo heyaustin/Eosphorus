@@ -2,7 +2,6 @@ import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.
 
 import { CST } from "../CST.js"
 import { FadeUtils } from "../FadeUtils.js"
-
 export class MainMenuScene extends Phaser.Scene {
   constructor() {
     super({
@@ -10,7 +9,7 @@ export class MainMenuScene extends Phaser.Scene {
     })
   }
 
-  init() {}
+  init() { }
 
   toCEO() {
     let a = this.sound.add(CST.AUDIO.TITLE_START, { volume: 1 })
@@ -28,7 +27,7 @@ export class MainMenuScene extends Phaser.Scene {
 
   create() {
     //console.log(`Starting to load from directory: ${this.load.path}`);
-    this.game.canvas.style.cursor = `url('assets/images/cursor1.png'), default`
+    this.game.canvas.style.cursor = `url('/static/rpg/images/cursor1.png'), default`
     //this.game.canvas.style.cursor = `url('assets/images/cursor1.png'), pointer`;
     //const sprite = this.add.sprite(400, 300, 'eye').setInteractive({ cursor: 'url(assets/images/cursor1.png), pointer' });
     // alert("test");
@@ -233,7 +232,7 @@ export class MainMenuScene extends Phaser.Scene {
       })
 
       // Enable dragging
-      this.input.on("drag", function(pointer, gameObject, dragX, dragY) {
+      this.input.on("drag", function (pointer, gameObject, dragX, dragY) {
         gameObject.x = dragX
       })
     })

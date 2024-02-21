@@ -1,6 +1,9 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block extra_head %}
+  <meta name="description" content="Eosphorus，希臘神話中的發光者之意，為黎明初升之星，因遠傳在電信領域中對 ESG 的貢獻如啓明星一般，希望將遠傳的形象已非傳統傳遞到每個年輕人的心中。" />
+  <meta name="keywords" content="Eosphorus,遠傳,遠傳夢想號,ATCC21,求職" />
+
   <link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}" />
   <style type="text/css">
     #FRDMgBfEabFpa8j0,
@@ -14,9 +17,9 @@
       transform: scale(1) translate(0, 0);
       /* need transform to avoid disappearing on safari */
     }
-
-    body::before{
-      filter: url(#pixelate) grayscale(0.20);
+    
+    body::before {
+      filter: url(#pixelate) grayscale(0.2);
     }
   </style>
 {% endblock %}

@@ -2,6 +2,7 @@ from django.urls import path, include
 from . import views
 from revproxy.views import ProxyView
 from django.urls import re_path
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     # video_qa
@@ -60,5 +61,7 @@ urlpatterns = [
     path("form/", views.form, name="form"),
     path("contact_us/", views.contact_us, name="contact_us"),
 
-    re_path("ntuai_gform/(?P<path>.*)$", ProxyView.as_view(upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
+    path("ntuai_gform/", views.ntuaigform, name="ntuai_gform"),
+    # re_path("ntuai_gform/(?P<path>.*)$", ProxyView.as_view(
+    #     upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
 ]

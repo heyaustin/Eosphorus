@@ -620,30 +620,42 @@ def rpg(request):
 def developing(request):
     return render(request, "base/developing.html")
 
+
+def ntuaigform(request):
+    return render(request, "base/iframe.html", {
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform"
+    })
+
+
 @login_required(login_url="login_page")
 def mbtiqa(request):
-    mbti_qa_len = len(mbti_qa.objects.all())
+    return render(request, "base/iframe.html", {
+        "url": "https://www.surveycake.com/s/KZayv"
+    })
 
-    if 'choose' not in request.session:
-        chooseNumber = [-1 for i in range(mbti_qa_len)]
-        chooseData = json.dumps(chooseNumber)
-        request.session['choose'] = chooseData
+# def mbtiqa(request):
+#     mbti_qa_len = len(mbti_qa.objects.all())
 
-    chooseNumber = json.loads(request.session.get('choose', '[]'))
-    context = {}
+#     if 'choose' not in request.session:
+#         chooseNumber = [-1 for i in range(mbti_qa_len)]
+#         chooseData = json.dumps(chooseNumber)
+#         request.session['choose'] = chooseData
 
-    questions = mbti_qa.objects.all()
-    for item in questions:
-        item.options = json.loads(item.options.replace("'", '"'))
-        item.choose = chooseNumber[int(item.pk)-1]
+#     chooseNumber = json.loads(request.session.get('choose', '[]'))
+#     context = {}
 
-    context = {
-        'questions': questions,
-        'totalQuestions': mbti_qa_len,
-        'choose': request.session['choose']
-    }
+#     questions = mbti_qa.objects.all()
+#     for item in questions:
+#         item.options = json.loads(item.options.replace("'", '"'))
+#         item.choose = chooseNumber[int(item.pk)-1]
 
-    return render(request, "base/mbti_qa.html", context)
+#     context = {
+#         'questions': questions,
+#         'totalQuestions': mbti_qa_len,
+#         'choose': request.session['choose']
+#     }
+
+#     return render(request, "base/mbti_qa.html", context)
 
 
 def mbti_result(request):

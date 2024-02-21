@@ -1,13 +1,12 @@
 import * as Phaser from 'https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.esm.js'
 
 import { CST } from "../CST.js"
-
 export class LoadingScene extends Phaser.Scene {
   constructor() {
     super({ key: CST.SCENE.LOAD })
   }
 
-  init() {}
+  init() { }
 
   loadImages() {
     this.load.setPath("../static/rpg/images")
@@ -24,6 +23,15 @@ export class LoadingScene extends Phaser.Scene {
     for (let prop in CST.AUDIO) {
       console.log(`Starting to load: ${this.load.path}${CST.AUDIO[prop]}`)
       this.load.audio(CST.AUDIO[prop], CST.AUDIO[prop])
+    }
+  }
+
+  loadChats() {
+    this.load.setPath("../static/rpg/chats")
+    console.log(`Starting to load from directory: ${this.load.path}`)
+    for (let chat in CST.CHAT) {
+      console.log(`Starting to load: ${this.load.path}${CST.CHAT[chat]}`)
+      this.load.json(CST.CHAT[chat], CST.CHAT[chat])
     }
   }
 
@@ -50,6 +58,7 @@ export class LoadingScene extends Phaser.Scene {
     //load images, audio, spritesheets
     this.loadImages()
     this.loadAudio()
+    this.loadChats()
 
     /*this.loadSprites({
             frameHeight: 32,
@@ -88,11 +97,11 @@ export class LoadingScene extends Phaser.Scene {
     //simulate large load
     for (let i = 0; i < 100; i++) {
       let uniqueKey = `placeholder_${i}`
-      this.load.image(uniqueKey, "room7_50.jpg")
+      this.load.image(uniqueKey, "hr_room.jpg")
     }
 
     this.load.on("complete", () => {
-      this.game.canvas.style.cursor = `url('assets/images/cursor1.png'), pointer`
+      this.game.canvas.style.cursor = `url('/static/rpg/images/cursor1.png'), pointer`
       this.scene.start(CST.SCENE.MENU)
     })
 

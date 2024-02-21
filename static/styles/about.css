@@ -20,7 +20,9 @@ body {
 }
 
 .demo_map{
+    object-fit: contain;
     max-width: 300px;
+    flex: 1;
 }
 
 .home-left {

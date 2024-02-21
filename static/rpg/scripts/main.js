@@ -23,5 +23,4 @@ const gameConfig = {
   }
 }
 
-console.log("start")
 const game = new Phaser.Game(gameConfig)
