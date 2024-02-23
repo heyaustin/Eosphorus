@@ -1,17 +1,21 @@
+html {
+    min-height: 100%;
+}
+
 body {
     background-image: url("../images/video_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: YAEihaFxr4g-0;
 }
 
-.main-content {
-    padding-left: 10vw;
+.main-content .row {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
-a>img {
-    max-width: 8em;
+.offcanvas{
+    max-width: 60% !important;
 }
 
 .send_image img {

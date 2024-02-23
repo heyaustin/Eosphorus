@@ -1,65 +1,75 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block extra_head %}
-  <meta name="description" content="Eosphorus，希臘神話中的發光者之意，為黎明初升之星，因遠傳在電信領域中對 ESG 的貢獻如啓明星一般，希望將遠傳的形象已非傳統傳遞到每個年輕人的心中。" />
+  <meta name="description"
+        content="Eosphorus，希臘神話中的發光者之意，為黎明初升之星，因遠傳在電信領域中對 ESG 的貢獻如啓明星一般，希望將遠傳的形象已非傳統傳遞到每個年輕人的心中。" />
   <meta name="keywords" content="Eosphorus,遠傳,遠傳夢想號,ATCC21,求職" />
-
-  <link rel="stylesheet" type="text/css" href="{% static 'styles/game.css' %}" />
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'styles/game.css' %}" />
   <style type="text/css">
-    #FRDMgBfEabFpa8j0,
-    #pkQFB6cuNBUPUI08,
-    #JghIhZihVGaC0XTK,
-    #iRa64bwNqVg1Bzo2,
-    #SpCjDD909SU1uO6F,
-    #RfqPjSM2Lw115p4U,
-    body::before {
-      filter: url(#pixelate);
-      transform: scale(1) translate(0, 0);
-      /* need transform to avoid disappearing on safari */
-    }
-    
-    body::before {
-      filter: url(#pixelate) grayscale(0.2);
-    }
+      #FRDMgBfEabFpa8j0,
+      #pkQFB6cuNBUPUI08,
+      #JghIhZihVGaC0XTK,
+      #iRa64bwNqVg1Bzo2,
+      #SpCjDD909SU1uO6F,
+      #RfqPjSM2Lw115p4U,
+      body::before {
+          filter: url(#pixelate);
+          transform: scale(1) translate(0, 0);
+          /* need transform to avoid disappearing on safari */
+      }
+
+      body::before {
+          filter: url(#pixelate) grayscale(0.2);
+      }
   </style>
 {% endblock %}
-
 {% block content %}
   {% comment %}
   {% if request.user.is_authenticated %}
     <p>hello {{ request.user }}~</p>
   {% endif %}
   {% endcomment %}
-  <div class="game_container">
-    {% include 'base/home_game.html' %}
-  </div>
+  <div class="game_container">{% include 'base/home_game.html' %}</div>
+  <audio src="{% static 'rpg/audio/select.mp3' %}" id="play_select"></audio>
 {% endblock %}
-
 {% block extraScript %}
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://kit.fontawesome.com/00e5774e18.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/00e5774e18.js"
+          crossorigin="anonymous"></script>
   <script>
-    function pop_login() {
-      Swal.fire({
-        title: '帳號登入',
-        icon: 'info',
-        html: `{% include "base/pop_login.html" %}`,
-        showConfirmButton: false,
-        focusConfirm: false,
-        preConfirm: () => {}
-      })
-    }
+      function pop_login() {
+          Swal.fire({
+              title: '帳號登入',
+              icon: 'info',
+              html: `{% include "base/pop_login.html" %}`,
+              showConfirmButton: false,
+              focusConfirm: false,
+              preConfirm: () => {}
+          })
+      }
+
+      function play_select() {
+          var play_select = document.getElementById('play_select');
+          if (play_select.paused) {
+              play_select.play();
+          } else {
+              play_select.pause();
+              play_select.currentTime = 0
+          }
+      }
   </script>
   {% if messages %}
     <script>
-      Swal.fire({
-        title: '注意',
-        icon: 'info',
-        html: `{% include "base/messages.html" %}`,
-        showConfirmButton: false,
-        focusConfirm: false,
-        preConfirm: () => {}
-      })
+        Swal.fire({
+            title: '注意',
+            icon: 'info',
+            html: `{% include "base/messages.html" %}`,
+            showConfirmButton: false,
+            focusConfirm: false,
+            preConfirm: () => {}
+        })
     </script>
   {% endif %}
 {% endblock %}

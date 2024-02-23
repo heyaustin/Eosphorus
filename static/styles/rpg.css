@@ -1,0 +1,54 @@
+html,
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #000;
+    /* Black background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.version-text {
+    color: #fff;
+    /* White color for visibility */
+    font-size: 1em;
+    /* Adjust size as needed */
+    margin-top: 5px;
+    /* Space between the title and version text */
+}
+
+h1 {
+    color: #fff;
+    /* White color for visibility */
+    margin: 0;
+    padding-top: 10px;
+    /* Padding at the top */
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+canvas {
+    min-width: 350px;
+    width: 100%;
+}
+
+.rpg_container {
+    max-width: 100%;
+    gap: 2em;
+    overflow-y: auto;
+}

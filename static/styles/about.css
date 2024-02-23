@@ -19,6 +19,18 @@ body {
     flex: 3;
 }
 
+.minw300 {
+    min-width: 300px !important;
+}
+
+.minw100{
+    min-width: 100px !important;
+}
+
+.flex4{
+   flex: 4 !important;
+}
+
 .demo_map{
     object-fit: contain;
     max-width: 300px;

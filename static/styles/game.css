@@ -9,6 +9,17 @@
     transform: scale(1.1);
 }
 
+#LHVjXRLDaF39LZ0j,
+#demo_magnifier,
+#wdxLIpnQaDdw0wJD,
+#RfqPjSM2Lw115p4U,
+#pointer,
+#A1Y6FRG2oHBPxYxM,
+#x2QxrbezqJuWyReL,
+#jrmY0jzpu7s8gKrq {
+    pointer-events: none;
+}
+
 
 #Au4CdFhjqReV6ROe,
 #D67XfYA4yeEaMagW,
@@ -153,9 +164,8 @@ img {
     position: relative
 }
 
-#iqCd2BYpUV9Tpuve,
 #wx56Y2QiY1yQC3Bo {
-    font-size: calc(4.94533002em - var(--ffsd))
+    font-size: 3em
 }
 
 #ph2lGMKMWstMPQdJ {
@@ -177,10 +187,12 @@ img {
 #RF2JsJH7GzDO9ngh {
     display: grid;
     position: relative;
+    height: 7em;
+
     grid-area: 3/3/4/5;
-    grid-template-columns: 0 0.52272642rem 35rem 0;
+    grid-template-columns: 0 0.52272642rem 23rem 0;
     /* grid-template-columns: 0 0.52272642rem 22.83915341rem 0; */
-    grid-template-rows: 0 minmax(3.38840709rem, max-content) minmax(7.05372087rem, max-content) minmax(0.42475949rem, max-content)
+    grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr
         /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
 }
 
@@ -204,10 +216,9 @@ img {
 
 #FRwYPMPiLw6wgTen {
     z-index: 30;
-    margin-left: 4em;
     width: max-content;
-    grid-area: 5/28/6/24;
-    position: relative;
+    /* grid-area: 5/28/6/24; */
+    /* position: relative; */
 
     display: flex;
     align-items: center;
@@ -447,15 +458,15 @@ body {
 
 #JMfHKofK1ppfpwzT {
     z-index: 28;
-    position: absolute;
-    margin-top: -3em;
+    /* position: absolute; */
+    /* margin-top: -3em; */
     /* left: 1em; */
 
     display: grid;
     /* position: relative; */
     /* grid-area: 2/2/4/5; */
     /* grid-template-columns: 0 0 23.36187983rem 0; */
-    grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content)
+    /* grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content) */
 }
 
 #iaqPqJzffKM9Hogu {
@@ -615,7 +626,17 @@ body {
 }
 
 
-@media (max-width:641px) {
+@media (max-width:768px) {
+    /* max-width:641px */
+    #RF2JsJH7GzDO9ngh {
+        grid-template-columns: 0 0.52272642rem 26rem 0;
+        height: 8em;
+    }
+
+    #wx56Y2QiY1yQC3Bo {
+        font-size: 3.8em;
+    }
+
     #JMfHKofK1ppfpwzT {
         margin-top: unset;
     }
@@ -639,15 +660,6 @@ body {
     .form-control,
     .loginbtn_wrap * {
         font-size: unset;
-    }
-
-    .nav-link,
-    #YcK8BaVu8IwAIlkI {
-        font-size: 2.5em;
-    }
-
-    .navbar {
-        grid-area: 5/11/7/21;
     }
 
     #UsayTbTeR2PPMHHj {

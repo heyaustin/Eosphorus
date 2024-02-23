@@ -1,3 +1,12 @@
+.nav_home {
+    height: max-content;
+    display: flex;
+    /* max-width: 700px; */
+    width: 100%;
+    gap:2em;
+    grid-area: 2/7/1/5;
+}
+
 .nav-item {
     display: grid;
     place-items: center;
@@ -19,6 +28,11 @@
     color: black !important;
     font-family: YAEihaFxr4g-0;
     font-size: 1.8em;
+}
+
+.nav-link,
+#YcK8BaVu8IwAIlkI {
+    white-space: nowrap;
 }
 
 .navbar {
@@ -53,7 +67,7 @@ button.navbar-toggler {
     box-shadow: none;
 }
 
-@media (max-width:641px) {
+@media (max-width:768px) {
     .nav-link {
         font-size: 2.8em;
     }
@@ -63,6 +77,11 @@ button.navbar-toggler {
     }
 
     .navbar {
-        grid-area: 5/14/3/27;
+        grid-area: 5/9/3/23;
+    }
+
+    .nav-link,
+    #YcK8BaVu8IwAIlkI {
+        font-size: 2.5em;
     }
 }

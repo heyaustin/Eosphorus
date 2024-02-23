@@ -2,47 +2,21 @@
 {% load static %}
 
 {% block extra_head %}
-  <style>
-    html,
-    body {
-      margin: 0;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      background: #000; /* Black background */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-    .container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    h1 {
-      color: #fff; /* White color for visibility */
-      margin: 0;
-      padding-top: 10px; /* Padding at the top */
-      width: 100%;
-      text-align: center;
-    }
-    .version-text {
-      color: #fff; /* White color for visibility */
-      font-size: 1em; /* Adjust size as needed */
-      margin-top: 5px; /* Space between the title and version text */
-    }
-  </style>
+  <link rel="stylesheet" href="{% static 'styles/rpg.css' %}" />
 {% endblock %}
 
 {% block content %}
-  <div class="container" id="game-container">
-    <!-- Game title -->
-    <h1>FET RPG</h1>
-    <!-- Version text -->
-    <p class="version-text">Alpha v. 1.0</p>
-    <!-- Your game's canvas or additional content goes here -->
+  <div class="rpg_container row flex-wrap mt-3">
+    <div class="tran_btn22">
+      <a href="{% url 'home_page' %}"><img src="{% static 'images/back.png' %}" alt="回首頁" /></a>
+    </div>
+    <div class="col" id="game-container">
+      <!-- Game title -->
+      <h1>FET RPG</h1>
+      <!-- Version text -->
+      <p class="version-text">Alpha v. 1.0</p>
+      <!-- Your game's canvas or additional content goes here -->
+    </div>
   </div>
 {% endblock %}
 

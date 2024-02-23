@@ -64,6 +64,16 @@ img {
     border: 0;
 }
 
+.tran_btn22 {
+    width: 22% !important;
+    max-width: 10em !important;
+}
+
+.tran_btn30 {
+    width: 30% !important;
+    max-width: 10em !important;
+}
+
 .register_wrap {
     flex-direction: column;
     align-items: center;

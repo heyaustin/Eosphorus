@@ -1,40 +1,60 @@
 {% extends 'main.html' %}
 {% load static %}
-
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'styles/about.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
 {% endblock %}
-
 {% block content %}
   <div class="container mb-5 mt-5">
     <div class="home-wrapper">
-      <div class="btn-left">
+      <div class="btn-left minw100">
         <div class="group">
           <a class="btn button btn-info" href="{% url 'home_page' %}"><span>回首頁</span></a>
         </div>
       </div>
-
-      <div class="vid-center">
+      <div class="vid-center minw300">
         <div class="home-center-wrapper">
           <div class="container">
-            <div style="max-width: 600px">
+            <div style="max-width: 300px">
+              <div style="position: relative; padding-bottom: 177.78%;">
+                <iframe style="position: absolute;
+                               top: 0;
+                               left: 0;
+                               width: 100%;
+                               height: 100%"
+                        src="{% static 'videos/game_intro_vert.mp4' %}"
+                        title="intro"
+                        allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vid-center minw300 flex4">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div style="max-width: 700px">
               <div style="position: relative; padding-bottom: 56.25%;">
-                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%" src="{% static 'videos/intro.mp4' %}" title="intro" allowfullscreen></iframe>
+                <iframe style="position: absolute;
+                               top: 0;
+                               left: 0;
+                               width: 100%;
+                               height: 100%"
+                        src="{% static 'videos/game_intro_hori.mp4' %}"
+                        title="intro"
+                        allowfullscreen></iframe>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="home-wrapper">
       <div class="home-left">
         <div class="group">
           <h3>遊玩指南</h3>
         </div>
       </div>
-
       <div class="home-center">
         <div class="home-center-wrapper">
           <div class="container">
@@ -54,14 +74,12 @@
         </div>
       </div>
     </div>
-
     <div class="home-wrapper">
       <div class="home-left">
         <div class="group">
           <h3>各項遊戲遊玩方式、設計理念與未來設計展望</h3>
         </div>
       </div>
-
       <div class="home-center">
         <div class="home-center-wrapper">
           <div class="container">
@@ -75,7 +93,6 @@
         </div>
       </div>
     </div>
-
     <div class="home-wrapper">
       <div class="home-center">
         <div class="home-center-wrapper">
@@ -110,26 +127,28 @@
             <div class="row align-items-center">
               <h4>重磅遊戲：RPG體驗</h4>
               <b>「船艙 - RPG角色扮演」：</b>
-              <p>這是一個介面用phaser.js開發的2D角色扮演遊戲，目前先以 AI 計算的圖檔進行設計，未來將更貼合，以【遠傳敏捷開放式辦公室】為背景設計。實作階段會先設計成單人遊戲，玩家可與預設好回應內容的遠傳虛擬主管互動對話，未來可增加多人模式，讓玩家扮演的角色可彼此互動。</p>
+              <p>
+                這是一個介面用phaser.js開發的2D角色扮演遊戲，目前先以 AI 計算的圖檔進行設計，未來將更貼合，以【遠傳敏捷開放式辦公室】為背景設計。實作階段會先設計成單人遊戲，玩家可與預設好回應內容的遠傳虛擬主管互動對話，未來可增加多人模式，讓玩家扮演的角色可彼此互動。
+              </p>
               <p>互動方式：上下左右或WASD可以前後左右移動，空白鍵可以按下一句話，偶爾會出現對話框讓玩家的互動性更高，未來有機會將會設計成更貼近對話框的形式進行互動。</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="home-wrapper">
       <div class="home-left">
         <div class="group">
           <h3>遊戲設計與開發者的話</h3>
         </div>
       </div>
-
       <div class="home-center">
         <div class="home-center-wrapper">
           <div class="container">
             <div class="row align-items-center">
-              <p>設計這款遊戲的目的，除了宣傳遠傳工作價值外，我們也希望此遊戲可幫助玩家了解電信業不同部門員工的日常工作內容，以及正確的價值觀、工作文化、業務策略等。透過完成日常工作任務、處理辦公室內的挑戰來模擬實際的職場樣態，協助青年了解職涯探索的關卡，雖然遊玩時間與狀態與現實畢竟還有一些距離，不過未來我們會繼續精進。</p>
+              <p>
+                設計這款遊戲的目的，除了宣傳遠傳工作價值外，我們也希望此遊戲可幫助玩家了解電信業不同部門員工的日常工作內容，以及正確的價值觀、工作文化、業務策略等。透過完成日常工作任務、處理辦公室內的挑戰來模擬實際的職場樣態，協助青年了解職涯探索的關卡，雖然遊玩時間與狀態與現實畢竟還有一些距離，不過未來我們會繼續精進。
+              </p>
               <p>希望各位踴躍填寫回饋表單，您的支持是我們精進遊戲的最大動力！</p>
             </div>
           </div>
@@ -142,10 +161,38 @@
           <div class="container">
             <div class="row align-items-center">
               <p>
-                遊戲機制設計：Eosphorus 團隊全員<br />
-                開發者：哈斯、陳哲堯、王家宏、(還有一個我不知道誰)、台大 AI 社<br />
-                美術：林玳君、哈斯、(和誰？)<br />
-                部分影片提供與製作：遠傳官方 YT、黃蘭榛
+                遊戲機制設計：Eosphorus團隊全員（哈斯、陳哲堯、王家宏、林玳君、黃冠豪）
+                <br />
+                開發者：哈斯、陳哲堯、王家宏、台大 AI 社
+                <br />
+                美術：林玳君、哈斯、陳哲堯
+                <br />
+                部分影片提供與製作：遠傳官方YT、黃蘭榛
+                <br />
+                行銷與團隊接洽：黃冠豪、林玳君
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              <p>
+                合作社團：台大人工智慧社、海大創客康輔
+                <br />
+                合作企業：opt歐趴糖
+                <br />
+                指導老師:
+                <br />
+                （1）海洋康輔社社團老師 魯子賢
+                <br />
+                （2）歐趴糖執行長 蘇子恩
+                <br />
+                （3）臺灣科技大學助理教授 陳錦瑜
+                <br />
+                （4）台大創創學程兼任副教授 孫憶明
               </p>
             </div>
           </div>
