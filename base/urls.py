@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     # video_qa
     path("video_qa/<str:index>/", views.videoqa, name="video_qa"),
+    path("video_qa_book/", views.videoqabook, name="video_qa_book"),
     path('next/<str:index>', views.next_question, name='next_question'),
     path('previous/<str:index>', views.previous_question, name='previous_question'),
     path('video_result/', views.video_result, name="video_result"),

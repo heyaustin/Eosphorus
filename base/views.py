@@ -547,34 +547,37 @@ def previous_question(request, index):
     return redirect('video_qa', index)
 
 
-@login_required(login_url="login_page")
-@require_POST
 def save_selection(request):
-    data = json.loads(request.body)
-    selected_option = data.get('selectedOption')
-    user = get_object_or_404(User, id=request.user.id)
-    
-    # 獲取目前所有選項的列表，更新當前問題的選項
-    select = json.loads(user.video_qa_selected)
+    try:    
+        data = json.loads(request.body)
+        selected_option = data.get('selectedOption')
+        questionNumber = data.get('questionNumber')
+        if questionNumber is None:
+                raise ValueError("Question number is missing or not an integer.")
+        questionNumber = int(questionNumber)
 
-    current_question_number = (user.video_qa_index)-1
-    # if current_question_number is None:
-    #     current_question_number = data.get('questionId')  # mbti_qa
 
-    # 更新當前問題的選項
-    if 0 <= current_question_number < len(select):
-        select[current_question_number] = int(selected_option)
-        
-    # 保存更新到資料庫
-    user.video_qa_selected=json.dumps(select)
-    
-    
-    #資料庫的保存
-    user.save(update_fields=['video_qa_selected'])
-    
-    # 保存到
-    response = JsonResponse({'status': 'success'})
-    return response
+        user = get_object_or_404(User, id=request.user.id)
+
+        # 獲取目前所有選項的列表，更新當前問題的選項
+        select = json.loads(user.video_qa_selected)
+
+        # 更新當前問題的選項
+        if 0 <= questionNumber < len(select):
+            select[questionNumber] = int(selected_option)
+
+        # 保存更新到資料庫
+        user.video_qa_selected=json.dumps(select)
+
+
+        #資料庫的保存
+        user.save(update_fields=['video_qa_selected'])
+
+        # 保存到
+        response = JsonResponse({'status': 'success'})
+        return response
+    except (ValueError, TypeError, json.JSONDecodeError) as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
 
 @login_required(login_url="login_page")
@@ -633,29 +636,47 @@ def mbtiqa(request):
         "url": "https://www.surveycake.com/s/KZayv"
     })
 
-# def mbtiqa(request):
-#     mbti_qa_len = len(mbti_qa.objects.all())
+@login_required(login_url="login_page")
+def videoqabook(request):
+    video_qa_len = len(video_qa.objects.all())
+    user = get_object_or_404(User, id=request.user.id)
+    # 帳號的資料未寫入，初始化
+    if user.video_qa_selected==" ":
+        select=[-1 for i in range(video_qa_len)]
+        selected_data = json.dumps(select)
+        user.video_qa_selected=selected_data
+        user.save(update_fields=['video_qa_selected','video_qa_index'])
+    #資料曾寫入過
+    else:
+        selected_data=user.video_qa_selected
+        select=json.loads(selected_data)
+        selected_data= json.dumps(select)
+        user.save(update_fields=['video_qa_selected','video_qa_index'])
+    
+    allSelect=True
+    for i in range(video_qa_len):
+        if select[i]==-1:
+            allSelect=False
+            break
+        
+    context = {}
+    
 
-#     if 'choose' not in request.session:
-#         chooseNumber = [-1 for i in range(mbti_qa_len)]
-#         chooseData = json.dumps(chooseNumber)
-#         request.session['choose'] = chooseData
+    questions=video_qa.objects.all()
+    
+    for question in questions:
+        question.options=json.loads(question.options.replace("'", '"'))
+    
+    context = {
+        'questions': questions,
+        'total_question_number': video_qa_len,
+        'normal_index':user.video_qa_index,
+    }
+    context["user_answer"] = json.loads(user.video_qa_selected)
+    context["is_all_selected"]=allSelect
+    context["all_select"]=select
+    return render(request, "base/video_qa_book.html", context)
 
-#     chooseNumber = json.loads(request.session.get('choose', '[]'))
-#     context = {}
-
-#     questions = mbti_qa.objects.all()
-#     for item in questions:
-#         item.options = json.loads(item.options.replace("'", '"'))
-#         item.choose = chooseNumber[int(item.pk)-1]
-
-#     context = {
-#         'questions': questions,
-#         'totalQuestions': mbti_qa_len,
-#         'choose': request.session['choose']
-#     }
-
-#     return render(request, "base/mbti_qa.html", context)
 
 
 def mbti_result(request):

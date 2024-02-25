@@ -7,6 +7,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    width: 100%;
 }
 
 tbody {
@@ -22,6 +23,58 @@ tbody tr {
 }
 
 table {
-    height: 100%;
     max-width: 800px !important;
+}
+.table-responsive-vertical {
+    max-height: 46vh; /* 適用於大螢幕 */
+    overflow-y: auto;
+  }
+@media (min-width: 768px) {
+    .result_img{
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        max-width: 10%;
+        height: auto;
+    }
+    .bacK_img{
+        position: absolute;
+        bottom: 8%;
+        right: 2%;
+        max-width: 11%;
+        height: auto;
+    }
+    .title_text div {
+        font-size: 1.3em; /* 手機版時縮小的正文字體大小 */
+    }
+    .exercise{
+        margin-top:30vh;
+    }
+}
+@media (max-width: 767px) {
+    .result_img {
+        display: block;
+        height: auto; /* 可以根據需要調整高度 */
+        width: 35vw;
+        margin: 0 auto;
+        transform: translateX(30vw);
+    }
+    .bacK_img {
+        display: block;
+        height: auto; /* 可以根據需要調整高度 */
+        width: 35vw;
+        margin: 0 auto;
+    }
+    .title_text{
+        font-size: 20%;
+        margin-top: 2vh;
+    }
+
+    .title_text h2 {
+        font-size: 7.5em; /* 手機版時縮小的標題字體大小 */
+    }
+
+    .title_text div {
+        font-size: 4em; /* 手機版時縮小的正文字體大小 */
+    }
 }

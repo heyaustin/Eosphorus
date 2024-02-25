@@ -32,7 +32,7 @@ function sendSelection(optionIndex, button) {
             // the HEADER key should be X-CSRFToken as for Django 2.1, links goes here https://docs.djangoproject.com/en/2.1/ref/csrf/
         },
         credentials: "same-origin",
-        body: JSON.stringify({ selectedOption: optionIndex })
+        body: JSON.stringify({ selectedOption: optionIndex, questionNumber: questionNumber })
     })
         .then(response => response.json())
         .then(data => console.log(data))
