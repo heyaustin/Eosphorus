@@ -16,7 +16,8 @@
 #pointer,
 #A1Y6FRG2oHBPxYxM,
 #x2QxrbezqJuWyReL,
-#jrmY0jzpu7s8gKrq {
+#jrmY0jzpu7s8gKrq,
+#NjJ8MR7DnPxljEIA {
     pointer-events: none;
 }
 
@@ -165,7 +166,7 @@ img {
 }
 
 #wx56Y2QiY1yQC3Bo {
-    font-size: 3em
+    font-size: 4em;
 }
 
 #ph2lGMKMWstMPQdJ {
@@ -187,10 +188,10 @@ img {
 #RF2JsJH7GzDO9ngh {
     display: grid;
     position: relative;
-    height: 7em;
+    height: 9em;
 
     grid-area: 3/3/4/5;
-    grid-template-columns: 0 0.52272642rem 23rem 0;
+    grid-template-columns: 0 0.52272642rem 27rem 0;
     /* grid-template-columns: 0 0.52272642rem 22.83915341rem 0; */
     grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr
         /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
@@ -628,14 +629,6 @@ body {
 
 @media (max-width:768px) {
     /* max-width:641px */
-    #RF2JsJH7GzDO9ngh {
-        grid-template-columns: 0 0.52272642rem 26rem 0;
-        height: 8em;
-    }
-
-    #wx56Y2QiY1yQC3Bo {
-        font-size: 3.8em;
-    }
 
     #JMfHKofK1ppfpwzT {
         margin-top: unset;
@@ -670,7 +663,6 @@ body {
     #JFXPCRKswhUmgAMr {
         margin-left: 2em;
         margin-right: 2em;
-        height: unset;
 
         display: grid;
         /* position: relative; */

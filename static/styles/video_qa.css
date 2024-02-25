@@ -9,6 +9,10 @@ body {
     background-position: center;
 }
 
+.swal2-popup .swal2-styled:focus {
+    box-shadow: none !important;
+}
+
 .main-content .row {
     margin-left: auto !important;
     margin-right: auto !important;

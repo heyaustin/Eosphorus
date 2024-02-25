@@ -21,6 +21,17 @@
 {% endblock %}
 
 {% block extraScript %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    Swal.fire({
+        title: 'RPG遊玩方式',
+        icon: 'info',
+        html: '<p style="font-size:1.5em">目前本RPG遊戲只支援電腦版喔！</p><p style="font-size:1.5em">按Enter鍵後在對話框問答</p>',
+        showConfirmButton: false,
+        focusConfirm: false,
+        preConfirm: () => {}
+    })
+    </script>
   {% comment %}https://phaser.discourse.group/t/how-to-import-phaser-correctly-in-html/9642/10{% endcomment %}
   {% comment %} <script src="https://unpkg.com/es-module-shims@1.7.3/dist/es-module-shims.js"></script> {% endcomment %}
   <script type="module" src="{% static 'rpg/scripts/main.js' %}"></script>

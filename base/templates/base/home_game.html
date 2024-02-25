@@ -30,20 +30,23 @@
             </div>
           </div>
         </div>
-        {% include "navbar.html" %}
-        {% if request.user.is_authenticated %}
-          <a id="FRwYPMPiLw6wgTen" href="{% url 'logout_user' %}" onclick="play_select()">
-            {# prettier-ignore-start #}
-            {% include "base/login_btn.html" with text="登出" %}
-            {# prettier-ignore-end #}
-          </a>
-        {% else %}
-          <button id="FRwYPMPiLw6wgTen" onclick="pop_login();play_select();">
-            {# prettier-ignore-start #}
-            {% include "base/login_btn.html" with text="登入" %}
-            {# prettier-ignore-end #}
-          </button>
-        {% endif %}
+        <div class="nav_right_btn">
+          {% include "navbar.html" %}
+          {% if request.user.is_authenticated %}
+            <a id="FRwYPMPiLw6wgTen"
+               href="{% url 'logout_user' %}">
+              {# prettier-ignore-start #}
+              {% include "base/login_btn.html" with text="登出" %}
+              {# prettier-ignore-end #}
+            </a>
+          {% else %}
+            <button id="FRwYPMPiLw6wgTen" onclick="pop_login();play_select();">
+              {# prettier-ignore-start #}
+              {% include "base/login_btn.html" with text="登入" %}
+              {# prettier-ignore-end #}
+            </button>
+          {% endif %}
+        </div>
         {% comment %} <a id="FRwYPMPiLw6wgTen" href="{% provider_login_url 'line' %}">
             {% include "base/login_btn.html" with text="Line登入" %}
         </a>
@@ -59,7 +62,9 @@
                 <div id="j3ZcqVjuXs7uKfZE">
                   <div id="w4IxIHpmvb5fHaxf">
                     <div id="Ma9yOGF8qfSXFvDh">
-                      <img class="island" src="{% static 'images/login/island.svg' %}" alt="Flat Map Skills Island " />
+                      <img class="island"
+                           src="{% static 'images/login/island.svg' %}"
+                           alt="Flat Map Skills Island " />
                     </div>
                   </div>
                 </div>
@@ -92,7 +97,9 @@
                 <div id="gkEW5J1yUxjC0CHr">
                   <div id="LuizRGsUz2FAVju8">
                     <div id="eRvQGh2amFQzxr6d">
-                      <img class="island" src="{% static 'images/login/island2.svg' %}" alt="Flat Map Skills Island " />
+                      <img class="island"
+                           src="{% static 'images/login/island2.svg' %}"
+                           alt="Flat Map Skills Island " />
                     </div>
                   </div>
                 </div>
@@ -105,7 +112,8 @@
                 <div id="yYe4pN9uVcBS8qau">
                   <div id="wJ4HggUmq76b5jHf">
                     <div id="ZpEhCx7m6MR2LEH1">
-                      <img src="{% static 'images/login/gesture.svg' %}" alt="Volunteer Care Line Icon. Hospice Service Sign." />
+                      <img src="{% static 'images/login/gesture.svg' %}"
+                           alt="Volunteer Care Line Icon. Hospice Service Sign." />
                     </div>
                   </div>
                 </div>
@@ -120,7 +128,8 @@
             <div id="lUMKLx7mmUOAQEns">
               <div id="Hzccl1tkj8exSEzE">
                 <div id="srwUtBkjIZRwbEgf">
-                  <img src="{% static 'images/login/curve.svg' %}" alt="Dash broken line arrow doodle hand-drawn" />
+                  <img src="{% static 'images/login/curve.svg' %}"
+                       alt="Dash broken line arrow doodle hand-drawn" />
                 </div>
               </div>
             </div>
@@ -133,7 +142,8 @@
             <div id="SW9wMgtRrSBrK2m8">
               <div id="B4rofQpI48gXVRX6">
                 <div id="WWhg4l1fJqbQT1DI">
-                  <img src="{% static 'images/login/boat.svg' %}" alt="Chinese Boat with Red Sails Icon Isolated" />
+                  <img src="{% static 'images/login/boat.svg' %}"
+                       alt="Chinese Boat with Red Sails Icon Isolated" />
                 </div>
               </div>
             </div>
@@ -146,7 +156,8 @@
             <div id="BhFeYaGPjipPVLSj">
               <div id="BXTY3HgIEV5oy98n">
                 <div id="dnw9fi0DKZD9D6Up">
-                  <img src="{% static 'images/login/curve.svg' %}" alt="Dash broken line arrow doodle hand-drawn" />
+                  <img src="{% static 'images/login/curve.svg' %}"
+                       alt="Dash broken line arrow doodle hand-drawn" />
                 </div>
               </div>
             </div>
@@ -162,7 +173,8 @@
             <div id="hhmzsA0OBBjVfaRG">
               <div id="okdkoJtB4XZSVXOW">
                 <div id="x9BeXauC8xYvTnt7">
-                  <img src="{% static 'images/login/curve.svg' %}" alt="Dash broken line arrow doodle hand-drawn" />
+                  <img src="{% static 'images/login/curve.svg' %}"
+                       alt="Dash broken line arrow doodle hand-drawn" />
                 </div>
               </div>
             </div>
@@ -171,13 +183,18 @@
       </div>
       <div id="dhjrUYNjpiZolM2s">
         <div id="Jw9fauGZITo7JWrp">
-          <a id="JghIhZihVGaC0XTK" href="{% url 'mbti_qa' %}">
+          <a id="JghIhZihVGaC0XTK"
+             href="https://www.surveycake.com/s/KZayv"
+             target="_blank"
+             rel="noopener noreferrer">
             <div id="rtsheB8kXAsuhVZx">
               <div id="r5Mwk6Kjhh1HOIkY">
                 <div id="Dz91exIBSExa5Co6">
                   <div id="ElqJr4wFqmCMUboB">
                     <div id="jb8Sc1KhJSCkybgI">
-                      <img class="island" src="{% static 'images/login/island3.svg' %}" alt="Flat Map Skills Island " />
+                      <img class="island"
+                           src="{% static 'images/login/island3.svg' %}"
+                           alt="Flat Map Skills Island " />
                     </div>
                   </div>
                 </div>
@@ -190,7 +207,8 @@
                 <div id="myosGZiultEL7sfc">
                   <div id="lFJjMNjrfHTo1VMU">
                     <div id="xHe8HmZjmnEDgDEK">
-                      <img src="{% static 'images/login/flag.svg' %}" alt="Deadline, finish, flag, stop point icon" />
+                      <img src="{% static 'images/login/flag.svg' %}"
+                           alt="Deadline, finish, flag, stop point icon" />
                     </div>
                   </div>
                 </div>
@@ -205,7 +223,8 @@
             <div id="YnXPr79m6gbqvlNp">
               <div id="KK2sm6Rc0H7AFgdc">
                 <div id="oZD87ggkmP3wdfN1">
-                  <img src="{% static 'images/login/curve.svg' %}" alt="Dash broken line arrow doodle hand-drawn" />
+                  <img src="{% static 'images/login/curve.svg' %}"
+                       alt="Dash broken line arrow doodle hand-drawn" />
                 </div>
               </div>
             </div>
@@ -220,7 +239,9 @@
                 <div id="sVwjiyLQ3tGX5aA0">
                   <div id="kIURLRsQJ1fq0gOr">
                     <div id="XbYkVlAvnT4S9jYY">
-                      <img class="island" src="{% static 'images/login/island4.svg' %}" alt="Flat Map Skills Island " />
+                      <img class="island"
+                           src="{% static 'images/login/island4.svg' %}"
+                           alt="Flat Map Skills Island " />
                     </div>
                   </div>
                 </div>
@@ -245,6 +266,5 @@
     </div>
   </section>
 </div>
-
 {% block extraScript %}
 {% endblock extraScript %}

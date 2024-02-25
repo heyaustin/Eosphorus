@@ -1,0 +1,27 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    background-image: url("/static/images/vresult_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+tbody {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+}
+
+table {
+    height: 100%;
+    max-width: 800px !important;
+}

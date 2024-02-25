@@ -2,30 +2,18 @@
 {% load static %}
 {% load myfilters %}
 {% block extra_head %}
-  <style>
-      html {
-          min-height: 100%;
-      }
-
-      body {
-          background-image: url("/static/images/vresult_bg.png");
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center center;
-      }
-  </style>
-  <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/vd_result.css' %}" />
   <script src="https://kit.fontawesome.com/00e5774e18.js"
           crossorigin="anonymous"></script>
 {% endblock %}
 {% block content %}
-  <div class="container mb-5">
-    <div class="row justify-content-center align-items-center">
+  <div class="d-flex container flex-column pb-5" style="height:100dvh">
+    <div class="d-flex justify-content-center align-items-center">
       <div class="col-auto">
-        <img src="{% static 'images/result.png' %}" alt="圖片不存在" class="img-fluid">
+        <img src="{% static 'images/result.png' %}" alt="測試結果" class="img-fluid">
       </div>
     </div>
-    <div class="row justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center flex-column" style="height:100%">
       <div class="col-md-auto mt-3">
         {% if percentage >= 60 %}
           <h2 class="text-success">完成率：{{ score }}／130</h2>
@@ -49,9 +37,9 @@
         </thead>
         <tbody>
           {% for i in video_qa_range %}
-            <tr {% if isCorrect|get_item:forloop.counter0 == True %} class="table-success" {% else %} class="table-danger" {% endif %}>
-              <th scope="row">{{ i|add:"1" }}</th>
-              <td>
+            <tr {% if isCorrect|get_item:forloop.counter0 == True %} class="table-light" {% else %} class="table-danger" {% endif %}>
+              <th scope="row" class="col-1">{{ i|add:"1" }}</th>
+              <td class="col-1">
                 {% if isCorrect|get_item:forloop.counter0 == True %}
                   <i class="fa-solid fa-square-check" style="color: #00ff00;"></i>
                 {% else %}
@@ -59,8 +47,8 @@
                 {% endif %}
                 {{ selectData|get_item:forloop.counter0|add:"1" }}
               </td>
-              <td>{{ correctAnswer|get_item:forloop.counter0|add:"1" }}</td>
-              <td>
+              <td class="col-1">{{ correctAnswer|get_item:forloop.counter0|add:"1" }}</td>
+              <td class="col-9">
                 {% if isCorrect|get_item:forloop.counter0 == True %}
                   回答正確
                 {% else %}
@@ -71,7 +59,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <div class="col-auto">
+      <div class="col-auto" style="margin-left:auto">
         <a href="{% url 'home_page' %}">
           <img src="{% static 'images/back.png' %}" alt="圖片不存在" class="img-fluid">
         </a>

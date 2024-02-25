@@ -52,7 +52,15 @@ function checkAnswers() {
             allAnswered = false;
             Swal.fire({
                 title: "第" + String(i + 1) + "題未作答",
-                icon: "error"
+                icon: "error",
+                imageHeight: 156,
+                imageWidth: 173,
+                imageAlt: "A tall image",
+                confirmButtonText: '<img src="/static/images/send_success.png" alt="Confirm">',
+                confirmButtonColor: 'transparent',
+                customClass: {
+                    confirmButton: 'confirm_button'
+                }
             });
             break;
         }
