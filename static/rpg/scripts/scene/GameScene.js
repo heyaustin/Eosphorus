@@ -311,7 +311,7 @@ export class GameScene extends Phaser.Scene {
                 this.ensureInput(
                     "（玩家選擇職業目標）：(1) 開創新的項目團隊、(2) 成為專業領域的專家、(3) 在舊有領導職位一路高升"
                   ) + ""
-                break
+                break0
               case 15: // job description
                 this.contents =
                 this.ensureInput(
@@ -376,7 +376,7 @@ export class GameScene extends Phaser.Scene {
           this.age +
           "\n學校: " +
           this.school +
-          "科系: " +
+          "\n科系: " +
           this.major +
           "\n專業技能: " +
           this.skills +
