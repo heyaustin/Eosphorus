@@ -340,9 +340,41 @@ export class GameScene extends Phaser.Scene {
           "\n工作內容: " +
           this.contents +
           "\n申請動機: " +
-          this.motivation
-        )
+          this.motivation 
+        );
+
+        const data = {
+          name: this.name,
+          age: this.age,
+          school: this.school,
+          major: this.major,
+          skills: this.skills,
+          goals: this.goals,
+          contents: this.contents,
+          motivation: this.motivation
+      };
+  
+      const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  
+      fetch('/save_rpg_data/', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken
+          },
+          body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success:', data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      })
+
+
         this.activeMessage++
+
       }
     })
   }

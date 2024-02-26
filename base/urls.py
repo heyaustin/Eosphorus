@@ -19,6 +19,8 @@ urlpatterns = [
 
     # rpg
     path('rpg/', views.rpg, name="rpg"),
+    path('save_rpg_data/',views.save_rpg_data,name="save_rpg_data"),
+
 
     # developing
     path('developing/', views.developing, name="developing"),

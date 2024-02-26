@@ -620,6 +620,15 @@ def video_result(request):
 def rpg(request):
     return render(request, "base/rpg.html")
 
+def save_rpg_data(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user_data=User.objects.filter(id=request.user.id)
+        user_data.update(name=data["name"],age=data["age"],school=data["school"],major=data["major"],skills=data["skills"],goals=data["goals"],contents=data["contents"],motivation=data["motivation"])
+
+        # Process data
+        return JsonResponse({'status': 'success'})
+
 def developing(request):
     return render(request, "base/developing.html")
 

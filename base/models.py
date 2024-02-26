@@ -107,7 +107,16 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     video_qa_index = models.IntegerField(default=1)
     video_qa_selected = models.TextField(default=" ")
-
+    
+    name=models.TextField(default=" ")
+    age = models.IntegerField(default=-1)
+    school=models.TextField(default=" ")
+    major=models.TextField(default=" ")
+    skills=models.TextField(default=" ")
+    goals=models.TextField(default=" ")
+    contents=models.TextField(default=" ")
+    motivation=models.TextField(default=" ")
+    
     objects = CustomUserManager()
 
     # 採取 email 作為用戶身分驗證方式
