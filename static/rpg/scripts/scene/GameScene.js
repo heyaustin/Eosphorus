@@ -12,25 +12,25 @@ export class GameScene extends Phaser.Scene {
   changingScene = false
 
   constructor() {
-    super({ key: CST.SCENE.GAME });
-    this.activeRoom = CST.LEVEL.HR;
-    this.xp = 0;
-    this.level = 1;
-    this.activeMessage = 0;
-    this.enterFlag = true;
-    this.spaceFlag = true;
-    this.complete = false;
-    this.quit = false;
+    super({ key: CST.SCENE.GAME })
+    this.activeRoom = CST.LEVEL.HR
+    this.xp = 0
+    this.level = 1
+    this.activeMessage = 0
+    this.enterFlag = true
+    this.spaceFlag = true
+    this.complete = false
+    this.quit = false
 
-    this.name = "";
-    this.age = "";
-    this.school = "";
-    this.grade = "";
-    this.skills = "";
-    this.major = "";
-    this.goals = "";
-    this.contents = "";
-    this.motivation = "";
+    this.name = ""
+    this.age = ""
+    this.school = ""
+    this.grade = ""
+    this.skills = ""
+    this.major = ""
+    this.goals = ""
+    this.contents = ""
+    this.motivation = ""
   }
 
   preload() { } // this method isn't needed since the loading scene handles it
@@ -100,7 +100,7 @@ export class GameScene extends Phaser.Scene {
       .sprite(250, 450, CST.IMAGE.PLAYER_SPRITE)
       .setScale(0.25)
 
-    this.game.canvas.style.cursor = `url('static/rpg/images/cursor1.png'), default`
+    this.game.canvas.style.cursor = `url('/static/rpg/images/cursor1.png'), default`
 
     // character (temp, need to preload images once character sprite sheet is ready)
 
@@ -158,16 +158,20 @@ export class GameScene extends Phaser.Scene {
       .setDepth(0)
       .setScale(0.2)
 
-    this.downArrow = this.add.image(300, 500, CST.IMAGE.DOWN_ARROW).setDepth(0).setScale(0.2);
+    this.downArrow = this.add
+      .image(300, 500, CST.IMAGE.DOWN_ARROW)
+      .setDepth(0)
+      .setScale(0.2)
     this.tweens.add({
       targets: this.downArrow,
-      alpha: 0,               // Target transparency
-      ease: 'Linear',        // Linear easing for a smooth transition
-      duration: 1000,        // Duration of fade
-      repeat: -1,            // Repeat indefinitely
-      yoyo: true,            // Go back to the original state (visible)
-    });
-    this.downArrow.setVisible(false);
+      alpha: 0, // Target transparency
+      ease: "Linear", // Linear easing for a smooth transition
+      duration: 1000, // Duration of fade
+      repeat: -1, // Repeat indefinitely
+      yoyo: true // Go back to the original state (visible)
+    })
+    this.downArrow.setVisible(false)
+
     /*console.log("testing ... ");
 
     if (!("Notification" in window)) {
@@ -183,11 +187,11 @@ export class GameScene extends Phaser.Scene {
       delay: 2000, // Delay in milliseconds (3000ms = 3 seconds)
       callback: () => {
         // Call your specific function here
-        this.messageBox.addMessage("按 ↵Enter", "系統");
-    },
+        this.messageBox.addMessage("按 ↵Enter", "系統")
+      },
       callbackScope: this, // The scope in which to call the function
       loop: true // Set to true to call the function repeatedly
-    });
+    })
     this.chatSystem()
   }
 
@@ -209,12 +213,12 @@ export class GameScene extends Phaser.Scene {
   }
 
   ensureInput(a) {
-    let userInput;  
+    let userInput
     do {
-      userInput = prompt(a);
-    } while (userInput === null || userInput.trim() === "");
+      userInput = prompt(a)
+    } while (userInput === null || userInput.trim() === "")
 
-    return userInput;
+    return userInput
   }
 
   chatSystem() {
@@ -242,8 +246,8 @@ export class GameScene extends Phaser.Scene {
     });*/
 
     this.input.keyboard.on("keydown-ENTER", () => {
-      this.enterEvent.remove();
-      this.enterFlag = false;
+      this.enterEvent.remove()
+      this.enterFlag = false
       if (
         (this.activeRoom == CST.LEVEL.CEO &&
           this.activeMessage < ceoChat.length) ||
@@ -273,10 +277,10 @@ export class GameScene extends Phaser.Scene {
             )
             switch (this.activeMessage) {
               case 3: // name
-                this.name = this.ensureInput("我的名字是...");
+                this.name = this.ensureInput("我的名字是...")
                 break
               case 5: // age
-                this.age = this.ensureInput("我的年齡是...");
+                this.age = this.ensureInput("我的年齡是...")
                 break
               case 7: // school
                 this.school = this.ensureInput("我的學校是...") + ""
@@ -302,25 +306,25 @@ export class GameScene extends Phaser.Scene {
                 break
               case 11: // professional skills
                 this.skills =
-                this.ensureInput(
+                  this.ensureInput(
                     "（選擇題，選擇專業技能：行銷與客戶關係管理、(1)人力資源、(2)財務、(3)專案管理、(4)資訊工程（包括前端開發、後端開發、網通技術)、(5)業務、(6)其他營運）"
                   ) + ""
                 break
               case 13: // professional goals
                 this.goals =
-                this.ensureInput(
+                  this.ensureInput(
                     "（玩家選擇職業目標）：(1) 開創新的項目團隊、(2) 成為專業領域的專家、(3) 在舊有領導職位一路高升"
                   ) + ""
-                break0
+                break
               case 15: // job description
                 this.contents =
-                this.ensureInput(
+                  this.ensureInput(
                     "以下職場工作內容你最在意哪三個呢？ (輸入兩個代碼: 如【1、2、4】\n(1) 錢和福利、(2) 升遷管道、(3) 工作上的挑戰與成長、(4) work - life balance、(5) 培訓與教育訓練、(6) 公司氛圍與文化"
                   ) + ""
                 break
               case 17: // application motivation
                 this.motivation =
-                this.ensureInput(
+                  this.ensureInput(
                     "根據你的認知你是以下哪兩個原因想加入遠傳呢？ (輸入兩個代碼: 如【1、2】)\n(1) 敏捷辦公室很漂亮、(2) 很多好福利、(3) 工作上的挑戰與創新鼓勵、(4) 可以遠距上班、(5) 培訓與教育訓練多、(6) 公司氛圍與文化感覺不錯、(7)注重 ESG、(8)其他"
                   ) + ""
                 break
@@ -385,11 +389,28 @@ export class GameScene extends Phaser.Scene {
           "\n工作內容: " +
           this.contents +
           "\n申請動機: " +
-          this.motivation 
-        );
+          this.motivation
+        )
+        console.log("INFORMATION")
+        console.log(
+          "人資：以下為你的個人帳號資訊\n\n名字: " +
+          this.name +
+          "\n年齡: " +
+          this.age +
+          "\n學校: " +
+          this.school +
+          "\n科系: " +
+          this.major +
+          "\n專業技能: " +
+          this.skills +
+          "\n 職業目標: " +
+          this.goals +
+          "\n工作內容: " +
+          this.contents +
+          "\n申請動機: " +
+          this.motivation
+        )
 
-        console.log("INFORMATION");
-        console.log("人資：以下為你的個人帳號資訊\n\n名字: " + this.name + "\n年齡: " + this.age + "\n學校: " + this.school + "\n科系: " + this.major + "\n專業技能: " + this.skills +"\n\ 職業目標: " + this.goals + "\n工作內容: " + this.contents + "\n申請動機: " + this.motivation);
         const data = {
           name: this.name,
           age: this.age,
@@ -399,58 +420,69 @@ export class GameScene extends Phaser.Scene {
           goals: this.goals,
           contents: this.contents,
           motivation: this.motivation
-      };
-  
-      const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-  
-      fetch('/save_rpg_data/', {
+        };
+
+        //added for saving data to the server
+        const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch('/save_rpg_data/', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': csrftoken
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
           },
           body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log('Success:', data);
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-      })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Success:', data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          })
+        ////////////////////////
 
+        this.activeMessage++
+        this.downArrow.setVisible(true)
+        this.complete = true
+      } else if (
+        this.activeRoom == CST.LEVEL.INFORMATION &&
+        this.activeMessage == engineeringChat.length
+      ) {
+        this.activeMessage++
+        this.downArrow.setVisible(true)
+        this.complete = true
+      } else if (
+        this.activeRoom == CST.LEVEL.MARKETING &&
+        this.activeMessage == marketingChat.length
+      ) {
+        this.activeMessage++
+        this.downArrow.setVisible(true)
+        this.complete = true
+      } else if (
+        this.activeRoom == CST.LEVEL.CEO &&
+        this.activeMessage == ceoChat.length
+      ) {
+        alert("Game complete")
+        let a = this.sound.add(CST.AUDIO.TITLE_START, { volume: 1 })
+        this.sound.stopAll()
+        a.play()
 
-        this.activeMessage++;
-        this.downArrow.setVisible(true);
-        this.complete = true;
-      }
-      else if(this.activeRoom == CST.LEVEL.INFORMATION && this.activeMessage == engineeringChat.length) {
-        this.activeMessage++;
-        this.downArrow.setVisible(true);
-        this.complete = true;
-      }
-      else if(this.activeRoom == CST.LEVEL.MARKETING && this.activeMessage == marketingChat.length) {
-        this.activeMessage++;
-        this.downArrow.setVisible(true);
-        this.complete = true;
-      }
-      else if(this.activeRoom == CST.LEVEL.CEO && this.activeMessage == ceoChat.length) {
-        alert("Game complete");
-        let a = this.sound.add(CST.AUDIO.TITLE_START, {volume: 1});
-        this.sound.stopAll();
-        a.play();
-
-        const fadeDuration = 5000; // 1 second
+        const fadeDuration = 5000 // 1 second
 
         // Start fading to black. The color is specified in hex (0xRRGGBB). 0x000000 is black.
-        FadeUtils.fadeOut(this, 5000, (callback) => {
-            console.log("Game ending");
-            this.scene.start(CST.SCENE.MENU);
-        });
+        FadeUtils.fadeOut(this, 5000, callback => {
+          console.log("Game ending")
+          this.scene.start(CST.SCENE.MENU)
+        })
       }
     })
-    this.instructions = this.add.image(0, 0, CST.IMAGE.INSTRUCTIONS).setOrigin(0).setDepth(0);
-    this.instructions.setVisible(true);
+
+    this.instructions = this.add
+      .image(0, 0, CST.IMAGE.INSTRUCTIONS)
+      .setOrigin(0)
+      .setDepth(0)
+    this.instructions.setVisible(true)
   }
 
   leveling() {
@@ -470,9 +502,9 @@ export class GameScene extends Phaser.Scene {
   }
 
   setRoom(newRoom) {
-    if(newRoom >= 1 && newRoom <= 3) {
-      this.downArrow.setVisible(false);
-      this.downArrow.setVisible(false);
+    if (newRoom >= 1 && newRoom <= 3) {
+      this.downArrow.setVisible(false)
+      this.complete = false
     }
     this.activeRoom = newRoom
     this.activeMessage = 0
@@ -571,15 +603,15 @@ export class GameScene extends Phaser.Scene {
     this.handleKeyboard()
     //this.updateSpeechBubblePosition();
 
-    if(this.activeRoom >= 0 && this.activeRoom <= 2) {
-      if(this.player_sprite.y >= 500 && this.complete) {
+    if (this.activeRoom >= 0 && this.activeRoom <= 2) {
+      if (this.player_sprite.y >= 500 && this.complete) {
         //this.player_sprite.setInteractive(false);
-        this.activeRoom += 1;
-        this.setRoom(this.activeRoom);
-        if(this.activeRoom == 3) {
-          this.player_sprite.y = 700;
+        this.activeRoom += 1
+        this.setRoom(this.activeRoom)
+        if (this.activeRoom == 3) {
+          this.player_sprite.y = 700
         } else {
-          this.player_sprite.y = 100;
+          this.player_sprite.y = 100
         }
         //FadeUtils.fadeOut(this, 1000);
       }
@@ -590,9 +622,9 @@ export class GameScene extends Phaser.Scene {
     let speed = this.controls.isDown("shift") ? 250 : 150
 
     // space
-    if(this.controls.justDown('space')) {
-      console.log("space pressed");
-      this.instructions.setVisible(false);
+    if (this.controls.justDown("space")) {
+      console.log("space pressed")
+      this.instructions.setVisible(false)
     }
 
     // input 1
@@ -671,9 +703,10 @@ export class GameScene extends Phaser.Scene {
 
     // ESC input
     if (this.controls.isDown("esc")) {
-      if(this.quit == false) {
+      if (this.quit == false) {
         this.sound.stopAll()
         this.scene.start(CST.SCENE.MENU)
+        this.quit = true
       }
     }
 

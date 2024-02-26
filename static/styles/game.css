@@ -1,5 +1,16 @@
 /* @import url('./font-face.css'); */
 
+#pointer img,
+#flag img,
+#demo_magnifier img {
+    height: 100% !important;
+    width: auto !important;
+}
+
+#demo_magnifier{
+    z-index: 30 !important;
+}
+
 #FRDMgBfEabFpa8j0:hover,
 #pkQFB6cuNBUPUI08:hover,
 #JghIhZihVGaC0XTK:hover,
@@ -12,7 +23,7 @@
 #LHVjXRLDaF39LZ0j,
 #demo_magnifier,
 #wdxLIpnQaDdw0wJD,
-#RfqPjSM2Lw115p4U,
+#flag,
 #pointer,
 #A1Y6FRG2oHBPxYxM,
 #x2QxrbezqJuWyReL,
@@ -49,7 +60,7 @@
 }
 
 #LHVjXRLDaF39LZ0j,
-#RfqPjSM2Lw115p4U,
+#flag,
 #Tdf8V98CCohMCq3Y,
 #ZXdNgQftVi5mxsdq,
 #u9D1diezp4ukBx98,
@@ -592,7 +603,7 @@ body {
     z-index: 23
 }
 
-#RfqPjSM2Lw115p4U {
+#flag {
     z-index: 32
 }
 

@@ -7,6 +7,10 @@
     grid-area: 2/1/1/28;
 }
 
+#JMfHKofK1ppfpwzT {
+    margin-bottom: auto;
+}
+
 .nav-item {
     display: grid;
     place-items: center;
@@ -14,9 +18,18 @@
 }
 
 .navbar-nav {
+    justify-content: flex-end;
     /* overflow: hidden; */
     align-items: center;
-    max-height: 5em;
+    /* max-height: 5em; */
+    /* max-width: 100px; */
+}
+
+.nav-item {
+    background-image: url("../images/login/intro_btn.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .nav-item * {
@@ -42,12 +55,27 @@
     padding: 0;
 }
 
+button.navbar-toggler>p {
+    padding: 0.5rem;
+}
+
 button.navbar-toggler {
-    margin-bottom: 4px;
-    margin-top: 4px;
+    border: 0;
+    font-size: 2.8em;
+
+    background-image: url("../images/login/intro_btn.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* position: absolute; */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
 }
 
 .navbar>.container-fluid {
+    justify-content: flex-end;
     /* background: #edcc9a; */
     /* #664500 */
     z-index: 100;
@@ -55,16 +83,13 @@ button.navbar-toggler {
     padding-top: 7px; */
 }
 
-.navbar-toggler {
-    border: 0;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
 .nav_right_btn {
     display: flex;
+    /* align-items: flex-start; */
+}
+
+div.expand {
+    height: 0 !important;
 }
 
 @media (max-width:768px) {

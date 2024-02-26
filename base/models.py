@@ -96,10 +96,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     nickname = models.CharField(max_length=20, null=True)
     email = models.EmailField(unique=True)
     avatar = models.ImageField(null=True, default="avatar.png")
-    
+
     line_user_id = models.CharField(
         max_length=80, null=True, default='', blank=True)
-    is_google_login=models.BooleanField(default=False)
+    is_google_login = models.BooleanField(default=False)
 
     is_staff = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
@@ -107,16 +107,16 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     video_qa_index = models.IntegerField(default=1)
     video_qa_selected = models.TextField(default=" ")
-    
-    name=models.TextField(default=" ")
+
+    name = models.TextField(default=" ")
     age = models.IntegerField(default=-1)
-    school=models.TextField(default=" ")
-    major=models.TextField(default=" ")
-    skills=models.TextField(default=" ")
-    goals=models.TextField(default=" ")
-    contents=models.TextField(default=" ")
-    motivation=models.TextField(default=" ")
-    
+    school = models.TextField(default=" ")
+    major = models.TextField(default=" ")
+    skills = models.TextField(default=" ")
+    goals = models.TextField(default=" ")
+    contents = models.TextField(default=" ")
+    motivation = models.TextField(default=" ")
+
     objects = CustomUserManager()
 
     # 採取 email 作為用戶身分驗證方式

@@ -28,6 +28,19 @@ body {
     /* Space between the title and version text */
 }
 
+.swal2-confirm {
+    width: 40%;
+    /* 設置按鈕寬度 */
+    height: 90%;
+    /* 設置按鈕高度 */
+    font-size: 20px;
+    /* 可選，調整字體大小 */
+}
+
+.swal2-popup .swal2-styled:focus {
+    box-shadow: none !important;
+}
+
 h1 {
     color: #fff;
     /* White color for visibility */

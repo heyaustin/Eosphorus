@@ -1,181 +1,165 @@
 {% extends 'main.html' %}
 {% load static %}
-
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'styles/about.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/btn_eos.css' %}" />
 {% endblock %}
-
 {% block content %}
   <div class="container mb-5">
-      <div class="home-wrapper">
-        <div class="btn-left">
-          <div class="group">
-              <a class="btn button btn-info" href="{% url 'home_page' %}"><span>回首頁</span></a>
-          </div>
+    <div class="home-wrapper">
+      <div class="btn-left">
+        <div class="group">
+          <a class="btn button btn-info" href="{% url 'home_page' %}"><span>回首頁</span></a>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-                很高興今天能跟各位分享我們參與ATCC的心得，我們是今年ATCC競賽第21屆遠傳組前三名的組別。
-                <h4>(1)ATCC主辦方粉專</h4>
-                <a href="https://www.facebook.com/myatcc/?locale=zh_TW" target="_blank" rel="noopener noreferrer">https://www.facebook.com/myatcc/?locale=zh_TW</a>
-                <h4>(2)ATCC第21屆官網</h4>
-                <a href="https://atcc.co/" target="_blank" rel="noopener noreferrer">https://atcc.co/</a>
-              </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              很高興今天能跟各位分享我們參與ATCC的心得，我們是今年ATCC競賽第21屆遠傳組前三名的組別。
+              <h4>(1)ATCC主辦方粉專</h4>
+              <a href="https://www.facebook.com/myatcc/?locale=zh_TW"
+                 target="_blank"
+                 rel="noopener noreferrer">https://www.facebook.com/myatcc/?locale=zh_TW</a>
+              <h4>(2)ATCC第21屆官網</h4>
+              <a href="https://atcc.co/" target="_blank" rel="noopener noreferrer">https://atcc.co/</a>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>一、團隊介紹</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>一、團隊介紹</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-                <h4>團隊名稱Eosphorus</h4>
-                Eosphorus，希臘神話中的發光者之意，為黎明初升之星，意味團隊對自身之期許，以及有感於遠傳在電信領域中對 ESG 的貢獻如啓明星一般，代表企盼加入遠傳團隊，將ESG與遠傳的形象以非傳統而是更加數位化與 ai 的行銷切角，傳遞到每個年輕人的心中。 我們的團隊IG:<a href="https://www.instagram.com/atcc_eosphorus/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/atcc_eosphorus/</a>
-                </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              <h4>團隊名稱Eosphorus</h4>
+              Eosphorus，希臘神話中的發光者之意，為黎明初升之星，意味團隊對自身之期許，以及有感於遠傳在電信領域中對 ESG 的貢獻如啓明星一般，代表企盼加入遠傳團隊，將ESG與遠傳的形象以非傳統而是更加數位化與 ai 的行銷切角，傳遞到每個年輕人的心中。 我們的團隊IG:<a href="https://www.instagram.com/atcc_eosphorus/"
+   target="_blank"
+   rel="noopener noreferrer">https://www.instagram.com/atcc_eosphorus/</a>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>二、團隊組成詳細介紹</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>二、團隊組成詳細介紹</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-               
-                我們的團隊，全員來自台大AI社，擁有豐富的技術背景和多元的專業經驗，共同致力於透過創新技術解決商業挑戰。 NTUAI的粉專連結
-                <a href="https://www.facebook.com/NTUAIClub?locale=zh_TW" target="_blank" rel="noopener noreferrer">https://www.facebook.com/NTUAIClub?locale=zh_TW</a>
-
-                <h4>(一)成員介紹</h4>
-                <h5>Austin：</h5>
-                大一新生，對AI和深度學習充滿熱情。已完成台大的深度學習應用課程，並在成功大學FunAI營隊獲得優秀證書，即將擔任助教。具備豐富的網站開發經驗，包括使用tensorflow.js開發的sightpath.tw，該項目在三星Solve for Tomorrow競賽中獲得特優。Austin的技術背景和創新思維將為團隊提供強大的技術支持。
-
-                <h5>Demi：</h5>
-                台大會計系三年級學生，擁有豐富的專案和實習經驗。曾獲得辯論賽冠軍，積極參與行銷和ESG相關項目，包括成功開拓podcast管道和創業家教平台的行銷策略，並與研華科技合作完成ESG提案。Demi的商業洞察力和行銷能力將幫助我們有效地推廣我們的解決方案。
-
-                <h5>Stan：</h5>
-                台灣科技大學資訊工程學系二年級生，專注於網站後端開發。他曾帶領團隊開發提升英語學習效率的網站並在資訊專題獲得第一名，也參加了青年黑客松，開發旨在提高對貧窮問題認識的教育遊戲網站。Hong的後端開發技能和創新思維對於團隊的技術開發至關重要。
-
-                <h5>Francis：</h5>
-                主修財務金融並雙主修會計，輔修農業經濟學。不僅獲得多項獎學金，還積極參與社團活動和多項商業競賽，具有豐富的行銷經驗，包括利用LINE減少消費浪費的創新方案。Francis的多元背景和領導能力將為團隊帶來綜合的財務和行銷視角。
-
-                <h5>Seth：</h5>
-                來自美國，對亞洲文化和AI技術懷有深厚興趣，現為台大資工碩士生。他不僅創立了台大AI社團，還擔任Tokai公司執行長，展現出卓越的領導力和創業精神。Seth的國際視野和管理經驗將助力團隊在全球舞台上取得成功。
-
-                我們的團隊結合了AI、財務、行銷和領導力的多方面專長，致力於透過技術創新解決當代商業挑戰，希望在此次商業競賽中展現我們的能力與創意，為業界帶來新的啟示。
-            </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              我們的團隊，全員來自台大AI社，擁有豐富的技術背景和多元的專業經驗，共同致力於透過創新技術解決商業挑戰。 NTUAI的粉專連結
+              <a href="https://www.facebook.com/NTUAIClub?locale=zh_TW"
+                 target="_blank"
+                 rel="noopener noreferrer">https://www.facebook.com/NTUAIClub?locale=zh_TW</a>
+              <h4>(一)成員介紹</h4>
+              <h5>Austin：</h5>
+              大一新生，對AI和深度學習充滿熱情。已完成台大的深度學習應用課程，並在成功大學FunAI營隊擔任助教。具備豐富的網站開發經驗，包括使用tensorflow.js開發的sightpath.tw，該項目在三星Solve for Tomorrow競賽中獲得特優。Austin的技術背景和創新思維將為團隊提供強大的技術支持。
+              <h5>Demi：</h5>
+              台大會計系三年級學生，擁有豐富的專案和實習經驗。曾獲得辯論賽冠軍，積極參與行銷和ESG相關項目，包括成功開拓podcast管道和創業家教平台的行銷策略，並與研華科技合作完成ESG提案。Demi的商業洞察力和行銷能力將幫助我們有效地推廣我們的解決方案。
+              <h5>Stan：</h5>
+              台灣科技大學資訊工程學系二年級生，專注於網站後端開發。他曾帶領團隊開發提升英語學習效率的網站並在資訊專題獲得第一名，也參加了青年黑客松，開發旨在提高對貧窮問題認識的教育遊戲網站。Hong的後端開發技能和創新思維對於團隊的技術開發至關重要。
+              <h5>Francis：</h5>
+              主修財務金融並雙主修會計，輔修農業經濟學。不僅獲得多項獎學金，還積極參與社團活動和多項商業競賽，具有豐富的行銷經驗，包括利用LINE減少消費浪費的創新方案。Francis的多元背景和領導能力將為團隊帶來綜合的財務和行銷視角。
+              <h5>Seth：</h5>
+              來自美國，對亞洲文化和AI技術懷有深厚興趣，現為台大資工碩士生。他不僅創立了台大AI社團，還擔任Tokai公司執行長，展現出卓越的領導力和創業精神。Seth的國際視野和管理經驗將助力團隊在全球舞台上取得成功。
+              我們的團隊結合了AI、財務、行銷和領導力的多方面專長，致力於透過技術創新解決當代商業挑戰，希望在此次商業競賽中展現我們的能力與創意，為業界帶來新的啟示。
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>三、參與ATCC競賽</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>三、參與ATCC競賽</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-                在參與ATCC競賽時，我們遇到了以下的困難與問題
-                <h4>(一)參與千人CAMP</h4>
-                很我們一開始出賽能進入遠傳企業，在千人CAMP賽制中，遠傳會從35隊中選出15隊晉級。而在主題選擇中我們掙扎了很久。最後選擇我們自己寫網頁遊戲，將遊戲與行銷結合。當天用海報發表，很幸運的，我們成了保送團隊(當天會取三組成為保送團隊)。
-                <h4>(二)團隊溝通</h4>
-                由於團隊都是Francis牽線而成，彼此之間有點陌生。加上我們是由管院加上資工的背景所組成對於各自的領域很陌生，因此進度安排以及溝通產生了一定的障礙。加上資工系彼此後端前端熟悉的程式語言又不一樣，在程式組裝過程以及debug都花費極大的時間處理。最後經過多次的開會與討論漸漸成形。
-                <h4>(三)程式方面的困難</h4>
-                我們原先擅長的後端語言不同，因此Stan在初賽一開始先負責前端，之後學習使用python的Django，及遊戲介面用到的套件phaser.js。整個開發涉及網頁2D遊戲，但我們都不擅長美編遊戲素材，而AI生圖又不夠精確，最後決定外包給別人畫。有時還會遇到網頁介面跑掉和資料庫讀寫錯誤等的各種bug，需要利用像是二分搜註解的技巧解決。
-              </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              在參與ATCC競賽時，我們遇到了以下的困難與問題
+              <h4>(一)參與千人CAMP</h4>
+              很我們一開始出賽能進入遠傳企業，在千人CAMP賽制中，遠傳會從35隊中選出15隊晉級。而在主題選擇中我們掙扎了很久。最後選擇我們自己寫網頁遊戲，將遊戲與行銷結合。當天用海報發表，很幸運的，我們成了保送團隊(當天會取三組成為保送團隊)。
+              <h4>(二)團隊溝通</h4>
+              由於團隊都是Francis牽線而成，彼此之間有點陌生。加上我們是由管院加上資工的背景所組成對於各自的領域很陌生，因此進度安排以及溝通產生了一定的障礙。加上資工系彼此後端前端熟悉的程式語言又不一樣，在程式組裝過程以及debug都花費極大的時間處理。最後經過多次的開會與討論漸漸成形。
+              <h4>(三)程式方面的困難</h4>
+              我們原先擅長的後端語言不同，因此Stan在初賽一開始先負責前端，之後學習使用python的Django，及遊戲介面用到的套件phaser.js。整個開發涉及網頁2D遊戲，但我們都不擅長美編遊戲素材，而AI生圖又不夠精確，最後決定外包給別人畫。有時還會遇到網頁介面跑掉和資料庫讀寫錯誤等的各種bug，需要利用像是二分搜註解的技巧解決。
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>四、感謝對象</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>四、感謝對象</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-                <h4>(一)NTUAI</h4>
-                很感謝台大AI社的幫忙，由於我們程式開發完成後需要封測，需要找人試玩給予意見以及debug。台大AI社給予我們最好的後援，能在抓出錯誤後給予我們意見修正。
-                <h4>(二)OPT歐趴糖</h4>
-                我們很感謝歐趴糖的執行長，願意在假日寒流當天能陪我們見面聊天，給予莫大的幫助。也是我們團隊第一個接洽成功的大型企業。從IG宣傳、遊戲宣傳甚至連電子報都願意幫我們推播，我覺得我們能晉級。歐趴糖占了99%的功勞。
-                <h4>(三)子賢學長</h4>
-                子賢學長現在已經在大公司上班，有許多商賽的經驗。我真的沒想到子賢學長在上班非常勞累的情況下，回到家裡還要顧小孩，晚上還願意撥出時間跟我們開會，且每一次都給了我們很明確的方向，給予我們莫大的幫助。
-              </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              <h4>(一)NTUAI</h4>
+              很感謝台大AI社的幫忙，由於我們程式開發完成後需要封測，需要找人試玩給予意見以及debug。台大AI社給予我們最好的後援，能在抓出錯誤後給予我們意見修正。
+              <h4>(二)OPT歐趴糖</h4>
+              我們很感謝歐趴糖的執行長，願意在假日寒流當天能陪我們見面聊天，給予莫大的幫助。也是我們團隊第一個接洽成功的大型企業。從IG宣傳、遊戲宣傳甚至連電子報都願意幫我們推播，我覺得我們能晉級。歐趴糖占了99%的功勞。
+              <h4>(三)子賢學長</h4>
+              子賢學長現在已經在大公司上班，有許多商賽的經驗。我真的沒想到子賢學長在上班非常勞累的情況下，回到家裡還要顧小孩，晚上還願意撥出時間跟我們開會，且每一次都給了我們很明確的方向，給予我們莫大的幫助。
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>五、競賽收穫</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>五、競賽收穫</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">
-                參與ATCC競賽的過程中，我們經歷了從概念發想、團隊協作到實際執行的全過程，這對我們來說是一段寶貴的學習旅程。以下是我們從這次競賽中獲得的主要收穫：
-                <h4>(一)團隊協作與溝通的重要性：</h4>
-                我們學到了團隊成員間有效溝通的重要性。雖然起初由於背景差異和技術偏好的不同，我們在進度安排和溝通上遇到了一些挑戰，但透過持續的討論和互相學習，我們最終找到了彼此合作的最佳方式。
-                <h4>(二)資源整合與利用：</h4>
-                我們學會了如何尋求並利用外部資源，例如台大AI社的技術支持和歐趴糖的宣傳資源。這些資源的整合不僅幫助我們在技術上得到了大幅提升，也為我們的項目帶來了更廣泛的曝光。
-                <h4>(三)問題解決與創新思維：</h4>
-                在遇到各種技術難題和挑戰時，我們被迫思考創新的解決方案。從後端語言的學習到遊戲介面的設計，每一步都考驗著我們的問題解決能力和創新思維。
-                <h4>(四)商業實務的理解：</h4>
-                通過這次競賽，我們對於如何將技術應用於商業實務有了更深入的理解。從企劃書撰寫到產品開發，每一步都讓我們對商業運作有了更全面的認識。
-                <h4>(五)自我成長與信心建立：</h4>
-                最重要的是，這次競賽經歷讓我們在技術、溝通、團隊合作等多方面都有了顯著的成長，也為我們未來的學術和職業道路建立了信心。
-              </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              參與ATCC競賽的過程中，我們經歷了從概念發想、團隊協作到實際執行的全過程，這對我們來說是一段寶貴的學習旅程。以下是我們從這次競賽中獲得的主要收穫：
+              <h4>(一)團隊協作與溝通的重要性：</h4>
+              我們學到了團隊成員間有效溝通的重要性。雖然起初由於背景差異和技術偏好的不同，我們在進度安排和溝通上遇到了一些挑戰，但透過持續的討論和互相學習，我們最終找到了彼此合作的最佳方式。
+              <h4>(二)資源整合與利用：</h4>
+              我們學會了如何尋求並利用外部資源，例如台大AI社的技術支持和歐趴糖的宣傳資源。這些資源的整合不僅幫助我們在技術上得到了大幅提升，也為我們的項目帶來了更廣泛的曝光。
+              <h4>(三)問題解決與創新思維：</h4>
+              在遇到各種技術難題和挑戰時，我們被迫思考創新的解決方案。從後端語言的學習到遊戲介面的設計，每一步都考驗著我們的問題解決能力和創新思維。
+              <h4>(四)商業實務的理解：</h4>
+              通過這次競賽，我們對於如何將技術應用於商業實務有了更深入的理解。從企劃書撰寫到產品開發，每一步都讓我們對商業運作有了更全面的認識。
+              <h4>(五)自我成長與信心建立：</h4>
+              最重要的是，這次競賽經歷讓我們在技術、溝通、團隊合作等多方面都有了顯著的成長，也為我們未來的學術和職業道路建立了信心。
             </div>
           </div>
         </div>
       </div>
-
-      <div class="home-wrapper">
-        <div class="home-left">
-          <div class="group">
-            <h3>六、未來期許</h3>
-          </div>
+    </div>
+    <div class="home-wrapper">
+      <div class="home-left">
+        <div class="group">
+          <h3>六、未來期許</h3>
         </div>
-
-        <div class="home-center">
-          <div class="home-center-wrapper">
-            <div class="container">
-              <div class="row align-items-center">目前我們是遠傳企業組前三名，希望在3月初的決賽我們能在遠傳企業中取得第一並代表遠傳企業跟其他企業參與比賽，成為第21屆ATCC的總冠軍。</div>
-            </div>
+      </div>
+      <div class="home-center">
+        <div class="home-center-wrapper">
+          <div class="container">
+            <div class="row align-items-center">目前我們是遠傳企業組前三名，希望在3月初的決賽我們能在遠傳企業中取得第一並代表遠傳企業跟其他企業參與比賽，成為第21屆ATCC的總冠軍。</div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 {% endblock %}

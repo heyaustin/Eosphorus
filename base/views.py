@@ -28,6 +28,7 @@ from django.db.models import F
 5. class based views
 """
 
+
 def pop_login_suc(request):
     email = request.POST.get("email")
     password = request.POST.get("password")
@@ -402,6 +403,7 @@ def form(request):
 def contact_us(request):
     return render(request, "base/contact_us.html")
 
+
 def home_page(request):
     if request.user.is_authenticated:
         try:
@@ -411,9 +413,9 @@ def home_page(request):
             # Handle the case where the user doesn't exist
             video_index = 1
     else:
-        video_index=1
+        video_index = 1
 
-    context = {"page": "home","video_qa_index":str(video_index)}
+    context = {"page": "home", "video_qa_index": str(video_index)}
     if request.method == "POST":
         pop_login_suc(request)
         return redirect("home_page")
@@ -421,6 +423,8 @@ def home_page(request):
     return render(request, "base/home_page.html", context)
 
 # 用戶偏好設定
+
+
 def platform_config(request):
     return render(request, "base/platform_config.html")
 
@@ -484,52 +488,53 @@ def login_settings(request):
 
         # 如果既不是 Google 也不是 LINE 登入
         return HttpResponse("你不是使用google或line登入")
-    
+
     except Exception as e:
         print(e)
         return HttpResponse("登入過程中發生錯誤")
 
 
 @login_required(login_url="login_page")
-def videoqa(request,index):
+def videoqa(request, index):
     video_qa_len = len(video_qa.objects.all())
     user = get_object_or_404(User, id=request.user.id)
-    user.video_qa_index=int(index)
+    user.video_qa_index = int(index)
     # 帳號的資料未寫入，初始化
-    if user.video_qa_selected==" ":
-        select=[-1 for i in range(video_qa_len)]
+    if user.video_qa_selected == " ":
+        select = [-1 for i in range(video_qa_len)]
         selected_data = json.dumps(select)
-        user.video_qa_selected=selected_data
-        user.save(update_fields=['video_qa_selected','video_qa_index'])
-    #資料曾寫入過
+        user.video_qa_selected = selected_data
+        user.save(update_fields=['video_qa_selected', 'video_qa_index'])
+    # 資料曾寫入過
     else:
-        selected_data=user.video_qa_selected
-        select=json.loads(selected_data)
-        selected_data= json.dumps(select)
-        user.save(update_fields=['video_qa_selected','video_qa_index'])
-    
-    allSelect=True
+        selected_data = user.video_qa_selected
+        select = json.loads(selected_data)
+        selected_data = json.dumps(select)
+        user.save(update_fields=['video_qa_selected', 'video_qa_index'])
+
+    allSelect = True
     for i in range(video_qa_len):
-        if select[i]==-1:
-            allSelect=False
+        if select[i] == -1:
+            allSelect = False
             break
-        
+
     context = {}
-    
-    question_index=int(index)
+
+    question_index = int(index)
     question = video_qa.objects.get(id=question_index)
     question.options = json.loads(question.options.replace("'", '"'))
-    
+
     context = {
         'question': question,
         'index': index,
         'totalQuestions': video_qa_len
     }
-    context["select"] = int(json.loads(user.video_qa_selected)[question_index-1])
+    context["select"] = int(json.loads(
+        user.video_qa_selected)[question_index-1])
     context["user_answer"] = json.loads(user.video_qa_selected)
-    context["is_all_selected"]=allSelect
-    context["all_select"]=select
-    context["total_question_number"]=video_qa_len
+    context["is_all_selected"] = allSelect
+    context["all_select"] = select
+    context["total_question_number"] = video_qa_len
     return render(request, "base/video_qa.html", context)
 
 
@@ -537,7 +542,7 @@ def videoqa(request,index):
 def next_question(request, index):
     video_qa_len = len(video_qa.objects.all())
 
-    index = min( video_qa_len, int(index) + 1)
+    index = min(video_qa_len, int(index) + 1)
     return redirect('video_qa', index)
 
 
@@ -548,14 +553,13 @@ def previous_question(request, index):
 
 
 def save_selection(request):
-    try:    
+    try:
         data = json.loads(request.body)
         selected_option = data.get('selectedOption')
         questionNumber = data.get('questionNumber')
         if questionNumber is None:
-                raise ValueError("Question number is missing or not an integer.")
+            raise ValueError("Question number is missing or not an integer.")
         questionNumber = int(questionNumber)
-
 
         user = get_object_or_404(User, id=request.user.id)
 
@@ -567,10 +571,9 @@ def save_selection(request):
             select[questionNumber] = int(selected_option)
 
         # 保存更新到資料庫
-        user.video_qa_selected=json.dumps(select)
+        user.video_qa_selected = json.dumps(select)
 
-
-        #資料庫的保存
+        # 資料庫的保存
         user.save(update_fields=['video_qa_selected'])
 
         # 保存到
@@ -585,49 +588,54 @@ def video_result(request):
     user = get_object_or_404(User, id=request.user.id)
     video_qa_len = len(video_qa.objects.all())
     correctAnswer = {}
-    explanation= {}
-    isCorrect= {}
-    selections= {}
+    explanation = {}
+    isCorrect = {}
+    selections = {}
     for i in range(video_qa_len):
         correctAnswer[i] = video_qa.objects.get(id=i+1).correctAnswer
-        explanation[i]=video_qa.objects.get(id=i+1).explanation
-        
+        explanation[i] = video_qa.objects.get(id=i+1).explanation
+
     selectData = json.loads(user.video_qa_selected)
-    
+
     score = 0
     for i, user_answer in enumerate(selectData):
-        selections[i]=user_answer
+        selections[i] = user_answer
         if user_answer == correctAnswer[i]:
             score += 10
-            isCorrect[i]=True
+            isCorrect[i] = True
         else:
-            isCorrect[i]=False
-    percentage=round(score/(10*video_qa_len)*100,2)
+            isCorrect[i] = False
+    percentage = round(score/(10*video_qa_len)*100, 2)
     context = {
         'title': '分數',
         'score': score,
-        'correctAnswer':correctAnswer,
-        'video_qa_range':range(video_qa_len),
-        'isCorrect':isCorrect,
-        'selectData':selections,
-        'explanation':explanation,
+        'correctAnswer': correctAnswer,
+        'video_qa_range': range(video_qa_len),
+        'isCorrect': isCorrect,
+        'selectData': selections,
+        'explanation': explanation,
         'total_score': 10*video_qa_len,
-        'percentage':percentage
+        'percentage': percentage
     }
 
     return render(request, "base/video_result.html", context)
 
+
+@login_required(login_url="login_page")
 def rpg(request):
     return render(request, "base/rpg.html")
+
 
 def save_rpg_data(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        user_data=User.objects.filter(id=request.user.id)
-        user_data.update(name=data["name"],age=data["age"],school=data["school"],major=data["major"],skills=data["skills"],goals=data["goals"],contents=data["contents"],motivation=data["motivation"])
+        user_data = User.objects.filter(id=request.user.id)
+        user_data.update(name=data["name"], age=data["age"], school=data["school"], major=data["major"],
+                         skills=data["skills"], goals=data["goals"], contents=data["contents"], motivation=data["motivation"])
 
         # Process data
         return JsonResponse({'status': 'success'})
+
 
 def developing(request):
     return render(request, "base/developing.html")
@@ -645,47 +653,46 @@ def mbtiqa(request):
         "url": "https://www.surveycake.com/s/KZayv"
     })
 
+
 @login_required(login_url="login_page")
 def videoqabook(request):
     video_qa_len = len(video_qa.objects.all())
     user = get_object_or_404(User, id=request.user.id)
     # 帳號的資料未寫入，初始化
-    if user.video_qa_selected==" ":
-        select=[-1 for i in range(video_qa_len)]
+    if user.video_qa_selected == " ":
+        select = [-1 for i in range(video_qa_len)]
         selected_data = json.dumps(select)
-        user.video_qa_selected=selected_data
-        user.save(update_fields=['video_qa_selected','video_qa_index'])
-    #資料曾寫入過
+        user.video_qa_selected = selected_data
+        user.save(update_fields=['video_qa_selected', 'video_qa_index'])
+    # 資料曾寫入過
     else:
-        selected_data=user.video_qa_selected
-        select=json.loads(selected_data)
-        selected_data= json.dumps(select)
-        user.save(update_fields=['video_qa_selected','video_qa_index'])
-    
-    allSelect=True
-    for i in range(video_qa_len):
-        if select[i]==-1:
-            allSelect=False
-            break
-        
-    context = {}
-    
+        selected_data = user.video_qa_selected
+        select = json.loads(selected_data)
+        selected_data = json.dumps(select)
+        user.save(update_fields=['video_qa_selected', 'video_qa_index'])
 
-    questions=video_qa.objects.all()
-    
+    allSelect = True
+    for i in range(video_qa_len):
+        if select[i] == -1:
+            allSelect = False
+            break
+
+    context = {}
+
+    questions = video_qa.objects.all()
+
     for question in questions:
-        question.options=json.loads(question.options.replace("'", '"'))
-    
+        question.options = json.loads(question.options.replace("'", '"'))
+
     context = {
         'questions': questions,
         'total_question_number': video_qa_len,
-        'normal_index':user.video_qa_index,
+        'normal_index': user.video_qa_index,
     }
     context["user_answer"] = json.loads(user.video_qa_selected)
-    context["is_all_selected"]=allSelect
-    context["all_select"]=select
+    context["is_all_selected"] = allSelect
+    context["all_select"] = select
     return render(request, "base/video_qa_book.html", context)
-
 
 
 def mbti_result(request):

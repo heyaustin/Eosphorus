@@ -9,7 +9,7 @@ export class LoadingScene extends Phaser.Scene {
   init() { }
 
   loadImages() {
-    this.load.setPath("../static/rpg/images")
+    this.load.setPath("/static/rpg/images")
     console.log(`Starting to load from directory: ${this.load.path}`)
     for (let prop in CST.IMAGE) {
       console.log(`Starting to load: ${this.load.path}${CST.IMAGE[prop]}`)
@@ -18,7 +18,7 @@ export class LoadingScene extends Phaser.Scene {
   }
 
   loadAudio() {
-    this.load.setPath("../static/rpg/audio")
+    this.load.setPath("/static/rpg/audio")
     console.log(`Starting to load from directory: ${this.load.path}`)
     for (let prop in CST.AUDIO) {
       console.log(`Starting to load: ${this.load.path}${CST.AUDIO[prop]}`)
@@ -27,7 +27,7 @@ export class LoadingScene extends Phaser.Scene {
   }
 
   loadChats() {
-    this.load.setPath("../static/rpg/chats")
+    this.load.setPath("/static/rpg/chats")
     console.log(`Starting to load from directory: ${this.load.path}`)
     for (let chat in CST.CHAT) {
       console.log(`Starting to load: ${this.load.path}${CST.CHAT[chat]}`)
@@ -79,14 +79,16 @@ export class LoadingScene extends Phaser.Scene {
         */
 
     this.load.on("progress", percent => {
-      loadingBar.fillRect(0, 
-        this.game.renderer.height - 50, 
-        this.game.renderer.width * percent, 
-        50);
+      loadingBar.fillRect(
+        0,
+        this.game.renderer.height - 50,
+        this.game.renderer.width * percent,
+        50
+      )
       console.log("" + percent)
     })
 
-    this.load.setPath("../static/rpg/images")
+    this.load.setPath("/static/rpg/images")
     this.add.text(20, this.renderer.height / 2, "Loading...", {
       font: "40px Arial",
       color: "#a9a9a9"
@@ -95,7 +97,7 @@ export class LoadingScene extends Phaser.Scene {
     //simulate large load
     for (let i = 0; i < 100; i++) {
       let uniqueKey = `placeholder_${i}`
-      this.load.image(uniqueKey, "hr_room.jpg")
+      this.load.image(uniqueKey, "HR_room.jpg")
     }
 
     this.load.on("complete", () => {
