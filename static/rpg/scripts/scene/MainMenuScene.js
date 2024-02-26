@@ -11,19 +11,19 @@ export class MainMenuScene extends Phaser.Scene {
 
   init() { }
 
-  toCEO() {
-    let a = this.sound.add(CST.AUDIO.TITLE_START, { volume: 1 })
-    this.sound.stopAll()
-    a.play()
+  toHR() {
+    let a = this.sound.add(CST.AUDIO.TITLE_START, {volume: 1});
+    this.sound.stopAll();
+    a.play();
 
-    const fadeDuration = 5000 // 1 second
+    const fadeDuration = 5000; // 1 second
 
     // Start fading to black. The color is specified in hex (0xRRGGBB). 0x000000 is black.
-    FadeUtils.fadeOut(this, 5000, callback => {
-      console.log("Game starting")
-      this.scene.start(CST.SCENE.GAME)
-    })
-  }
+    FadeUtils.fadeOut(this, 5000, (callback) => {
+        console.log("Game starting")
+        this.scene.start(CST.SCENE.GAME);
+    });
+}
 
   create() {
     //console.log(`Starting to load from directory: ${this.load.path}`);
@@ -85,7 +85,11 @@ export class MainMenuScene extends Phaser.Scene {
       .image(300, 550, CST.IMAGE.FET_LOGO)
       .setDepth(1)
       .setScale(0.16)
-
+    let backButton = this.add
+      .image(700, 100, CST.IMAGE.LEFT_ARROW)
+      .setDepth(1)
+      .setScale(0.16);
+      backButton.setVisible(false);
     this.tweens.add({
       targets: NTUAI_Button,
       y: "-=10", // Moves up by 20 pixels
@@ -131,6 +135,34 @@ export class MainMenuScene extends Phaser.Scene {
                 pointerdown - just click
         */
 
+    let Mute_Button = this.add.image(700, 300, CST.IMAGE.MUTE).setDepth(1).setScale(0.3);
+    let Unmute_Button = this.add.image(700, 300, CST.IMAGE.UNMUTE).setDepth(1).setScale(0.3);
+    Mute_Button.setVisible(false);
+    Unmute_Button.setVisible(false);
+
+
+    let isMuted = false;
+    // mute button
+    Mute_Button.setInteractive();
+    Unmute_Button.setInteractive();
+        
+    Mute_Button.on('pointerup', () => {
+        toggleMute();
+    });
+        
+    // Event listener for the Unmute button
+    Unmute_Button.on('pointerup', () => {
+        toggleMute();
+    });
+
+    const toggleMute = () => {
+      isMuted = !isMuted; // toggle mute state
+      this.sound.mute = isMuted; // apply mute state to game's sound manager
+      this.sound.add(CST.AUDIO.SELECT, {volume: 1}).play();
+        
+      Mute_Button.setVisible(!isMuted);
+      Unmute_Button.setVisible(isMuted);
+    };
     // play button
     playButton.setInteractive()
 
@@ -152,7 +184,7 @@ export class MainMenuScene extends Phaser.Scene {
       optionsButton.setVisible(false)
       quitButton.setVisible(false)
       hoverImg.setVisible(false)
-      this.toCEO()
+      this.toHR();
     })
 
     this.add
@@ -189,71 +221,98 @@ export class MainMenuScene extends Phaser.Scene {
     })
 
     optionsButton.on("pointerup", () => {
-      playButton.setVisible(false)
-      optionsButton.setVisible(false)
-      quitButton.setVisible(false)
-      hoverImg.setVisible(false)
+      playButton.setVisible(false);
+      optionsButton.setVisible(false);
+      quitButton.setVisible(false);
+      hoverImg.setVisible(false);
+      Mute_Button.setVisible(true);
+  })
+      
 
-      // Show volume controls
+  backButton.setInteractive();
+  backButton.on("pointerup", () => {
+      this.sound.add(CST.AUDIO.SELECT, {volume: 1}).play();
+      playButton.setVisible(true);
+      optionsButton.setVisible(true);
+      quitButton.setVisible(true);
+      backButton.setVisible(false);
+      Mute_Button.setVisible(false);
+      Unmute_Button.setVisible(false);
+  })
+  backButton.on("pointerover", () => {
+      this.sound.add(CST.AUDIO.SELECT, {volume: 1}).play();
+      backButton.setScale(0.18);
+  })
+  backButton.on("pointerout", () => {
+      backButton.setScale(0.16);
+  })
 
-      let track, knob
+  optionsButton.on("pointerup", () => {
+      playButton.setVisible(false);
+      optionsButton.setVisible(false);
+      quitButton.setVisible(false);
+      hoverImg.setVisible(false);
+      backButton.setVisible(true);
+
+      /*
+      let track, knob;
 
       // Create the slider track
-      track = this.add
-        .graphics()
-        .fillStyle(0x555555, 1)
-        .fillRect(400, 300, 150, 20)
-
+      track = this.add.graphics()
+          .fillStyle(0x555555, 1)
+          .fillRect(400, 300, 150, 20);
+  
       // Create the slider knob
-      knob = this.add
-        .graphics()
-        .fillStyle(0xffffff, 1)
-        .fillCircle(475, 310, 10)
-        .setInteractive({ cursor: "pointer" })
-
+      knob = this.add.graphics()
+          .fillStyle(0xffffff, 1)
+          .fillCircle(475, 310, 10)
+          .setInteractive({ cursor: 'pointer' });
+  
       // Make the knob draggable
-      this.input.setDraggable(knob)
-
+      this.input.setDraggable(knob);
+  
       // Define the drag behavior
-      knob.on("drag", (pointer, dragX, dragY) => {
-        // Constrain the knob to the track
-        const minX = 400 + 10 // 10 is half the width of the knob for margin
-        const maxX = 550 - 10 // Track width - half the width of the knob for margin
-        dragX = Phaser.Math.Clamp(dragX, minX, maxX)
-
-        // Update the knob's position
-        knob.x = dragX
-
-        // Update the volume based on knob's position
-        // Map the knob's position to a 0-1 range for volume
-        const volume = Phaser.Math.Clamp((dragX - minX) / (maxX - minX), 0, 1)
-        this.sound.volume = volume
-        console.log(`Volume set to: ${volume}`)
-      })
-
+      knob.on('drag', (pointer, dragX, dragY) => {
+          // Constrain the knob to the track
+          const minX = 400 + 10; // 10 is half the width of the knob for margin
+          const maxX = 550 - 10; // Track width - half the width of the knob for margin
+          dragX = Phaser.Math.Clamp(dragX, minX, maxX);
+  
+          // Update the knob's position
+          knob.x = dragX;
+  
+          // Update the volume based on knob's position
+          // Map the knob's position to a 0-1 range for volume
+          const volume = Phaser.Math.Clamp((dragX - minX) / (maxX - minX), 0, 1);
+          this.sound.volume = volume;
+          console.log(`Volume set to: ${volume}`);
+      });
+  
       // Enable dragging
-      this.input.on("drag", function (pointer, gameObject, dragX, dragY) {
-        gameObject.x = dragX
-      })
-    })
+      this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+          gameObject.x = dragX;
+      });
+      */
+  })
 
-    // quit button
-    quitButton.setInteractive()
-    quitButton.on("pointerover", () => {
-      quitButton.setX(quitButton.x - 10)
-      hoverImg.setVisible(true)
-      hoverImg.setX(quitButton.x - 140)
-      hoverImg.setY(quitButton.y)
-      this.sound.add(CST.AUDIO.SELECT, { volume: 1 }).play()
-    })
 
-    quitButton.on("pointerout", () => {
-      quitButton.setX(quitButton.x + 10)
-      hoverImg.setVisible(false)
-    })
-    quitButton.on("pointerup", () => {
-      window.location.href = "https://eosphor.us"
-    })
+  // quit button
+  quitButton.setInteractive();
+  quitButton.on("pointerover", () => {
+      quitButton.setX(quitButton.x-10);
+      hoverImg.setVisible(true);
+      hoverImg.setX(quitButton.x-140);
+      hoverImg.setY(quitButton.y);
+      this.sound.add(CST.AUDIO.SELECT, {volume: 1}).play();
+  })
+
+  quitButton.on("pointerout", () => {
+      quitButton.setX(quitButton.x+10);
+      hoverImg.setVisible(false);
+  })
+  quitButton.on("pointerup", () => {
+      window.location.href = "https://eosphor.us";
+  })
 
     // NTUAI button
     NTUAI_Button.setInteractive()

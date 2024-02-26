@@ -14,13 +14,20 @@ export const CST = {
   IMAGE: {
     /*BUTTON: {
         },*/
+    LEFT_ARROW: "left_arrow.png",
+    RIGHT_ARROW: "right_arrow.png",
+    UP_ARROW: "up_arrow.png",
+    DOWN_ARROW: "down_arrow.png",
+    MUTE: "mute.png",
+    UNMUTE: "unmute.png",
     LOADING: "loading.png",
     TITLE: "mainmenu.png",
     PLAY: "play_button.png",
     OPTIONS: "options_button.png",
     QUIT: "quit_button.png",
     HOVER: "hover.png",
-
+    INSTRUCTIONS: "instructions.png",
+    
     PLAYER_SPRITE: "player_sprite.png",
     CEO_SPRITE: "ceo_sprite.png",
     HR_SPRITE: "hr_sprite.png",
