@@ -48,4 +48,6 @@ table {
     position: absolute;
     right: 0;
     bottom: 0;
+    width: 22% !important;
+    max-width: 8em !important;
 }
