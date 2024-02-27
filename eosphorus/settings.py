@@ -92,7 +92,7 @@ INSTALLED_APPS = [
     "base.apps.BaseConfig",
 
     "revproxy",
-    
+
     # line bot
     "linebotapp.apps.LinebotappConfig",
 
@@ -130,6 +130,9 @@ SOCIALACCOUNT_PROVIDERS = {
             "profile",
             "openid",
         ],
+        'AUTH_PARAMS': {
+            'bot_prompt': 'aggressive',
+        }
     },
 
     'google': {

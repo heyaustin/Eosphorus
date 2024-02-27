@@ -7,7 +7,7 @@
   <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}你將使用 {{provider_name}} 帳號登入
     {{site_name}}。 填寫以下資訊後將為您創建帳號: {% endblocktrans %}</p>
 
-  <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+  <form style="max-width:400px" class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
     {% csrf_token %}
     <div class="mb-3">
       <label for="floatingInput">Email(電子郵件)</label>
