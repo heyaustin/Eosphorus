@@ -1,26 +1,36 @@
 /* @import url('./font-face.css'); */
 
+
+#demo_magnifier {
+    /* width: 12vw; */
+    z-index: 30 !important;
+    /* grid-area: 16/11/22/14; */
+    position: relative;
+    grid-area: 7 / 6 / 5 / 4;
+    ;
+}
+
 #pointer img,
-#flag img,
-#demo_magnifier img {
+#flag img {
     height: 100% !important;
     width: auto !important;
 }
 
-#demo_magnifier {
-    z-index: 30 !important;
-}
-
-
 #Ma9yOGF8qfSXFvDh>img,
 #jb8Sc1KhJSCkybgI>img,
 #XbYkVlAvnT4S9jYY>img,
-#eRvQGh2amFQzxr6d>img {
+#eRvQGh2amFQzxr6d>img,
+#demo_magnifier>img {
     margin-left: 50%;
-    transform: translateX(-50%);
+    /* will-change: transform; */
+    transform: scale(1) translate(-50%, 0) translateZ(0);
     /* https://stackoverflow.com/questions/3300660/how-do-i-center-an-image-if-its-wider-than-its-container */
     height: 100% !important;
     width: auto;
+}
+
+#bjyDQF7QXTLPzE4Z>img {
+    transform: scale(1) translate(0, 0) translateZ(0);
 }
 
 #Ma9yOGF8qfSXFvDh,
@@ -38,7 +48,7 @@
 #pkQFB6cuNBUPUI08:hover,
 #JghIhZihVGaC0XTK:hover,
 #iRa64bwNqVg1Bzo2:hover,
-#SpCjDD909SU1uO6F:hover,
+#bjyDQF7QXTLPzE4Z:hover,
 #FRwYPMPiLw6wgTen:hover {
     scale: 1.1;
 }
@@ -102,12 +112,6 @@
     position: relative
 }
 
-#demo_magnifier {
-    grid-area: 16/11/22/14;
-    position: relative;
-    z-index: 22
-}
-
 :root {
     --inner1Vh: 1vh;
     /* --inner1Vh = window.innerHeight / 100 + "px" */
@@ -120,12 +124,23 @@
 
 html {
     zoom: var(--rzf, 1);
-    font-size: max(calc(min(var(--1vw, 1vw), 13.66px) * var(--rfso, 1)), var(--minfs, 0px));
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
 
-body::before {
+body {
+    /* position: relative; */
+    font-size: calc(1em * var(--bfso, 1));
+
+    background-image: url("/static/images/login/map_bg_pixelated.svg");
+    /* https://media.istockphoto.com/id/1481308340/video/swimming-pool.jpg?b=1&s=640x640&k=20&c=U_nXpEsoONq9Hkyp5hqa3fc7q9AEzeg2yaCCseC_AyU= */
+    background-size: auto max(100%, 56.25dvw);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+
+/* body::before {
     content: " ";
     position: absolute;
     left: 0;
@@ -133,16 +148,12 @@ body::before {
     width: 100%;
     height: 100%;
 
-    background-image: url("../images/login/map_bg.jpg");
-    /* https://media.istockphoto.com/id/1481308340/video/swimming-pool.jpg?b=1&s=640x640&k=20&c=U_nXpEsoONq9Hkyp5hqa3fc7q9AEzeg2yaCCseC_AyU= */
+    background: url("../images/login/map_bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
-body {
-    font-size: calc(1rem * var(--bfso, 1))
-}
 
 body,
 html,
@@ -210,7 +221,7 @@ img {
 }
 
 #bj1AoLxemat8OsH2 {
-    min-width: 22.87575663rem
+    min-width: 22.87575663em
 }
 
 #skkZUKaselk6zJWN {
@@ -224,10 +235,10 @@ img {
     height: 9em;
 
     grid-area: 3/3/4/5;
-    grid-template-columns: 0 0.52272642rem 27rem 0;
-    /* grid-template-columns: 0 0.52272642rem 22.83915341rem 0; */
+    grid-template-columns: 0 0.52272642em 27em 0;
+    /* grid-template-columns: 0 0.52272642em 22.83915341em 0; */
     grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr;
-    /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
+    /* grid-template-rows: 0 minmax(0.38840709em, max-content) minmax(11.05372087em, max-content) minmax(0.42475949em, max-content) */
 }
 
 #pointer {
@@ -245,7 +256,7 @@ img {
 #I0EgDhiLYI3JyY6v,
 #gLDckFilyqKpr96e,
 #pEcMZjoVgOjzDgKJ {
-    stroke-width: calc(100rem * 2 / 1366)
+    stroke-width: calc(100em * 2 / 1366)
 }
 
 #FRwYPMPiLw6wgTen {
@@ -261,7 +272,7 @@ img {
 }
 
 #GF2S2vu21pPwkKhQ {
-    stroke-width: calc(100rem * 1.9999999999999998 / 1366)
+    stroke-width: calc(100em * 1.9999999999999998 / 1366)
 }
 
 #iwVh9YKw4tLvAAJe {
@@ -280,11 +291,11 @@ img {
 }
 
 #Hw0Y3DWARV4qdMU6 {
-    grid-template-rows: 0 0.14395816rem 4.09701715rem 0.14395816rem
+    grid-template-rows: 0 0.14395816em 4.09701715em 0.14395816em
 }
 
 #qhpiQ8N7AfN6Ytzn {
-    grid-template-rows: 0 minmax(4.67347132rem, max-content)
+    grid-template-rows: 0 minmax(4.67347132em, max-content)
 }
 
 #UkZK0y9rUt3X664T {
@@ -305,8 +316,12 @@ img {
 }
 
 #SpCjDD909SU1uO6F {
-    grid-area: 11/9/18/13;
-    position: relative
+    display: grid;
+    grid-area: 11/9/21/13;
+    position: relative;
+    grid-template-rows: 0 0.18761949fr 3.41182572fr 2.39353235fr 7.20591286fr 0.20591286fr;
+    grid-template-columns: 0 1fr 0 0 0 0;
+    z-index: 26;
 }
 
 #A1Y6FRG2oHBPxYxM {
@@ -337,15 +352,19 @@ img {
     position: relative
 }
 
+div.game_container {
+    font-size: max(calc(min(var(--1vw, 1vw), 13.66px) * var(--rfso, 1)), var(--minfs, 0px));
+}
+
 #JFXPCRKswhUmgAMr {
     display: grid;
     /* position: relative; */
     grid-area: 1/2/2/3;
 
     /* grid-template-rows: 5fr 1.91832207fr 0 0.15857611fr 4.38493347fr 0.28853784fr 0 2.66154884fr 5.11279234fr 2.81585744fr 0.20089897fr 3.86497263fr 2.1574029fr 0.22825489fr 0.64054474fr 3.0034552fr 1.96193182fr 1.95034208fr 0.30106862fr 2.0005846fr 0.44503465fr 1.6773008fr 0.65226016fr 0.2421608fr 11.42081263fr 5.54100695fr 2.59394702fr; */
-    grid-template-rows: 0 minmax(1.91832207rem, max-content) 0 minmax(0.15857611rem, max-content) minmax(4.38493347rem, max-content) minmax(0.28853784rem, max-content) 0 minmax(2.66154884rem, max-content) minmax(5.11279234rem, max-content) minmax(2.81585744rem, max-content) minmax(0.20089897rem, max-content) minmax(3.86497263rem, max-content) minmax(2.1574029rem, max-content) minmax(0.22825489rem, max-content) minmax(0.64054474rem, max-content) minmax(3.0034552rem, max-content) minmax(1.96193182rem, max-content) minmax(1.95034208rem, max-content) minmax(0.30106862rem, max-content) minmax(2.0005846rem, max-content) minmax(0.44503465rem, max-content) minmax(1.6773008rem, max-content) minmax(0.65226016rem, max-content) minmax(0.2421608rem, max-content) minmax(11.42081263rem, max-content) minmax(5.54100695rem, max-content) minmax(2.59394702rem, max-content);
+    grid-template-rows: 0 minmax(1.91832207em, max-content) 0 minmax(0.15857611em, max-content) minmax(4.38493347em, max-content) minmax(0.28853784em, max-content) 0 minmax(2.66154884em, max-content) minmax(5.11279234em, max-content) minmax(2.81585744em, max-content) minmax(0.20089897em, max-content) minmax(3.86497263em, max-content) minmax(2.1574029em, max-content) minmax(0.22825489em, max-content) minmax(0.64054474em, max-content) minmax(3.0034552em, max-content) minmax(1.96193182em, max-content) minmax(1.95034208em, max-content) minmax(0.30106862em, max-content) minmax(2.0005846em, max-content) minmax(0.44503465em, max-content) minmax(1.6773008em, max-content) minmax(0.65226016em, max-content) minmax(0.2421608em, max-content) minmax(11.42081263em, max-content) minmax(5.54100695em, max-content) minmax(2.59394702em, max-content);
     grid-template-columns: 3fr 12.27210019fr 11.08977964fr 0.5731938fr 0.68425059fr 3.61947663fr 9.06598713fr 0.70812574fr 2.29672107fr 6.63776315fr 5.74941609fr 1.66519956fr 1.94647891fr 0.05418819fr 14.03933826fr 0.77139368fr 3.32191225fr 0.76640215fr 5.34359874fr 2.816296fr 1.36057636fr 0.04566706fr 0.28186784fr 11.42122773fr 0.33685831fr 0.28186784fr 4.85031308fr;
-    /* grid-template-columns: 0 10.27210019rem 9.08977964rem 0.5731938rem 0.68425059rem 3.61947663rem 9.06598713rem 0.70812574rem 2.29672107rem 6.63776315rem 5.74941609rem 1.66519956rem 1.94647891rem 0.05418819rem 14.03933826rem 0.77139368rem 3.32191225rem 0.76640215rem 5.34359874rem 2.816296rem 1.36057636rem 0.04566706rem 0.28186784rem 11.42122773rem 0.33685831rem 0.28186784rem 2.85031308rem; */
+    /* grid-template-columns: 0 10.27210019em 9.08977964em 0.5731938em 0.68425059em 3.61947663em 9.06598713em 0.70812574em 2.29672107em 6.63776315em 5.74941609em 1.66519956em 1.94647891em 0.05418819em 14.03933826em 0.77139368em 3.32191225em 0.76640215em 5.34359874em 2.816296em 1.36057636em 0.04566706em 0.28186784em 11.42122773em 0.33685831em 0.28186784em 2.85031308em; */
 }
 
 
@@ -378,7 +397,7 @@ img {
     overflow: hidden;
     display: grid;
     align-items: center;
-    grid-template-columns: auto min(100rem, 100%) auto;
+    grid-template-columns: auto min(100em, 100%) auto;
     z-index: 0
 }
 
@@ -439,8 +458,8 @@ img {
     display: grid;
     position: relative;
     grid-area: 2/2/17/7;
-    grid-template-columns: 0 2.88887057rem 19.82573901rem 0.64727025rem 4.67305768rem 0.20386334rem;
-    grid-template-rows: 0 minmax(1.8047855rem, max-content) minmax(10.16817791rem, max-content) minmax(1.77278854rem, max-content) minmax(7.18963233rem, max-content) minmax(6.50071316rem, max-content)
+    grid-template-columns: 0 2.88887057em 19.82573901em 0.64727025em 4.67305768em 0.20386334em;
+    grid-template-rows: 0 minmax(1.8047855em, max-content) minmax(10.16817791em, max-content) minmax(1.77278854em, max-content) minmax(7.18963233em, max-content) minmax(6.50071316em, max-content)
 }
 
 #GS7CWudJG9S4NyvH,
@@ -461,17 +480,13 @@ img {
     opacity: 1
 }
 
-body {
-    position: relative;
-}
-
 #JMfHKofK1ppfpwzT {
     z-index: 28;
     display: grid;
     /* position: relative; */
     /* grid-area: 2/2/4/5; */
-    /* grid-template-columns: 0 0 23.36187983rem 0; */
-    /* grid-template-rows: 0 0 minmax(11.86688746rem, max-content) minmax(0.10607595rem, max-content) */
+    /* grid-template-columns: 0 0 23.36187983em 0; */
+    /* grid-template-rows: 0 0 minmax(11.86688746em, max-content) minmax(0.10607595em, max-content) */
 }
 
 #iaqPqJzffKM9Hogu {
@@ -530,8 +545,8 @@ body {
     display: grid;
     position: relative;
     grid-area: 9/16/15/22;
-    grid-template-columns: 0 3.87405801rem 5.31498622rem 5.19113495rem;
-    grid-template-rows: 0 minmax(4.33383362rem, max-content) minmax(5.31498622rem, max-content) minmax(4.73135934rem, max-content);
+    grid-template-columns: 0 3.87405801em 5.31498622em 5.19113495em;
+    grid-template-rows: 0 minmax(4.33383362em, max-content) minmax(5.31498622em, max-content) minmax(4.73135934em, max-content);
 }
 
 #pkQFB6cuNBUPUI08 {
@@ -567,10 +582,6 @@ body {
     transform: rotate(-21.99699841deg)
 }
 
-#SpCjDD909SU1uO6F {
-    z-index: 19
-}
-
 #bjyDQF7QXTLPzE4Z {
     padding-top: 73.75%;
     transform: rotate(0);
@@ -596,8 +607,8 @@ body {
     display: grid;
     position: relative;
     grid-area: 19/18/27/25;
-        grid-template-columns: 0 5.25508165rem 6.84874914rem 9.9318051rem;
-        grid-template-rows: 0 minmax(1.33577455rem, max-content) minmax(9.16220621rem, max-content) minmax(11.78224846rem, max-content)
+    grid-template-columns: 0 5.25508165em 6.84874914em 9.9318051em;
+    grid-template-rows: 0 minmax(1.33577455em, max-content) minmax(9.16220621em, max-content) minmax(11.78224846em, max-content)
 }
 
 #JghIhZihVGaC0XTK {
@@ -626,8 +637,8 @@ body {
     display: grid;
     position: relative;
     grid-area: 24/3/26/5;
-    grid-template-columns: 0 3.29173552rem 4.92375301rem 3.44748491rem;
-    grid-template-rows: 0 minmax(3.36961022rem, max-content) minmax(4.92375301rem, max-content) minmax(3.36961022rem, max-content)
+    grid-template-columns: 0 3.29173552em 4.92375301em 3.44748491em;
+    grid-template-rows: 0 minmax(3.36961022em, max-content) minmax(4.92375301em, max-content) minmax(3.36961022em, max-content)
 }
 
 #iRa64bwNqVg1Bzo2 {
@@ -642,7 +653,7 @@ body {
 @media (max-width:768px) {
     /* max-width:641px */
     #Jw9fauGZITo7JWrp {
-        grid-template-rows: 0 minmax(3.33577455rem, max-content) minmax(12.16220621rem, max-content) minmax(7.78224846rem, max-content)
+        grid-template-rows: 0 minmax(3.33577455em, max-content) minmax(17.16220621em, max-content) minmax(7.78224846em, max-content)
     }
 
     #xHe8HmZjmnEDgDEK>img {
@@ -662,16 +673,16 @@ body {
     }
 
     #rtjGsEShuN5tVuxP {
-        grid-template-rows: 0 minmax(4.33383362rem, max-content) minmax(11.31498622rem, max-content) minmax(4.73135934rem, max-content);
-        grid-template-columns: 0 14.87405801rem 5.31498622rem 5.19113495rem;
+        grid-template-rows: 0 minmax(4.33383362em, max-content) minmax(11.31498622em, max-content) minmax(4.73135934em, max-content);
+        grid-template-columns: 0 14.87405801em 5.31498622em 5.19113495em;
     }
 
     #Y4oNSBeeU91n1D5E {
-        grid-template-columns: 0 8.29173552rem 4.92375301rem 3.44748491rem;
-        grid-template-rows: 0 minmax(3.36961022rem, max-content) minmax(13.92375301rem, max-content) minmax(3.36961022rem, max-content)
+        grid-template-columns: 0 8.29173552em 4.92375301em 3.44748491em;
+        grid-template-rows: 0 minmax(3.36961022em, max-content) minmax(13.92375301em, max-content) minmax(3.36961022em, max-content)
     }
 
-    .swal2-popup {
+    /* .swal2-popup {
         font-size: 2em;
     }
 
@@ -682,7 +693,7 @@ body {
     .form-control,
     .loginbtn_wrap * {
         font-size: unset;
-    }
+    } */
 
     #UsayTbTeR2PPMHHj {
         grid-area: 5 / 5 / 9 / 13;
@@ -695,11 +706,11 @@ body {
 
         display: grid;
         /* position: relative; */
-        /* grid-template-columns: 0 0.12775955rem 4.16636298rem 0.5315048rem 4.86424988rem 1.26585347rem 0.94461203rem 2.65240936rem 0.02974498rem 0 1.58428541rem 0.15234398rem 1.28711094rem 6.97898981rem 0.39113638rem 1.59082296rem 0.23812047rem 0.45800486rem 0.07168029rem 2.24027891rem 0.43776513rem 0.73507171rem 0.31574077rem 1.28138644rem 1.517285rem 0.82710252rem 1.92262181rem 3.09785457rem; */
-        /* grid-template-rows: 0 0 minmax(1.92415512rem, max-content) minmax(2.32053121rem, max-content) minmax(0.00225088rem, max-content) minmax(3.16111575rem, max-content) minmax(7.65977495rem, max-content) minmax(0.7979342rem, max-content) minmax(0.97479797rem, max-content) minmax(0.88195858rem, max-content) minmax(0.54588927rem, max-content) minmax(3.71739168rem, max-content) minmax(1.58428541rem, max-content) minmax(0.63105512rem, max-content) minmax(3.5806877rem, max-content) 0 minmax(2.02844376rem, max-content) minmax(3.46916417rem, max-content) minmax(0.90719536rem, max-content) minmax(4.14480778rem, max-content) minmax(5.21312384rem, max-content) minmax(1.44262876rem, max-content) minmax(1.04630094rem, max-content) minmax(0.95314855rem, max-content) minmax(0.84368776rem, max-content) minmax(3.22984021rem, max-content) minmax(2.31008791rem, max-content) minmax(2.8522907rem, max-content); */
-        max-height: max(140rem, 100dvh);
+        /* grid-template-columns: 0 0.12775955em 4.16636298em 0.5315048em 4.86424988em 1.26585347em 0.94461203em 2.65240936em 0.02974498em 0 1.58428541em 0.15234398em 1.28711094em 6.97898981em 0.39113638em 1.59082296em 0.23812047em 0.45800486em 0.07168029em 2.24027891em 0.43776513em 0.73507171em 0.31574077em 1.28138644em 1.517285em 0.82710252em 1.92262181em 3.09785457em; */
+        /* grid-template-rows: 0 0 minmax(1.92415512em, max-content) minmax(2.32053121em, max-content) minmax(0.00225088em, max-content) minmax(3.16111575em, max-content) minmax(7.65977495em, max-content) minmax(0.7979342em, max-content) minmax(0.97479797em, max-content) minmax(0.88195858em, max-content) minmax(0.54588927em, max-content) minmax(3.71739168em, max-content) minmax(1.58428541em, max-content) minmax(0.63105512em, max-content) minmax(3.5806877em, max-content) 0 minmax(2.02844376em, max-content) minmax(3.46916417em, max-content) minmax(0.90719536em, max-content) minmax(4.14480778em, max-content) minmax(5.21312384em, max-content) minmax(1.44262876em, max-content) minmax(1.04630094em, max-content) minmax(0.95314855em, max-content) minmax(0.84368776em, max-content) minmax(3.22984021em, max-content) minmax(2.31008791em, max-content) minmax(2.8522907em, max-content); */
+        max-height: max(140em, 100dvh);
         grid-template-columns: 0 0 0 1.5315048fr 4.86424988fr 1.26585347fr 0.94461203fr 2.65240936fr 0.02974498fr 0 1.58428541fr 0.15234398fr 1.28711094fr 6.97898981fr 0.39113638fr 1.59082296fr 0.23812047fr 0.45800486fr 0.07168029fr 2.24027891fr 0.43776513fr 0.73507171fr 0.31574077fr 1.28138644fr 1.517285fr 0.82710252fr 1.92262181fr 0;
-        grid-template-rows: 0 0 2fr 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 4.8522907fr;
+        grid-template-rows: 0 0 2fr 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 8.8522907fr;
     }
 
     #Hzccl1tkj8exSEzE {
@@ -739,26 +750,11 @@ body {
         grid-area: 3/3/4/5;
     }
 
-    #demo_magnifier>img {
-        width: 12vw;
-        margin-left: 100%;
-    }
-
-    #demo_magnifier {
-        z-index: 23;
-        width: 12vw;
-        display: grid;
-        position: relative;
-        grid-area: 18 / 15 / 20 / 21;
-    }
-
     #SpCjDD909SU1uO6F {
         display: grid;
-        position: relative;
-        grid-area: 16 / 11 / 20 / 21;
+        grid-area: 16 / 13 / 20 / 15;
 
-        grid-template-rows: 0 0.18761949fr 2.41182572fr 1.39353235fr 1.20591286fr 1.20591286fr;
-        grid-template-columns: 0 7.04934295fr 0.28156434fr 0 4.63812638fr 0;
+        grid-template-rows: 0 0.18761949fr 2.41182572fr 1.39353235fr 20fr 1.20591286fr;
     }
 
     #A1Y6FRG2oHBPxYxM {

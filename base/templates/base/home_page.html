@@ -8,20 +8,13 @@
           type="text/css"
           href="{% static 'styles/game.css' %}" />
     <style type="text/css">
-        #FRDMgBfEabFpa8j0 img,
-        #pkQFB6cuNBUPUI08 img,
-        #JghIhZihVGaC0XTK img,
-        #iRa64bwNqVg1Bzo2 img,
-        #SpCjDD909SU1uO6F,
-        body::before {
+        #Ma9yOGF8qfSXFvDh>img,
+        #jb8Sc1KhJSCkybgI>img,
+        #XbYkVlAvnT4S9jYY>img,
+        #eRvQGh2amFQzxr6d>img,
+        #bjyDQF7QXTLPzE4Z img {
             filter: url(#pixelate);
-            scale: 1;
-            translate: 0 0;
             /* need transform to avoid disappearing on safari */
-        }
-
-        body::before {
-            filter: url(#pixelate) grayscale(0.2);
         }
     </style>
 {% endblock %}
@@ -52,12 +45,7 @@
 
     function play_select() {
         var play_select = document.getElementById('play_select');
-        if (play_select.paused) {
-            play_select.play();
-        } else {
-            play_select.pause();
-            play_select.currentTime = 0
-        }
+        play_select.play();
     }
     </script>
     {% if messages %}
