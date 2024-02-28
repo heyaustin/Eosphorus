@@ -11,6 +11,29 @@
     z-index: 30 !important;
 }
 
+
+#Ma9yOGF8qfSXFvDh>img,
+#jb8Sc1KhJSCkybgI>img,
+#XbYkVlAvnT4S9jYY>img,
+#eRvQGh2amFQzxr6d>img {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    /* https://stackoverflow.com/questions/3300660/how-do-i-center-an-image-if-its-wider-than-its-container */
+    height: 100% !important;
+    width: auto;
+}
+
+#Ma9yOGF8qfSXFvDh,
+#jb8Sc1KhJSCkybgI,
+#XbYkVlAvnT4S9jYY,
+#eRvQGh2amFQzxr6d {
+    height: 100% !important;
+}
+
+#rtsheB8kXAsuhVZx {
+    height: 100% !important;
+}
+
 #FRDMgBfEabFpa8j0:hover,
 #pkQFB6cuNBUPUI08:hover,
 #JghIhZihVGaC0XTK:hover,
@@ -165,7 +188,7 @@ img {
 
 #FRDMgBfEabFpa8j0 {
     z-index: 2;
-    grid-area: 3/3/7/7;
+    grid-area: 3/2/7/7;
     position: relative;
 }
 
@@ -270,11 +293,6 @@ img {
     position: relative
 }
 
-#rtjGsEShuN5tVuxP {
-    grid-template-columns: 0 3.87405801rem 5.31498622rem 5.19113495rem;
-    grid-template-rows: 0 minmax(4.33383362rem, max-content) minmax(5.31498622rem, max-content) minmax(4.73135934rem, max-content)
-}
-
 #ysjzeUyfaQn9oKjm {
     grid-area: 9/16/15/22;
     position: relative
@@ -301,11 +319,6 @@ img {
     grid-area: 20/15/23/20;
     position: relative;
     margin: 0 -2.73454347%
-}
-
-#Jw9fauGZITo7JWrp {
-    grid-template-columns: 0 5.25508165rem 6.84874914rem 9.9318051rem;
-    grid-template-rows: 0 minmax(1.33577455rem, max-content) minmax(9.16220621rem, max-content) minmax(11.78224846rem, max-content)
 }
 
 #dhjrUYNjpiZolM2s {
@@ -516,14 +529,16 @@ body {
 #rtjGsEShuN5tVuxP {
     display: grid;
     position: relative;
-    grid-area: 9/16/15/22
+    grid-area: 9/16/15/22;
+    grid-template-columns: 0 3.87405801rem 5.31498622rem 5.19113495rem;
+    grid-template-rows: 0 minmax(4.33383362rem, max-content) minmax(5.31498622rem, max-content) minmax(4.73135934rem, max-content);
 }
 
 #pkQFB6cuNBUPUI08 {
     z-index: 3
 }
 
-#pkQFB6cuNBUPUI08,
+/* #pkQFB6cuNBUPUI08,
 #iRa64bwNqVg1Bzo2 {
     rotate: -49.26403823deg;
 }
@@ -531,7 +546,7 @@ body {
 #FRDMgBfEabFpa8j0,
 #JghIhZihVGaC0XTK {
     rotate: -22.92416538deg;
-}
+} */
 
 #LHVjXRLDaF39LZ0j {
     z-index: 31
@@ -580,7 +595,9 @@ body {
 #Jw9fauGZITo7JWrp {
     display: grid;
     position: relative;
-    grid-area: 19/18/27/25
+    grid-area: 19/18/27/25;
+        grid-template-columns: 0 5.25508165rem 6.84874914rem 9.9318051rem;
+        grid-template-rows: 0 minmax(1.33577455rem, max-content) minmax(9.16220621rem, max-content) minmax(11.78224846rem, max-content)
 }
 
 #JghIhZihVGaC0XTK {
@@ -624,17 +641,34 @@ body {
 
 @media (max-width:768px) {
     /* max-width:641px */
+    #Jw9fauGZITo7JWrp {
+        grid-template-rows: 0 minmax(3.33577455rem, max-content) minmax(12.16220621rem, max-content) minmax(7.78224846rem, max-content)
+    }
+
+    #xHe8HmZjmnEDgDEK>img {
+        transform: translate(-50%, -50%) rotate(0)
+    }
+
+    #flag {
+        grid-area: 3 / 3 / 4 / 5;
+    }
+
+    #pointer {
+        grid-area: 5 / 4 / 7 / 6;
+    }
 
     #JMfHKofK1ppfpwzT {
         margin-top: unset;
     }
 
     #rtjGsEShuN5tVuxP {
-        grid-template-columns: 0 6.87405801rem 5.31498622rem 5.19113495rem;
+        grid-template-rows: 0 minmax(4.33383362rem, max-content) minmax(11.31498622rem, max-content) minmax(4.73135934rem, max-content);
+        grid-template-columns: 0 14.87405801rem 5.31498622rem 5.19113495rem;
     }
 
     #Y4oNSBeeU91n1D5E {
         grid-template-columns: 0 8.29173552rem 4.92375301rem 3.44748491rem;
+        grid-template-rows: 0 minmax(3.36961022rem, max-content) minmax(13.92375301rem, max-content) minmax(3.36961022rem, max-content)
     }
 
     .swal2-popup {
@@ -664,7 +698,7 @@ body {
         /* grid-template-columns: 0 0.12775955rem 4.16636298rem 0.5315048rem 4.86424988rem 1.26585347rem 0.94461203rem 2.65240936rem 0.02974498rem 0 1.58428541rem 0.15234398rem 1.28711094rem 6.97898981rem 0.39113638rem 1.59082296rem 0.23812047rem 0.45800486rem 0.07168029rem 2.24027891rem 0.43776513rem 0.73507171rem 0.31574077rem 1.28138644rem 1.517285rem 0.82710252rem 1.92262181rem 3.09785457rem; */
         /* grid-template-rows: 0 0 minmax(1.92415512rem, max-content) minmax(2.32053121rem, max-content) minmax(0.00225088rem, max-content) minmax(3.16111575rem, max-content) minmax(7.65977495rem, max-content) minmax(0.7979342rem, max-content) minmax(0.97479797rem, max-content) minmax(0.88195858rem, max-content) minmax(0.54588927rem, max-content) minmax(3.71739168rem, max-content) minmax(1.58428541rem, max-content) minmax(0.63105512rem, max-content) minmax(3.5806877rem, max-content) 0 minmax(2.02844376rem, max-content) minmax(3.46916417rem, max-content) minmax(0.90719536rem, max-content) minmax(4.14480778rem, max-content) minmax(5.21312384rem, max-content) minmax(1.44262876rem, max-content) minmax(1.04630094rem, max-content) minmax(0.95314855rem, max-content) minmax(0.84368776rem, max-content) minmax(3.22984021rem, max-content) minmax(2.31008791rem, max-content) minmax(2.8522907rem, max-content); */
         max-height: max(140rem, 100dvh);
-        grid-template-columns: 0 0 0 0.5315048fr 4.86424988fr 1.26585347fr 0.94461203fr 2.65240936fr 0.02974498fr 0 1.58428541fr 0.15234398fr 1.28711094fr 6.97898981fr 0.39113638fr 1.59082296fr 0.23812047fr 0.45800486fr 0.07168029fr 2.24027891fr 0.43776513fr 0.73507171fr 0.31574077fr 1.28138644fr 1.517285fr 0.82710252fr 1.92262181fr 0;
+        grid-template-columns: 0 0 0 1.5315048fr 4.86424988fr 1.26585347fr 0.94461203fr 2.65240936fr 0.02974498fr 0 1.58428541fr 0.15234398fr 1.28711094fr 6.97898981fr 0.39113638fr 1.59082296fr 0.23812047fr 0.45800486fr 0.07168029fr 2.24027891fr 0.43776513fr 0.73507171fr 0.31574077fr 1.28138644fr 1.517285fr 0.82710252fr 1.92262181fr 0;
         grid-template-rows: 0 0 2fr 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 4.8522907fr;
     }
 
@@ -721,7 +755,7 @@ body {
     #SpCjDD909SU1uO6F {
         display: grid;
         position: relative;
-        grid-area: 17 / 14 / 20 / 21;
+        grid-area: 16 / 11 / 20 / 21;
 
         grid-template-rows: 0 0.18761949fr 2.41182572fr 1.39353235fr 1.20591286fr 1.20591286fr;
         grid-template-columns: 0 7.04934295fr 0.28156434fr 0 4.63812638fr 0;
