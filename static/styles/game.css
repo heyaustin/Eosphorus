@@ -17,7 +17,7 @@
 #iRa64bwNqVg1Bzo2:hover,
 #SpCjDD909SU1uO6F:hover,
 #FRwYPMPiLw6wgTen:hover {
-    transform: scale(1.1);
+    scale: 1.1;
 }
 
 #LHVjXRLDaF39LZ0j,
@@ -203,8 +203,8 @@ img {
     grid-area: 3/3/4/5;
     grid-template-columns: 0 0.52272642rem 27rem 0;
     /* grid-template-columns: 0 0.52272642rem 22.83915341rem 0; */
-    grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr
-        /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
+    grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr;
+    /* grid-template-rows: 0 minmax(0.38840709rem, max-content) minmax(11.05372087rem, max-content) minmax(0.42475949rem, max-content) */
 }
 
 #pointer {
@@ -341,14 +341,10 @@ img {
 }
 
 #GS7CWudJG9S4NyvH>img,
-#Ma9yOGF8qfSXFvDh>img,
 #TXImPskSMBhSoWea>img,
 #WWhg4l1fJqbQT1DI>img,
-#XbYkVlAvnT4S9jYY>img,
 #ZpEhCx7m6MR2LEH1>img,
 #dnw9fi0DKZD9D6Up>img,
-#eRvQGh2amFQzxr6d>img,
-#jb8Sc1KhJSCkybgI>img,
 #oZD87ggkmP3wdfN1>img,
 #srwUtBkjIZRwbEgf>img,
 #wCA4fakD5ShOkknC>img,
@@ -434,21 +430,11 @@ img {
     grid-template-rows: 0 minmax(1.8047855rem, max-content) minmax(10.16817791rem, max-content) minmax(1.77278854rem, max-content) minmax(7.18963233rem, max-content) minmax(6.50071316rem, max-content)
 }
 
-#rtsheB8kXAsuhVZx,
-#w4IxIHpmvb5fHaxf {
-    padding-top: 101.10998991%;
-    transform: rotate(-22.92416538deg)
-}
-
 #GS7CWudJG9S4NyvH,
-#Ma9yOGF8qfSXFvDh,
 #TXImPskSMBhSoWea,
 #WWhg4l1fJqbQT1DI,
-#XbYkVlAvnT4S9jYY,
 #ZpEhCx7m6MR2LEH1,
 #dnw9fi0DKZD9D6Up,
-#eRvQGh2amFQzxr6d,
-#jb8Sc1KhJSCkybgI,
 #oZD87ggkmP3wdfN1,
 #srwUtBkjIZRwbEgf,
 #wCA4fakD5ShOkknC,
@@ -468,10 +454,6 @@ body {
 
 #JMfHKofK1ppfpwzT {
     z-index: 28;
-    /* position: absolute; */
-    /* margin-top: -3em; */
-    /* left: 1em; */
-
     display: grid;
     /* position: relative; */
     /* grid-area: 2/2/4/5; */
@@ -541,10 +523,14 @@ body {
     z-index: 3
 }
 
-#kIURLRsQJ1fq0gOr,
-#LuizRGsUz2FAVju8 {
-    padding-top: 100%;
-    transform: rotate(-49.26403823deg)
+#pkQFB6cuNBUPUI08,
+#iRa64bwNqVg1Bzo2 {
+    rotate: -49.26403823deg;
+}
+
+#FRDMgBfEabFpa8j0,
+#JghIhZihVGaC0XTK {
+    rotate: -22.92416538deg;
 }
 
 #LHVjXRLDaF39LZ0j {
