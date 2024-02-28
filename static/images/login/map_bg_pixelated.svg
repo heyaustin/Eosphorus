@@ -9,10 +9,16 @@
             <feTile result="a" />
             <feComposite in="SourceGraphic" in2="a" operator="in" />
             <feMorphology operator="dilate" radius="2.5" />
+
+            <feComponentTransfer>
+                <feFuncR type="linear" slope="0.8"></feFuncR>
+                <feFuncG type="linear" slope="0.8"></feFuncG>
+                <feFuncB type="linear" slope="0.8"></feFuncB>
+            </feComponentTransfer>
         </filter>
     </defs>
 
-    <image filter="url(#bg_pixelate) grayscale(0.2)" height="100%" preserveAspectRatio="xMidYMid scale" id="image0" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoCAIAAABIUN0GAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo
+    <image filter="url(#bg_pixelate)" height="100%" preserveAspectRatio="xMidYMid scale" id="image0" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoCAIAAABIUN0GAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo
 AAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRAD/AP8A/6C9p5MAAAAJcEhZcwAALiMAAC4jAXil
 P3YAAAD4elRYdFJhdyBwcm9maWxlIHR5cGUgOGJpbQAAGJVNUFuOAzEI+88pegRCwCTHaTMz0n7s
 /X9rd6XZBinhYbBDm6+f3/bQcZttzPBYcVjQ7rNH3+ZJr1t0nJVlmKDnloaLtvHinRVC1mxma+ao
