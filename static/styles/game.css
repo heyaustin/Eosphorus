@@ -218,6 +218,8 @@ img {
 
 #wx56Y2QiY1yQC3Bo {
     font-size: 4em;
+    white-space: nowrap;
+    margin: 0.2em 0.8em;
 }
 
 #ph2lGMKMWstMPQdJ {
@@ -239,13 +241,11 @@ img {
 #RF2JsJH7GzDO9ngh {
     display: grid;
     position: relative;
-    height: 9em;
 
     grid-area: 3/3/4/5;
-    grid-template-columns: 0 0.52272642em 27em 0;
+    grid-template-columns: 0 0.52272642em max-content 0;
     /* grid-template-columns: 0 0.52272642em 22.83915341em 0; */
-    grid-template-rows: 0 3.38840709fr 7.05372087fr 0.42475949fr;
-    /* grid-template-rows: 0 minmax(0.38840709em, max-content) minmax(11.05372087em, max-content) minmax(0.42475949em, max-content) */
+    grid-template-rows: 0 minmax(2em, max-content) minmax(6em, max-content) minmax(0.42475949em, max-content)
 }
 
 #pointer {
@@ -661,6 +661,10 @@ div.game_container {
 @media (max-width:768px) {
 
     /* max-width:641px */
+    #wx56Y2QiY1yQC3Bo {
+        font-size: 5em;
+    }
+
     #Jw9fauGZITo7JWrp {
         grid-template-rows: 0 minmax(3.33577455em, max-content) minmax(17.16220621em, max-content) minmax(7.78224846em, max-content)
     }
@@ -716,7 +720,7 @@ div.game_container {
 
         display: grid;
         /* position: relative; */
-        grid-template-rows: 0 0 minmax(1.92415512em, max-content) minmax(2.32053121em, max-content) minmax(0.00225088em, max-content) minmax(3.16111575em, max-content) minmax(7.65977495em, max-content) minmax(0.7979342em, max-content) minmax(0.97479797em, max-content) minmax(0.88195858em, max-content) minmax(0.54588927em, max-content) minmax(3.71739168em, max-content) minmax(1.58428541em, max-content) minmax(0.63105512em, max-content) minmax(3.5806877em, max-content) 0 minmax(2.02844376em, max-content) minmax(3.46916417em, max-content) minmax(0.90719536em, max-content) minmax(8.14480778em, max-content) minmax(5.21312384em, max-content) minmax(1.44262876em, max-content) minmax(1.04630094em, max-content) minmax(0.95314855em, max-content) minmax(0.84368776em, max-content) minmax(3.22984021em, max-content) minmax(2.31008791em, max-content) minmax(2.8522907em, max-content);
+        grid-template-rows: minmax(1.92415512em, max-content) 0 0 minmax(2.32053121em, max-content) minmax(0.00225088em, max-content) minmax(3.16111575em, max-content) minmax(7.65977495em, max-content) minmax(0.7979342em, max-content) minmax(0.97479797em, max-content) minmax(0.88195858em, max-content) minmax(0.54588927em, max-content) minmax(3.71739168em, max-content) minmax(1.58428541em, max-content) minmax(0.63105512em, max-content) minmax(3.5806877em, max-content) 0 minmax(2.02844376em, max-content) minmax(3.46916417em, max-content) minmax(0.90719536em, max-content) minmax(8.14480778em, max-content) minmax(5.21312384em, max-content) minmax(1.44262876em, max-content) minmax(1.04630094em, max-content) minmax(0.95314855em, max-content) minmax(0.84368776em, max-content) minmax(3.22984021em, max-content) minmax(2.31008791em, max-content) minmax(2.8522907em, max-content);
         grid-template-columns: 0 0 0 1.5315048fr 4.86424988fr 1.26585347fr 0.94461203fr 2.65240936fr 0.02974498fr 0 1.58428541fr 0.15234398fr 1.28711094fr 6.97898981fr 0.39113638fr 1.59082296fr 0.23812047fr 0.45800486fr 0.07168029fr 2.24027891fr 0.43776513fr 0.73507171fr 0.31574077fr 1.28138644fr 1.517285fr 0.82710252fr 1.92262181fr 0;
         /* max-height: max(140em, 100dvh); */
         /* grid-template-rows: 0 0 2fr 1fr 0.00225088fr 3.16111575fr 7.65977495fr 0.7979342fr 0.97479797fr 0.88195858fr 0.54588927fr 3.71739168fr 1.58428541fr 0.63105512fr 3.5806877fr 0 2.02844376fr 3.46916417fr 0.90719536fr 4.14480778fr 5.21312384fr 1.44262876fr 1.04630094fr 0.95314855fr 0.84368776fr 3.22984021fr 2.31008791fr 8.8522907fr; */
