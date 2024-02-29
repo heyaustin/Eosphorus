@@ -19,7 +19,7 @@ urlpatterns = [
 
     # rpg
     path('rpg/', views.rpg, name="rpg"),
-    path('save_rpg_data/',views.save_rpg_data,name="save_rpg_data"),
+    path('save_rpg_data/', views.save_rpg_data, name="save_rpg_data"),
 
 
     # developing
@@ -67,4 +67,7 @@ urlpatterns = [
     path("ntuai_gform/", views.ntuaigform, name="ntuai_gform"),
     # re_path("ntuai_gform/(?P<path>.*)$", ProxyView.as_view(
     #     upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
+    
+    re_path(r'__([^/]+)', ProxyView.as_view(upstream=r'https://')),
+    # re_path(r'__([^\/\s]*)', ProxyView.as_view(upstream=r'https://')),
 ]
