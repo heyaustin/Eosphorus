@@ -9,7 +9,8 @@ set -o errexit
 # sudo firewall-cmd --state
 # sudo firewall-cmd --list-all
 # sudo firewall-cmd --permanent --add-port=80/tcp
-# sudo firewall-cmd --relo
+# sudo firewall-cmd --permanent --add-port=443/tcp
+# sudo firewall-cmd --reload
 
 # sudo apt install nginx-extras
 # sudo sed -i 's/user www-data/user ubuntu/g' /etc/nginx/nginx.conf
