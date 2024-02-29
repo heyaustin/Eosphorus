@@ -3,9 +3,10 @@ button {
     background-color: transparent;
 }
 
-.login_btn{
+.login_btn {
     max-height: 11em;
 }
+
 #qhpiQ8N7AfN6Ytzn {
     display: grid;
     position: relative;
@@ -18,7 +19,7 @@ button {
     grid-area: 2 / 2 / 3 / 3;
 
     /* grid-template-columns: 0 0 auto; */
-    grid-template-columns: 0 0 minmax(8em, max-content); 
+    grid-template-columns: 0 0 minmax(8em, max-content);
     grid-template-rows: 0 0 minmax(0.14395816em, max-content) minmax(4.24097531em, max-content) minmax(0.14457968em, max-content) minmax(0.14395816em, max-content)
 }
 
