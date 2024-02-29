@@ -56,7 +56,7 @@ if 'loaddata' in sys.argv:
 
 
 if "DEV" not in os.environ:
-    ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1"]
+    ALLOWED_HOSTS = ["*"] + ["eosphor.us", "127.0.0.1"]
     CSRF_TRUSTED_ORIGINS = ['https://eosphor.us', 'http://eosphor.us']
 else:
     LOCAL_TEST_HOST = ["192.168.205.242",
@@ -70,8 +70,8 @@ else:
         CSRF_TRUSTED_ORIGINS = [TEST_NGROK_URL,
                                 'https://eosphor.us', 'http://eosphor.us']
     else:
-        ALLOWED_HOSTS = ["eosphor.us", "127.0.0.1",
-                         "localhost"] + LOCAL_TEST_HOST
+        ALLOWED_HOSTS = ["*"] + ["eosphor.us",
+                               "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
         CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000',
                                 'https://eosphor.us', 'http://eosphor.us']
 
