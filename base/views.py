@@ -19,6 +19,7 @@ import json
 from django.http import JsonResponse
 from django.db.models import F
 
+import re
 """
 目標
 1. 競賽資料爬蟲資料處理 ok
@@ -629,10 +630,14 @@ def rpg(request):
 def save_rpg_data(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        match = re.search(r'\d+', data["age"])
+        if match:
+            data["age"] = match.group()
+        else:
+            data["age"] = -1
         user_data = User.objects.filter(id=request.user.id)
         user_data.update(name=data["name"], age=data["age"], school=data["school"], major=data["major"],
                          skills=data["skills"], goals=data["goals"], contents=data["contents"], motivation=data["motivation"])
-
         # Process data
         return JsonResponse({'status': 'success'})
 
