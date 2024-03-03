@@ -31,7 +31,7 @@ import re
 
 
 def pop_login_suc(request):
-    email = request.POST.get("email")
+    email = request.POST.get("email").lower()
     password = request.POST.get("password")
 
     load_dotenv()

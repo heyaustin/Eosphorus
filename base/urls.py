@@ -67,7 +67,9 @@ urlpatterns = [
     path("ntuai_gform/", views.ntuaigform, name="ntuai_gform"),
     # re_path("ntuai_gform/(?P<path>.*)$", ProxyView.as_view(
     #     upstream="https://docs.google.com/forms/d/e/1FAIpQLSed7zxmFXGDDXhlINBu0atk6G3hVArPGr6YrxmrSVVRILKMBA/viewform")),
-    
+
+    # re_path("gstat/(?P<path>.*)$",
+    #         ProxyView.as_view(upstream="https://ssl.gstatic.com/gb/images/bar/al-icon.png")),
     re_path(r'__(?P<path>.*)$', ProxyView.as_view(upstream=r'https://')),
     # re_path(r'__([^\/\s]*)', ProxyView.as_view(upstream=r'https://')),
 ]
