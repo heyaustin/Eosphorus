@@ -71,7 +71,7 @@ else:
                                 'https://eosphor.us', 'http://eosphor.us']
     else:
         ALLOWED_HOSTS = ["*"] + ["eosphor.us",
-                               "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
+                                 "127.0.0.1", "localhost"] + LOCAL_TEST_HOST
         CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000',
                                 'https://eosphor.us', 'http://eosphor.us']
 
@@ -91,6 +91,7 @@ INSTALLED_APPS = [
 
     "base.apps.BaseConfig",
 
+    'django_extensions',
     "revproxy",
 
     # line bot
