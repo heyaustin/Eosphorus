@@ -1,0 +1,210 @@
+[
+  {
+    "model": "base.video_qa",
+    "pk": 1,
+    "fields": {
+      "description": "遠傳的辦公環境特色包括哪些設施？",
+      "options": [
+        "咖啡廳和獨立空間",
+        "人體工學椅和按摩椅",
+        "彈性上下班時段",
+        "所有上述選項"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳的辦公環境包括敏捷辦公室、咖啡廳、獨立空間、人體工學椅和按摩椅。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 2,
+    "fields": {
+      "description": "遠傳在哪一年獲得世界第一的5G網路榮譽？",
+      "options": [
+        "2019年",
+        "2020年",
+        "2021年",
+        "2022年"
+      ],
+      "correctAnswer": 2,
+      "explanation": "遠傳在2021年9月應用AI技術優化5G網路，獲得世界第一的榮譽。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 3,
+    "fields": {
+      "description": "遠傳如何提高員工的工作效率？",
+      "options": [
+        "提供按摩椅",
+        "提供彈性上下班時段和在家工作選項",
+        "提供免費午餐",
+        "組織團隊建設活動"
+      ],
+      "correctAnswer": 1,
+      "explanation": "遠傳提供彈性上下班時段和在家工作的選項，以減少通勤時間，提高工作效率。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 4,
+    "fields": {
+      "description": "遠傳專注於哪些領域的發展？",
+      "options": [
+        "雲端科技",
+        "數位應用",
+        "智慧轉型商機",
+        "所有上述"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳聚焦於雲端科技、數位應用，全力開創智慧轉型商機。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 5,
+    "fields": {
+      "description": "遠傳提供的數位服務包括哪些？",
+      "options": [
+        "Friday影音",
+        "Friday購物",
+        "遠傳心生活",
+        "所有上述"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳發展的數位服務包括Friday影音、Friday購物和遠傳心生活。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 6,
+    "fields": {
+      "description": "遠傳員工的工作安排不包括哪些選項？",
+      "options": [
+        "彈性上下班",
+        "在家上班",
+        "固定工時",
+        "以上皆非"
+      ],
+      "correctAnswer": 2,
+      "explanation": "遠傳提供彈性上下班時段和在家上班選項。",
+      "videoLink": "https://www.youtube.com/embed/vDRNDjmuJaM?si=pWaRnSv9NRKVCEOD"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 7,
+    "fields": {
+      "description": "遠傳新成立的敏捷辦公室的主要目的是什麼？",
+      "options": [
+        "提供個人儲物櫃",
+        "促進與客戶的接近和思考的擴展",
+        "賺取龐大的利潤",
+        "節能省碳"
+      ],
+      "correctAnswer": 1,
+      "explanation": "敏捷辦公室的設立是為了創造一個新的工作環境，目的在於促進員工與客戶的接近和擴展思考。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 8,
+    "fields": {
+      "description": "在遠傳的敏捷辦公室中，員工如何選擇工作位置？",
+      "options": [
+        "只能在指定座位工作",
+        "使用綠色屏風隔開的區域",
+        "只能在公共空間工作",
+        "不能自由選擇工作位置"
+      ],
+      "correctAnswer": 1,
+      "explanation": "辦公室設有綠色屏風(We的辦公傢具)，員工可以選擇在這些區域工作，提供了靈活性和個人空間。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 9,
+    "fields": {
+      "description": "遠傳的敏捷辦公室如何支持不同工作需求？",
+      "options": [
+        "提供無線投影和Phone Booth",
+        "僅提供固定座位",
+        "不允許使用手機",
+        "沒有提供休息區"
+      ],
+      "correctAnswer": 0,
+      "explanation": "遠傳辦公室內設有會議室無線投影、Phone Booth等設施，以支持不同的工作需求，如私密通話和會議。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 10,
+    "fields": {
+      "description": "在遠傳的敏捷辦公室中，員工下班後需要做什麼？",
+      "options": [
+        "直接離開辦公室",
+        "打卡下班並整理工作區",
+        "關閉所有電腦",
+        "預約第二天的座位"
+      ],
+      "correctAnswer": 1,
+      "explanation": "員工需要在下班時打卡並整理他們的工作區，以維持辦公環境的整潔和秩序。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 11,
+    "fields": {
+      "description": "遠傳的福利包括下列何者？",
+      "options": [
+        "Friday Video即時影音",
+        "十塊錢的便宜咖啡",
+        "紓壓樂活區",
+        "以上皆是"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳有Friday影音空間、便宜的咖啡，以及包括高爾夫、飛輪、沙發的舒壓樂活區。",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 12,
+    "fields": {
+      "description": "遠傳的員工管理政策不包括下列何者？",
+      "options": [
+        "講電話須要到Phone Booth裡講",
+        "筆電要放回櫃子裡",
+        "投十塊錢可以購買咖啡",
+        "妥善放置物品"
+      ],
+      "correctAnswer": 2,
+      "explanation": "遠傳的咖啡機只能行動支付，不能投錢",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  },
+  {
+    "model": "base.video_qa",
+    "pk": 13,
+    "fields": {
+      "description": "遠傳的員工在ESG方面做了哪些努力？",
+      "options": [
+        "雙面列印來愛護地球",
+        "隨手關閉電源",
+        "愛惜使用各個電器",
+        "以上皆是"
+      ],
+      "correctAnswer": 3,
+      "explanation": "遠傳的員工有做雙面列印、隨手關閉電源，並愛惜使用各個電器",
+      "videoLink": "https://www.youtube.com/embed/dbpGXJu216E?si=TI3GWbLOJkoWJrTp"
+    }
+  }
+]
