@@ -21,6 +21,7 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 
+# python manage.py syncdata ./base/fixtures/video_qa.json
 python manage.py loaddata ./base/fixtures/video_qa.json
 python manage.py loaddata ./base/fixtures/mbti_qa.json
 
